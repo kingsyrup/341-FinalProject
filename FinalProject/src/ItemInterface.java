@@ -9,6 +9,9 @@
  * @author xg6856vd
  */
 public interface ItemInterface {
-    String test;
-    int a;
+    
+    public int getStrModifier();
+    public int getHpModifier();
+    public int getDefModifier();
+    
 }
