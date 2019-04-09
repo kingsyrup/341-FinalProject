@@ -9,5 +9,5 @@
  * @author xg6856vd
  */
 public interface ItemInterface {
-    
+    String test;
 }
