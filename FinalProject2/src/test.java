@@ -11,4 +11,5 @@
 public class test {
     int test;
     String a;
+    String b;
 }
