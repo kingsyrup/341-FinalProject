@@ -10,4 +10,5 @@
  */
 public class test {
     int test;
+    String a;
 }
