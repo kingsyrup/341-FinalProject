@@ -10,4 +10,5 @@
  */
 public interface ItemInterface {
     String test;
+    int a;
 }
