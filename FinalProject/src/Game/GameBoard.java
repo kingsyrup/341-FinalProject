@@ -16,7 +16,6 @@ public class GameBoard {
     
     public static void main(String[] arg){
         
-        
         //instantiate npcs and player
         NpcInterface goblin = new Goblin();
         NpcInterface hero = new Hero();
@@ -47,9 +46,7 @@ public class GameBoard {
         System.out.println(hero.getHp());
     }
     
-    
-    
-    
+
     //simple attack class - pretty sure this needs to be overhauled
     public static String attack(NpcInterface attacker, NpcInterface defender){
         int attack = attacker.getStr() * diceRoll();
