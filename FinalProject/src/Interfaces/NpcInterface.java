@@ -1,3 +1,5 @@
+package Interfaces;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,6 +12,7 @@
  */
 public interface NpcInterface {
     
+    public String name();
     public int getStr();
     public void setStr(int str);
     public int getDef();
