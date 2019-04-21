@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Game;
-import Interfaces.NpcInterface;
+import Interfaces.*;
+import Items.*;
 import NPCs.*;
-import java.util.Random;
 
 /**
  *
@@ -14,66 +9,64 @@ import java.util.Random;
  */
 public class GameBoard {
     
+    public static Hero hero = new Hero();
+    
     public static void main(String[] arg){
         
-        //instantiate npcs and player
-        NpcInterface goblin = new Goblin();
-        NpcInterface hero = new Hero();
+        //add way to enter player name
+        
+        //instantiate npcs
+        NpcInterface goblin = new Enemy(10,1,1, "Goblin");
+        ItemInterface copperBp = new Armor(1,1,10, "Copper Breastplate");
+        ItemInterface imbaSword = new Weapon(1000,1000,1000, "Sword of One Thousand Truths");
         
         
         //testing attacks - need to remove enemy when hp reaches 0
-        System.out.println("You attack the goblin");
-        System.out.println(attack(hero, goblin));
-        System.out.println(goblin.getHp());
+        beginCombat(goblin);
         
-        System.out.println("The goblin attacks!");
-        System.out.println(attack(goblin, hero));
-        System.out.println(hero.getHp());
+        //testing inventory and equipment - seems to work as intended
+        hero.addToInventory(copperBp);
+        hero.equipItem(copperBp);
+        System.out.println(hero.getStr());
+        hero.unequipItem(copperBp);
+        System.out.println(hero.getStr());
         
-        System.out.println("You attack the goblin");
-        System.out.println(attack(hero, goblin));
-        System.out.println(goblin.getHp());
+        hero.equipItem(copperBp);
+        System.out.println(hero.getStr());
         
-        System.out.println("The goblin attacks!");
-        System.out.println(attack(goblin, hero));
-        System.out.println(hero.getHp());
-        System.out.println("You attack the goblin");
-        System.out.println(attack(hero, goblin));
-        System.out.println(goblin.getHp());
+        hero.equipItem(copperBp);
+        System.out.println(hero.getStr());
         
-        System.out.println("The goblin attacks!");
-        System.out.println(attack(goblin, hero));
-        System.out.println(hero.getHp());
+        hero.addToInventory(imbaSword);
+        hero.equipItem(imbaSword);
+        System.out.println(hero.getStr());
+        System.out.println(hero.getEquippedWeapon().getName());
+        
+        //may need to alter this method a bit
+        System.out.println(hero.getInventory());
+        
     }
     
-
-    //simple attack class - pretty sure this needs to be overhauled
-    public static String attack(NpcInterface attacker, NpcInterface defender){
-        int attack = attacker.getStr() * diceRoll();
-        int def = defender.getDef();
-        
-        int damage = attack - def;
-        if (damage > 0){
-            int hp = defender.getHp() - damage;
-
-            if(hp <= 0){
-                String name = defender.name();
-                return "The " + name + " took " + damage + " damage and was killed";
+    
+    
+    
+    
+    public static void beginCombat(NpcInterface enemy){
+        do{
+            hero.attack(enemy);
+            if(enemy.isKilled()){
+                break;
             }
-            else{
-                defender.setHp(hp);
-                return "The " + defender.name() + " took " + damage + " damage";
-            }
+            enemy.attack(hero);
+        }
+        while(!hero.isKilled());
+        if(hero.isKilled()){
+            //game over
         }
         else{
-            return "No damage was dealt!";
+            //enemy is dead
+            System.out.println("The " + enemy.getName() + " has been defeated.");
+            //enemy = null;
         }
-    }
-    
-    //dice roll to randomize attack damage, modifiers are 1-3, might add crit chance
-    public static final int diceRoll(){
-        Random rng = new Random();
-        int modifier = (rng.nextInt(3) + 1);
-        return modifier;
     }
 }
