@@ -1,5 +1,6 @@
 package Interfaces;
 
+import Game.Menu;
 import java.util.ArrayList;
 
 /**
@@ -10,6 +11,6 @@ public interface LocationInterface {
     
     public String name();
     public String description();
-    public EventInterface addEvent();
-    public ArrayList<EventInterface> getEvents();
+    public void addEvent(EventInterface event);
+    public Menu getEvents();
 }

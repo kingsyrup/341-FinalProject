@@ -5,16 +5,15 @@
  */
 package NPCs;
 
+import Game.*;
 import Interfaces.*;
-import java.util.ArrayList;
-import java.util.Random;
+import java.util.*;
 
 /**
  *
  * @author xg6856vd
  */
 public class Hero implements NpcInterface {
-    
     private int str = 3;
     private int def = 3;
     private int hp = 35;
@@ -27,7 +26,10 @@ public class Hero implements NpcInterface {
     private int strAdjustment;
     private int defAdjustment;
     private int hpAdjustment; 
-    private ArrayList<ItemInterface> inventory = new ArrayList();
+    private final ArrayList<ItemInterface> inventory = new ArrayList();
+    
+    //scanner object for inventory selection
+    private  final Scanner console = new Scanner(System.in);
 
     public Hero() {
     }
@@ -146,9 +148,72 @@ public class Hero implements NpcInterface {
         inventory.add(item);
     }
     
-    //may need to revamp this
-    public ArrayList<ItemInterface> getInventory(){
-        return inventory;
+    //work in progress
+    public void getInventory(){
+        
+        //custom switch class - allows dynamic cases
+        Switcher switcher = new Switcher();
+        
+        int size = inventory.size();
+        Menu inventoryMenu = new Menu();
+        int userSelection = -1;
+        
+        //print out inventory menu
+        System.out.println("------Inventory------");
+        System.out.println("View an Item");
+        inventoryMenu.addItem("Exit");
+        for(int i = 0; i < size; i++){
+            inventoryMenu.addItem(inventory.get(i).getName());
+        }
+        System.out.println(inventoryMenu.showMenu());
+        
+        
+        //add dynamic cases to switch and print item menu
+        for(int i = 2; i < size + 2; i++){
+            switcher.addCaseCommand(i, new Command() {
+                @Override
+                public void execute(int i) {
+                  Menu itemMenu;
+                  int selection;
+                  if((inventory.get(i-2) == equippedArmor) ^  (inventory.get(i-2) == equippedWeapon)){
+                      itemMenu = new Menu("Exit","Unequip");
+                  }
+                  else{
+                      itemMenu = new Menu("Exit","Equip");
+                  }
+
+                  System.out.println("\n" + inventory.get(i-2).getName() + "\t");
+                  System.out.println("Str: " + inventory.get(i-2).getStrModifier());
+                  System.out.println("Def: " + inventory.get(i-2).getDefModifier());
+                  System.out.println("Hp: " + inventory.get(i-2).getHpModifier());
+
+                  System.out.println("\n What would you like to do?\n" + itemMenu.showMenu());
+
+                  selection = console.nextInt();
+                  switch(selection){
+                      case 1:
+                          break;
+                      case 2:
+                          if((inventory.get(i-2) == equippedArmor) ^  (inventory.get(i-2) == equippedWeapon)){
+                            unequipItem(inventory.get(i-2));
+                          }
+                          else{
+                              equipItem(inventory.get(i-2));
+                          }
+                          break;
+                      default:
+                          break;
+                  }
+
+                }
+            });
+        }
+        
+        userSelection = console.nextInt();
+        //System.out.println(inventory.get(userSelection -1).getName());
+        switcher.on(userSelection);
+        
+        //return inventoryMenu;
     }
     
     @Override
