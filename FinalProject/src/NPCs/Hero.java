@@ -153,23 +153,22 @@ public class Hero implements NpcInterface {
         
         //custom switch class - allows dynamic cases
         Switcher switcher = new Switcher();
-        
-        int size = inventory.size();
+    
         Menu inventoryMenu = new Menu();
         int userSelection = -1;
         
         //print out inventory menu
-        System.out.println("------Inventory------");
+        System.out.println("\n------Inventory------");
         System.out.println("View an Item");
         inventoryMenu.addItem("Exit");
-        for(int i = 0; i < size; i++){
+        for(int i = 0; i < inventory.size(); i++){
             inventoryMenu.addItem(inventory.get(i).getName());
         }
-        System.out.println(inventoryMenu.showMenu());
+        System.out.print(inventoryMenu.showMenu());
         
         
         //add dynamic cases to switch and print item menu
-        for(int i = 2; i < size + 2; i++){
+        for(int i = 2; i < inventory.size() + 2; i++){
             switcher.addCaseCommand(i, new Command() {
                 @Override
                 public void execute(int i) {
@@ -210,10 +209,7 @@ public class Hero implements NpcInterface {
         }
         
         userSelection = console.nextInt();
-        //System.out.println(inventory.get(userSelection -1).getName());
         switcher.on(userSelection);
-        
-        //return inventoryMenu;
     }
     
     @Override

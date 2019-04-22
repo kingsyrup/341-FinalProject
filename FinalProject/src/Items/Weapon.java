@@ -12,12 +12,14 @@ public class Weapon implements ItemInterface {
     private final int defModifier;
     private final int hpModifier;
     private final String name;
+    private final int tier;
 
-    public Weapon(int strModifier, int defModifier, int hpModifier, String name) {
+    public Weapon(int strModifier, int defModifier, int hpModifier, String name, int tier) {
         this.strModifier = strModifier;
         this.defModifier = defModifier;
         this.hpModifier = hpModifier;
         this.name = name;
+        this.tier = tier;
     }
 
     @Override
@@ -42,5 +44,9 @@ public class Weapon implements ItemInterface {
     
     public String getType(){
         return "Weapon";
+    }
+    
+    public int getTier(){
+        return tier;
     }
 }

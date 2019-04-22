@@ -8,15 +8,15 @@ import java.util.*;
  *
  * @author xg6856vd
  */
-public class StartingArea implements LocationInterface {
+public class FinalArea implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
 
-    public StartingArea() {
+    public FinalArea() {
     }
 
-    public StartingArea(ArrayList<EventInterface> events) {
+    public FinalArea(ArrayList<EventInterface> events) {
         this.events = events;
     }
     

@@ -10,6 +10,7 @@ public interface ItemInterface {
     public int getHpModifier();
     public int getDefModifier();
     public String getType();
+    public int getTier();
     public String getName();
     //Possibly add some fun flavor text(description)              public String getFlavorText();
 }

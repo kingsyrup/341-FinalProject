@@ -17,12 +17,14 @@ public class Armor implements ItemInterface {
     private final int defModifier;
     private final int hpModifier;
     private final String name;
+    private final int tier;
 
-    public Armor(int strModifier, int defModifier, int hpModifier, String name) {
+    public Armor(int strModifier, int defModifier, int hpModifier, String name, int tier) {
         this.strModifier = strModifier;
         this.defModifier = defModifier;
         this.hpModifier = hpModifier;
         this.name = name;
+        this.tier = tier;
     }
 
     @Override
@@ -48,5 +50,10 @@ public class Armor implements ItemInterface {
     @Override
     public String getType(){
         return "Armor";
+    }
+    
+    @Override
+    public int getTier(){
+        return tier;
     }
 }
