@@ -25,6 +25,7 @@ public class Unicorn implements EventInterface {
     private Enemy goblin = new Enemy(10,1,1,"Unicorn");
     private boolean deadFlag = false;
     private boolean friendFlag = false;
+    private boolean hasKey = false;
     
     public Unicorn() {
     }
@@ -80,7 +81,15 @@ public class Unicorn implements EventInterface {
                     break;
             }
         }
-        //return choices;
+        if(hasKey){
+                    System.out.println("You found a key.");
+                    hasKey = false;
+                    Game.GameBoard.multiplier++;
+                }
     }
     
+    @Override
+    public void hasKey(boolean hasKey){
+        this.hasKey = hasKey;
+    }
 }

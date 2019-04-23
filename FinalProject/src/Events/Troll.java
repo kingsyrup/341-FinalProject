@@ -25,6 +25,7 @@ public class Troll implements EventInterface {
     private Enemy goblin = new Enemy(10,1,1,"Troll");
     private boolean deadFlag = false;
     private boolean friendFlag = false;
+    private boolean hasKey = false;
     
     public Troll() {
     }
@@ -46,10 +47,11 @@ public class Troll implements EventInterface {
         
         //Goblin is alive
         if(!deadFlag){
-            choices.addItem("Attack the goblin"); //beginCombat
-            choices.addItem("Attempt to befriend the goblin");  //charisma stat?
-            choices.addItem("Sneak past the goblin"); //dexterity stat?
-            choices.addItem("Flee"); //spd stat?
+                choices.addItem("Attack the goblin"); //beginCombat
+                choices.addItem("Attempt to befriend the goblin");  //charisma stat?
+                choices.addItem("Sneak past the goblin"); //dexterity stat?
+                choices.addItem("Flee"); //spd stat?
+            
             System.out.print(choices.showMenu());
 
             userSelection = console.nextInt();
@@ -80,7 +82,15 @@ public class Troll implements EventInterface {
                     break;
             }
         }
-        //return choices;
+        if(hasKey){
+                    System.out.println("You found a key.");
+                    hasKey = false;
+                    Game.GameBoard.multiplier++;
+                }
     }
     
+    @Override
+    public void hasKey(boolean hasKey){
+        this.hasKey = hasKey;
+    }
 }

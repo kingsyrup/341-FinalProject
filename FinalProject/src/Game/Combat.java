@@ -44,17 +44,26 @@ public class Combat {
     //enemy is defeated
     public static void victory(NpcInterface enemy){
         
-        //Enemy drops random item from current tier - based on difficulty multiplier
-        Random rng = new Random();
-        ArrayList<ItemInterface> loot = items.tier(multiplier);
-        int modifier = (rng.nextInt(loot.size()));
-        ItemInterface item = loot.get(modifier);
+        //25% chance for enemy to drop loot
+        Random random = new Random();
+        double r = random.nextDouble();
+        boolean dropsLoot;
+        dropsLoot = r < 1.0/4.0;
         
-        //Add item to player's inventory and remove from global item list
-        // ensures items are unique
-        hero.addToInventory(item);
-        System.out.println("The " + enemy.getName() + " dropped a " + item.getName()
-                + ".");
-        items.removeItem(item);
+        if(dropsLoot == true){
+            //Enemy drops random item from current tier - based on difficulty multiplier
+            Random rng = new Random();
+            ArrayList<ItemInterface> loot = items.tier(multiplier);
+            int modifier = (rng.nextInt(loot.size()));
+            ItemInterface item = loot.get(modifier);
+
+
+            //Add item to player's inventory and remove from global item list
+            // ensures items are unique
+            hero.addToInventory(item);
+            System.out.println("The " + enemy.getName() + " dropped a " + item.getName()
+                    + ".");
+            items.removeItem(item);
+        }
     }
 }

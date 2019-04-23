@@ -89,4 +89,7 @@ public class Menu {
         return output.toString();
     }
     
+    public int size(){
+        return items.size();
+    }
 }

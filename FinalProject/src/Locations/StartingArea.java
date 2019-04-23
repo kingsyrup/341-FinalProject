@@ -34,14 +34,9 @@ public class StartingArea implements LocationInterface {
     public void addEvent(EventInterface event) {
         events.add(event);
     }
-
-    /*@Override
-    public ArrayList<EventInterface> getEvents() {
-        return events;
-    }*/
     
     @Override
-    public void getEvents() {
+    public void listEvents() {
         
         Switcher switcher = new Switcher();
         
@@ -49,14 +44,23 @@ public class StartingArea implements LocationInterface {
         Scanner console = new Scanner(System.in);
         int userSelection = -1;
     
-        eventMenu.addItem("Travel to another location");
-        for(int i = 0; i < events.size(); i++){
-            eventMenu.addItem(events.get(i).name());
+        if(eventMenu.size() == 0){
+            eventMenu.addItem("Travel to another location");
+            for(int i = 0; i < events.size(); i++){
+                eventMenu.addItem(events.get(i).name());
+            }
         }
         
         System.out.print(eventMenu.showMenu());
         
-        for(int i = 2; i < 3; i++){
+        switcher.addCaseCommand(1, new Command(){
+            @Override
+            public void execute(int i){
+                Game.GameBoard.userSelection = 5;
+                System.out.println("You traveled to another location");
+            }
+        });
+        for(int i = 2; i < 5; i++){
             switcher.addCaseCommand(i, new Command() {
                 @Override
                 public void execute(int i) {
@@ -72,4 +76,8 @@ public class StartingArea implements LocationInterface {
 
     }
     
+    @Override
+    public ArrayList<EventInterface> getEvents(){
+        return events;
+    }
 }

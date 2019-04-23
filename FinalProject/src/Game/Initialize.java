@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Game;
 
 import Events.*;
@@ -22,14 +17,26 @@ public final class Initialize {
         addLocations();
         addEvents();
         
+        //add random events to locations
         for(int i = 0; i < locations.size(); i ++){
+        
             for(int j = 0; j < 3; j ++){
                 Random rng = new Random();
                 int index = (rng.nextInt(events.size()));
                 locations.get(i).addEvent(events.get(index));
                 events.remove(index);
             }
-        }
+            
+            //generate key, place in random event
+            Random random = new Random();
+            double r = random.nextDouble();
+            int keyIndex;
+            if      (r < 1.0/3.0) keyIndex = 0;
+            else if (r < 2.0/3.0) keyIndex = 1;
+            else                  keyIndex = 2;
+            
+            locations.get(i).getEvents().get(keyIndex).hasKey(true);
+        }   
     }
     
     public static void addEvents(){
@@ -53,6 +60,12 @@ public final class Initialize {
     
     public static void addLocations(){
         locations.add(new StartingArea());
+        locations.add(new StartingArea1());
+        locations.add(new StartingArea11());
+        /*locations.add(new StartingArea_1());
+        locations.add(new StartingArea_2());
+        locations.add(new StartingArea_3());
+        locations.add(new StartingArea_4());*/
     }
     
     public ArrayList<LocationInterface> getLocations(){

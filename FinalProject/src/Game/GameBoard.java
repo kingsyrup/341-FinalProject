@@ -27,8 +27,12 @@ public class GameBoard {
     //instantiate items
     public static ItemList items = new ItemList();
     
+    //instantiate locations and events
     public static ArrayList<EventInterface> events = new ArrayList();
     public static ArrayList<LocationInterface> locations = new ArrayList();
+    
+    public static int userSelection = -1;
+    
     
     public static void main(String[] arg){
         
@@ -38,10 +42,13 @@ public class GameBoard {
         //initialize locations and events
         Initialize.init();
         
-        
         hero.getInventory();
-        
-        locations.get(0).getEvents();
+        do{
+        locations.get(0).listEvents();
+        }
+        while(userSelection != 5);
+        locations.get(1).listEvents();
+        locations.get(2).listEvents();
         
         
         
