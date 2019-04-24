@@ -8,26 +8,26 @@ import java.util.*;
  *
  * @author xg6856vd
  */
-public class StartingArea_3 implements LocationInterface {
+public class Plains implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
 
-    public StartingArea_3() {
+    public Plains() {
     }
 
-    public StartingArea_3(ArrayList<EventInterface> events) {
+    public Plains(ArrayList<EventInterface> events) {
         this.events = events;
     }
     
     @Override
     public String name() {
-        return "Starting Area";
+        return "Golbrow Plains";
     }
 
     @Override
     public String description() {
-        return "The area in which you begin the game.";
+        return "You feel a sense of unease as you traverse the wide-open plains.";
     }
 
     @Override
@@ -53,7 +53,7 @@ public class StartingArea_3 implements LocationInterface {
         
         System.out.print(eventMenu.showMenu());
         
-        for(int i = 2; i < 3; i++){
+        for(int i = 2; i < 5; i++){
             switcher.addCaseCommand(i, new Command() {
                 @Override
                 public void execute(int i) {

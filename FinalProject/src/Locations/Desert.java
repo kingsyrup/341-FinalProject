@@ -8,33 +8,35 @@ import java.util.*;
  *
  * @author xg6856vd
  */
-public class StartingArea_1 implements LocationInterface {
+public class Desert implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
+    private String name = "Kulpaki Desert";
+    private String description = "The white sands seem to go on forever.";
 
-    public StartingArea_1() {
+    public Desert() {
     }
 
-    public StartingArea_1(ArrayList<EventInterface> events) {
+    public Desert(ArrayList<EventInterface> events) {
         this.events = events;
     }
     
     @Override
     public String name() {
-        return "Starting Area";
+        return name;
     }
 
     @Override
     public String description() {
-        return "The area in which you begin the game.";
+        return description;
     }
 
     @Override
     public void addEvent(EventInterface event) {
         events.add(event);
     }
-
+    
     @Override
     public void listEvents() {
         
@@ -43,7 +45,6 @@ public class StartingArea_1 implements LocationInterface {
         //scanner object for inventory selection
         Scanner console = new Scanner(System.in);
         int userSelection = -1;
-    
         if(eventMenu.size() == 0){
             eventMenu.addItem("Travel to another location");
             for(int i = 0; i < events.size(); i++){
@@ -53,7 +54,13 @@ public class StartingArea_1 implements LocationInterface {
         
         System.out.print(eventMenu.showMenu());
         
-        for(int i = 2; i < 3; i++){
+        switcher.addCaseCommand(1, new Command(){
+            @Override
+            public void execute(int i){
+                System.out.println("You traveled to another location");
+            }
+        });
+        for(int i = 2; i < 5; i++){
             switcher.addCaseCommand(i, new Command() {
                 @Override
                 public void execute(int i) {

@@ -17,6 +17,7 @@ public class Hero implements NpcInterface {
     private int str = 3;
     private int def = 3;
     private int hp = 35;
+    private int maxHp = 35;
     public String name;
     private boolean isKilled = false;
     private boolean isArmorEquipped = false;
@@ -99,6 +100,7 @@ public class Hero implements NpcInterface {
             this.setDef(def + item.getDefModifier());
             this.setStr(str + item.getStrModifier());
             this.setHp(hp + item.getHpModifier());
+            this.maxHp = hp + item.getHpModifier();
 
             isArmorEquipped = true;
         }
@@ -112,6 +114,7 @@ public class Hero implements NpcInterface {
             this.setDef(def + item.getDefModifier());
             this.setStr(str + item.getStrModifier());
             this.setHp(hp + item.getHpModifier());
+            this.maxHp = hp + item.getHpModifier();
 
             isWeaponEquipped = true;
         }
@@ -128,6 +131,7 @@ public class Hero implements NpcInterface {
             this.setDef(def - defAdjustment);
             this.setHp(hp - hpAdjustment);
             this.setStr(str - strAdjustment);
+            this.maxHp = hp - hpAdjustment;
             isArmorEquipped = false;
             System.out.println("You unequipped " + item.getName());
         }
@@ -139,6 +143,7 @@ public class Hero implements NpcInterface {
             this.setDef(def - defAdjustment);
             this.setHp(hp - hpAdjustment);
             this.setStr(str - strAdjustment);
+            this.maxHp = hp - hpAdjustment;
             isWeaponEquipped = false;
             System.out.println("You unequipped " + item.getName());
         }
@@ -186,7 +191,7 @@ public class Hero implements NpcInterface {
                   System.out.println("Def: " + inventory.get(i-2).getDefModifier());
                   System.out.println("Hp: " + inventory.get(i-2).getHpModifier());
 
-                  System.out.println("\n What would you like to do?\n" + itemMenu.showMenu());
+                  System.out.print("\n What would you like to do?\n" + itemMenu.showMenu());
 
                   selection = console.nextInt();
                   switch(selection){
@@ -246,5 +251,9 @@ public class Hero implements NpcInterface {
     @Override
     public boolean isKilled(){
         return isKilled;
+    }
+    
+    public int maxHp(){
+        return maxHp;
     }
 }

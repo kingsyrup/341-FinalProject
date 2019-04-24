@@ -8,26 +8,26 @@ import java.util.*;
  *
  * @author xg6856vd
  */
-public class StartingArea11 implements LocationInterface {
+public class Forest implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
 
-    public StartingArea11() {
+    public Forest() {
     }
 
-    public StartingArea11(ArrayList<EventInterface> events) {
+    public Forest(ArrayList<EventInterface> events) {
         this.events = events;
     }
     
     @Override
     public String name() {
-        return "Starting Area";
+        return "Weisgrow Forest";
     }
 
     @Override
     public String description() {
-        return "The area in which you begin the game.";
+        return "The trees of Weisgrow Forest tower before you.";
     }
 
     @Override

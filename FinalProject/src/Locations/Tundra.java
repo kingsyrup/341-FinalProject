@@ -8,26 +8,26 @@ import java.util.*;
  *
  * @author xg6856vd
  */
-public class StartingArea_2 implements LocationInterface {
+public class Tundra implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
 
-    public StartingArea_2() {
+    public Tundra() {
     }
 
-    public StartingArea_2(ArrayList<EventInterface> events) {
+    public Tundra(ArrayList<EventInterface> events) {
         this.events = events;
     }
     
     @Override
     public String name() {
-        return "Starting Area";
+        return "Frostburn Tundra";
     }
 
     @Override
     public String description() {
-        return "The area in which you begin the game.";
+        return "You start to shiver as you venture on into the icy tundra.";
     }
 
     @Override
@@ -53,7 +53,7 @@ public class StartingArea_2 implements LocationInterface {
         
         System.out.print(eventMenu.showMenu());
         
-        for(int i = 2; i < 3; i++){
+        for(int i = 2; i < 5; i++){
             switcher.addCaseCommand(i, new Command() {
                 @Override
                 public void execute(int i) {

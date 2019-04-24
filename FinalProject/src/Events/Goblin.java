@@ -74,13 +74,16 @@ public class Goblin implements EventInterface {
                 case 4:
                     break;
                 default:
-                    break;
+                    break;     
             }
             if (hasKey) {
                 System.out.println("You found a key.");
                 hasKey = false;
                 Game.GameBoard.multiplier++;
             }
+        }
+        else{
+            System.out.println("The goblin flees at the sight of you.");
         }
     }
 

@@ -1,8 +1,10 @@
 package Locations;
 
+import Game.Combat;
 import Game.Menu;
 import Game.Switcher;
 import Interfaces.*;
+import NPCs.Enemy;
 import java.util.*;
 /**
  *
@@ -22,12 +24,14 @@ public class FinalArea implements LocationInterface {
     
     @Override
     public String name() {
-        return "Starting Area";
+        return "Tower of Halvabor";
     }
 
     @Override
     public String description() {
-        return "The area in which you begin the game.";
+        return "You use the 7 keys to unlock the door leading to the Tower of "
+                + "Halvabor.  The door swings open revealing a giant monster "
+                + "sleeping on endless riches.";
     }
 
     @Override
@@ -38,40 +42,32 @@ public class FinalArea implements LocationInterface {
     @Override
     public void listEvents() {
         
-        Switcher switcher = new Switcher();
-        
         //scanner object for inventory selection
         Scanner console = new Scanner(System.in);
         int userSelection = -1;
     
         if(eventMenu.size() == 0){
             eventMenu.addItem("Travel to another location");
-            for(int i = 0; i < events.size(); i++){
-                eventMenu.addItem(events.get(i).name());
-            }
+            eventMenu.addItem("Attack the monster");
         }
         
         System.out.print(eventMenu.showMenu());
         
-        for(int i = 2; i < 3; i++){
-            switcher.addCaseCommand(i, new Command() {
-                @Override
-                public void execute(int i) {
-                    System.out.println("\n" + events.get(i-2).description());
-                    events.get(i-2).choices();
-
-                }
-            });
-        }
-       
         userSelection = console.nextInt();
-        switcher.on(userSelection);
-
+        switch(userSelection){
+            case 1:
+                break;
+            case 2:
+                Enemy boss = new Enemy(500,15,15,"Valjir");
+                Combat.beginCombat(boss);
+                System.out.println("\nYou beat the game.");
+                Game.Overworld.userSelection = 11;
+                break;
+        }
     }
     
     @Override
     public ArrayList<EventInterface> getEvents(){
         return events;
     }
-    
 }

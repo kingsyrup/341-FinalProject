@@ -32,6 +32,7 @@ public class Combat {
             //game over
             System.out.println("------GAME OVER------");
             System.out.println("You were slain by a " + enemy.getName() + ".");
+            System.exit(1);
         }
         else{
             //enemy is dead

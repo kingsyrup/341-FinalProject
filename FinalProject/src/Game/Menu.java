@@ -63,6 +63,16 @@ public class Menu {
     }
     
     /**
+     * Adds an item to the menu at a specific index.
+     * @param item The item to be added to the menu.
+     * @param index The desired index of the item to be added.
+     * @ensure The item is added to the menu.
+     */
+    public void addItem(int index, String item) {
+        items.add(index, new Item(item));
+    }
+    
+    /**
      * Shows the first frame of the menu.
      * @return The first menu frame.
      * @ensure The first menu frame is returned.

@@ -1,14 +1,39 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Events;
+
+import Interfaces.EventInterface;
 
 /**
  *
  * @author xg6856vd
  */
-public class Child {
+public class Child implements EventInterface{
+
+    private String name = "";
+    private String description = "";
+    private boolean hasKey = false;
+    
+    @Override
+    public String name() {
+        return name;
+    }
+
+    @Override
+    public String description() {
+        return description;
+    }
+
+    @Override
+    public void choices() {
+        if (hasKey) {
+                System.out.println("You found a key.");
+                hasKey = false;
+                Game.GameBoard.multiplier++;
+            }
+    }
+
+    @Override
+    public void hasKey(boolean hasKey) {
+        this.hasKey = hasKey; 
+    }
     
 }

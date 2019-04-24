@@ -8,26 +8,26 @@ import java.util.*;
  *
  * @author xg6856vd
  */
-public class StartingArea_4 implements LocationInterface {
+public class Mines implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
 
-    public StartingArea_4() {
+    public Mines() {
     }
 
-    public StartingArea_4(ArrayList<EventInterface> events) {
+    public Mines(ArrayList<EventInterface> events) {
         this.events = events;
     }
     
     @Override
     public String name() {
-        return "Starting Area";
+        return "Deepholm Mines";
     }
 
     @Override
     public String description() {
-        return "The area in which you begin the game.";
+        return "You enter the seemingly bottomless mines.";
     }
 
     @Override
@@ -53,7 +53,7 @@ public class StartingArea_4 implements LocationInterface {
         
         System.out.print(eventMenu.showMenu());
         
-        for(int i = 2; i < 3; i++){
+        for(int i = 2; i < 5; i++){
             switcher.addCaseCommand(i, new Command() {
                 @Override
                 public void execute(int i) {

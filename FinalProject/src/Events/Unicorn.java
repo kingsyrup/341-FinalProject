@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Events;
 
 import Game.Combat;
@@ -17,9 +12,10 @@ import java.util.Scanner;
  */
 public class Unicorn implements EventInterface {
     
-    private final String name ="Unicorn Encounter";
-    private final String description = "You stumble upon a goblin gathering "
-            + "water at a stream.";
+    private final String name ="Grab a drink from a nearby stream.";
+    private final String description = "As you approach the stream, you notice "
+            + "it becoming quieter.  A sudden movement grabs your attention.  "
+            + "Standing near the stream is a majestic creature.";
     private final Menu choices = new Menu();
     private Scanner console = new Scanner(System.in);
     private Enemy goblin = new Enemy(10,1,1,"Unicorn");
@@ -47,10 +43,10 @@ public class Unicorn implements EventInterface {
         
         //Goblin is alive
         if(!deadFlag){
-            choices.addItem("Attack the goblin"); //beginCombat
-            choices.addItem("Attempt to befriend the goblin");  //charisma stat?
-            choices.addItem("Sneak past the goblin"); //dexterity stat?
-            choices.addItem("Flee"); //spd stat?
+            choices.addItem("Attack the unicorn"); //beginCombat
+            choices.addItem("Attempt to befriend the unicorn");  //charisma stat?
+            choices.addItem("Leave the unicorn alone"); //dexterity stat?
+            choices.addItem("Run away from the unicorn"); //spd stat?
             System.out.print(choices.showMenu());
 
             userSelection = console.nextInt();

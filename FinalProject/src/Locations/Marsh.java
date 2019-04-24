@@ -8,26 +8,26 @@ import java.util.*;
  *
  * @author xg6856vd
  */
-public class StartingArea1 implements LocationInterface {
+public class Marsh implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
 
-    public StartingArea1() {
+    public Marsh() {
     }
 
-    public StartingArea1(ArrayList<EventInterface> events) {
+    public Marsh(ArrayList<EventInterface> events) {
         this.events = events;
     }
     
     @Override
     public String name() {
-        return "Starting Area";
+        return "Brackmire Marsh";
     }
 
     @Override
     public String description() {
-        return "The area in which you begin the game.";
+        return "You trudge your way through the murky waters.";
     }
 
     @Override
