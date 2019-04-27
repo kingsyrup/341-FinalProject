@@ -1,0 +1,64 @@
+package GUI;
+
+import static Game.GameBoard.hero;
+import javafx.event.ActionEvent;
+import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class GameSetupController implements Initializable {
+
+    @FXML
+    private TextField nameInput;
+    @FXML
+    private Label statusLabel;
+    @FXML
+    private Button returnButton;
+    
+    @FXML
+    public void startGame(ActionEvent event) throws IOException {
+        String heroName = nameInput.getText();
+
+        if (heroName.length() == 0) {
+            statusLabel.setVisible(true);
+        } else {
+            //set hero name
+            hero.setName(heroName);
+            
+            //start new game
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Locations.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+        }
+    }
+    
+    @FXML
+    public void returnToMainMenu(ActionEvent event) throws IOException{
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.show();
+    }
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+
+    }
+}

@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 
 public class GameBoard {
-    
+
     //player's character
     public static Hero hero = new Hero();
     

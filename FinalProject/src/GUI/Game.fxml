@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="658.0" prefWidth="885.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameController">
+   <children>
+      <RadioButton fx:id="radio1" layoutX="201.0" layoutY="337.0" mnemonicParsing="false" onAction="#radio1Click" text="RadioButton">
+         <toggleGroup>
+            <ToggleGroup fx:id="group" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="radio2" layoutX="201.0" layoutY="402.0" mnemonicParsing="false" onAction="#radio2Click" text="RadioButton" toggleGroup="$group" />
+      <RadioButton fx:id="radio3" layoutX="201.0" layoutY="469.0" mnemonicParsing="false" onAction="#radio3Click" text="RadioButton" toggleGroup="$group" />
+      <Label fx:id="output" layoutX="169.0" layoutY="25.0" prefHeight="231.0" prefWidth="462.0" text="Label">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
