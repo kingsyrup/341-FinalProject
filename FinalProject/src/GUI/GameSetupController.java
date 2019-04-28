@@ -29,6 +29,8 @@ public class GameSetupController implements Initializable {
     public void startGame(ActionEvent event) throws IOException {
         String heroName = nameInput.getText();
 
+        Game.Initialize.init();
+        
         if (heroName.length() == 0) {
             statusLabel.setVisible(true);
         } else {
@@ -36,7 +38,7 @@ public class GameSetupController implements Initializable {
             hero.setName(heroName);
             
             //start new game
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Locations.fxml"));
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -1,4 +1,4 @@
-package Game;
+package Helpers;
 
 import java.util.*;
 
@@ -101,5 +101,9 @@ public class Menu {
     
     public int size(){
         return items.size();
+    }
+    
+    public void removeItem(int index){
+        items.remove(index);
     }
 }

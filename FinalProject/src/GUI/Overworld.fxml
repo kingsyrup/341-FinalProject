@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.LocationsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="434.0" prefWidth="459.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OverworldController">
    <children>
       
       <Label layoutX="275.0" layoutY="27.0" text="Overworld">
@@ -17,6 +17,6 @@
       <Button layoutX="32.0" layoutY="22.0" mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="36.0" prefWidth="148.0" text="Return to Main Menu" />
       <Button layoutX="32.0" layoutY="66.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" text="Save Game" />
       <ListView fx:id="locationListView" layoutX="217.0" layoutY="66.0" prefHeight="300.0" prefWidth="214.0" />
-      <Button fx:id="characterButton" layoutX="32.0" layoutY="167.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="148.0" text="Character" />
+      <Button fx:id="characterButton" layoutX="32.0" layoutY="167.0" mnemonicParsing="false" onAction="#characterSheet" prefHeight="36.0" prefWidth="148.0" text="Character" />
    </children>
 </AnchorPane>

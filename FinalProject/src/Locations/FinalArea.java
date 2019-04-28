@@ -1,8 +1,7 @@
 package Locations;
 
 import Game.Combat;
-import Game.Menu;
-import Game.Switcher;
+import Helpers.Menu;
 import Interfaces.*;
 import NPCs.Enemy;
 import java.util.*;
@@ -14,6 +13,10 @@ public class FinalArea implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
+    private String name = "Tower of Halvabor";
+    private String description = "You use the 7 keys to unlock the door leading to the Tower of "
+                + "Halvabor.  The door swings open revealing a giant monster "
+                + "sleeping on endless riches.";
 
     public FinalArea() {
     }
@@ -24,14 +27,12 @@ public class FinalArea implements LocationInterface {
     
     @Override
     public String name() {
-        return "Tower of Halvabor";
+        return name;
     }
 
     @Override
     public String description() {
-        return "You use the 7 keys to unlock the door leading to the Tower of "
-                + "Halvabor.  The door swings open revealing a giant monster "
-                + "sleeping on endless riches.";
+        return description;
     }
 
     @Override
@@ -41,7 +42,7 @@ public class FinalArea implements LocationInterface {
 
     @Override
     public void listEvents() {
-        
+        description = "";
         //scanner object for inventory selection
         Scanner console = new Scanner(System.in);
         int userSelection = -1;
@@ -59,7 +60,7 @@ public class FinalArea implements LocationInterface {
                 break;
             case 2:
                 Enemy boss = new Enemy(500,15,15,"Valjir");
-                Combat.beginCombat(boss);
+                Combat.beginCombat(boss, 500);
                 System.out.println("\nYou beat the game.");
                 Game.Overworld.userSelection = 11;
                 break;
@@ -69,5 +70,10 @@ public class FinalArea implements LocationInterface {
     @Override
     public ArrayList<EventInterface> getEvents(){
         return events;
+    }
+    
+    @Override
+    public void removeEvent(EventInterface event){
+        this.events.remove(event);
     }
 }

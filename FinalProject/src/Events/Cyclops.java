@@ -1,5 +1,6 @@
 package Events;
 
+import Helpers.Menu;
 import Game.*;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
@@ -9,18 +10,15 @@ import java.util.Scanner;
  *
  * @author xg6856vd
  */
-
-//             ADD FLAG TO ALTER EVENTS AFTER FIRST VISIT (if something happens)
 public class Cyclops implements EventInterface {
 
     private final String name = "Search the nearby cave";
-    private final String description = "You stumble upon a goblin gathering "
-            + "water at a stream.";
+    private String description = "A massive cyclops attacks you in the dark.";
     private final Menu choices = new Menu();
     private Scanner console = new Scanner(System.in);
-    private Enemy cyclops = new Enemy(10, 1, 1, "Cyclops");
-    private boolean deadFlag = false;
-    private boolean friendFlag = false;
+    private int baseHp = 10;
+    private Enemy enemy = new Enemy(baseHp, 1, 1, "Cyclops");
+    private boolean flag = false;
     private boolean hasKey = false;
 
     public Cyclops() {
@@ -36,47 +34,52 @@ public class Cyclops implements EventInterface {
         return description;
     }
 
-    //need a different return type
     @Override
     public void choices() {
         int userSelection = -1;
 
-        //Goblin is alive
-        if (!deadFlag) {
-            choices.addItem("Attack the cyclops"); //beginCombat
-            choices.addItem("Attempt to befriend the cyclops");  //charisma stat?
-            choices.addItem("Sneak past the cyclops"); //dexterity stat?
-            choices.addItem("Flee"); //spd stat?
-            System.out.print(choices.showMenu());
+        if (!flag) {
+            choices.addItem("Attack the " + enemy.getName());
+            choices.addItem("Attempt to befriend the " + enemy.getName());
+            choices.addItem("Sneak past the " + enemy.getName());
 
-            userSelection = console.nextInt();
-            //switch for choice cases
-            switch (userSelection) {
-                //attack the goblin
-                case 1:
-                    //multiplier (based on how many keys have been found)
-                    int multiplier = Game.GameBoard.multiplier;
+            do {
+                System.out.print(choices.showMenu());
 
-                    //if multiplier has not been applied, apply it
-                    if (cyclops.getHp() / multiplier != 10) {
-                        cyclops.setDef(cyclops.getDef() * multiplier);
-                        cyclops.setStr(cyclops.getStr() * multiplier);
-                        cyclops.setHp(cyclops.getHp() * multiplier);
-                    }
-                    Combat.beginCombat(cyclops);
-                    cyclops = null;
-                    deadFlag = true;
-                    break;
-                case 2:
-                    break;
-                case 3:
-                    break;
-                case 4:
-                    break;
-                default:
-                    break;
-            }
-            if (hasKey) {
+                userSelection = console.nextInt();
+                //switch for choice cases
+                switch (userSelection) {
+                    //attack
+                    case 1:
+                        Combat.beginCombat(enemy, baseHp);
+                        enemy = null;
+                        Game.GameBoard.locations.get(Game.Overworld.userSelection - 1).removeEvent(this);
+                        flag = true;
+                        break;
+                    case 2:
+                        if (Combat.chance(25)) {
+                            flag = true;
+                        } else {
+                            Combat.beginCombat(enemy, baseHp);
+                            enemy = null;
+                            flag = true;
+                        }
+                        break;
+                    case 3:
+                        if (Combat.chance(45)) {
+                            System.out.println("You snuck past the " + enemy.getName());
+                            flag = true;
+                        } else {
+                            Combat.beginCombat(enemy, baseHp);
+                            flag = true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+
+            } while (!flag);
+            if (hasKey && userSelection != 4) {
                 System.out.println("You found a key.");
                 hasKey = false;
                 Game.GameBoard.multiplier++;

@@ -3,12 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaces;
+package Helpers;
+
+import Interfaces.CommandInterface;
 
 /**
  *
  * @author xg6856vd
  */
-public interface Command {
-    public void execute(int i);
+public class DoNothingCommand implements CommandInterface{
+    
+    @Override
+    public void execute(int i) {
+        System.out.println();
+    }
 }

@@ -5,7 +5,8 @@
  */
 package NPCs;
 
-import Game.*;
+import Helpers.Switcher;
+import Helpers.Menu;
 import Interfaces.*;
 import java.util.*;
 
@@ -174,7 +175,7 @@ public class Hero implements NpcInterface {
         
         //add dynamic cases to switch and print item menu
         for(int i = 2; i < inventory.size() + 2; i++){
-            switcher.addCaseCommand(i, new Command() {
+            switcher.addCaseCommand(i, new CommandInterface() {
                 @Override
                 public void execute(int i) {
                   Menu itemMenu;

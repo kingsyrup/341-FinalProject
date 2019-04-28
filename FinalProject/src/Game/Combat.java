@@ -16,48 +16,53 @@ import java.util.Random;
  * @author xg6856vd
  */
 public class Combat {
-    
-    public static void beginCombat(NpcInterface enemy){
+
+    public static void beginCombat(NpcInterface enemy, int baseHp) {
+        
+        //apply multiplier
+        if (enemy.getHp() / multiplier != baseHp) {
+            enemy.setDef(enemy.getDef() * multiplier);
+            enemy.setStr(enemy.getStr() * multiplier);
+            enemy.setHp(enemy.getHp() * multiplier);
+        }
+        
         System.out.println();
-        do{
+        do {
             //possibly add combat menu here to start each round of fighting
             hero.attack(enemy);
-            if(enemy.isKilled()){
+            if (enemy.isKilled()) {
                 break;
             }
             enemy.attack(hero);
-        }
-        while(!hero.isKilled());
-        if(hero.isKilled()){
+        } while (!hero.isKilled());
+        if (hero.isKilled()) {
             //game over
             System.out.println("------GAME OVER------");
             System.out.println("You were slain by a " + enemy.getName() + ".");
             System.exit(1);
-        }
-        else{
+        } else {
             //enemy is dead
-            System.out.println("The " + enemy.getName() + " has been defeated.");
+            System.out.println("The " + enemy.getName() + " has been defeated.\n");
             victory(enemy);
             //enemy = null;
         }
     }
-    
+
     //enemy is defeated
-    public static void victory(NpcInterface enemy){
-        
+    public static void victory(NpcInterface enemy) {
+
         //25% chance for enemy to drop loot
         Random random = new Random();
         double r = random.nextDouble();
         boolean dropsLoot;
-        dropsLoot = r < 1.0/4.0;
-        
-        if(dropsLoot == true){
+        dropsLoot = r < 1.0 / 4.0;
+
+        if (dropsLoot == true) {
             //Enemy drops random item from current tier - based on difficulty multiplier
             Random rng = new Random();
             ArrayList<ItemInterface> loot = items.tier(multiplier);
             int modifier = (rng.nextInt(loot.size()));
             ItemInterface item = loot.get(modifier);
-
 
             //Add item to player's inventory and remove from global item list
             // ensures items are unique
@@ -67,4 +72,16 @@ public class Combat {
             items.removeItem(item);
         }
     }
+
+    //calculate chance
+    public static boolean chance(double chance) {
+
+        //calculate chance to befriend
+        Random random = new Random();
+        double r = random.nextDouble();
+        boolean success = r < chance / 100;
+
+        return success;
+    }
+
 }

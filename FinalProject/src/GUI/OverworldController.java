@@ -5,27 +5,46 @@
  */
 package GUI;
 
+import static Game.GameBoard.locations;
+import Interfaces.LocationInterface;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import javafx.beans.property.*;
+import javafx.collections.FXCollections;
+import javafx.event.*;
+import javafx.fxml.*;
+import javafx.scene.*;
+import javafx.scene.control.*;
+import javafx.stage.*;
+import java.util.ArrayList;
+
 
 /**
  *
  * @author Ajay
  */
-public class LocationsController implements Initializable {
+public class OverworldController implements Initializable {
 
+    @FXML
+    private ListView<String> locationListView;
+    
+    private ArrayList<String> locationList = new ArrayList();
+ 
+    private ListProperty<String> listProperty = new SimpleListProperty<>();
+    
+    public static LocationInterface location;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+ 
+        for(int i = 0; i < locations.size(); i++){
+                locationList.add(locations.get(i).name());
+            }
         
+        //locationListView.setItems(menu);
+        locationListView.itemsProperty().bind(listProperty);
+        listProperty.set(FXCollections.observableArrayList(locationList));   
     }
     
     //check if saved?
@@ -40,49 +59,14 @@ public class LocationsController implements Initializable {
         window.show();
     }
     
-    @FXML
-    public void toDesert(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
-    @FXML
-    public void toForest(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
-    @FXML
-    public void toMarsh(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
-    @FXML
-    public void toMines(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
-    @FXML
-    public void toPlains(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
-    @FXML
-    public void toTown(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
-    @FXML
-    public void toTundra(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
-    @FXML
-    public void toMountains(ActionEvent event) throws IOException {
-        loadLocation(event);
-    }
-    
     //only available after all keys are found
     @FXML
-    public void toFinalArea(ActionEvent event) throws IOException {
+    public void travel(ActionEvent event) throws IOException {
+        for(LocationInterface l : locations){
+            if(l.name().contains(locationListView.getSelectionModel().getSelectedItem())){
+                location = l;
+            }
+        }
         loadLocation(event);
     }
     
@@ -97,4 +81,8 @@ public class LocationsController implements Initializable {
         window.show();
     }
 
+    @FXML
+    public void characterSheet(ActionEvent event) throws IOException {
+        
+    }
 }

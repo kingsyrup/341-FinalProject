@@ -1,12 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Events;
 
 import Game.Combat;
-import Game.Menu;
+import Helpers.Menu;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
 import java.util.Scanner;
@@ -22,9 +17,9 @@ public class Dragon implements EventInterface {
             + "water at a stream.";
     private final Menu choices = new Menu();
     private Scanner console = new Scanner(System.in);
-    private Enemy goblin = new Enemy(100,10,10,"Dragon");
-    private boolean deadFlag = false;
-    private boolean friendFlag = false;
+    private int baseHp = 100;
+    private Enemy enemy = new Enemy(baseHp,10,10,"Dragon");
+    private boolean flag = false;
     private boolean hasKey = false;
     
     public Dragon() {
@@ -40,53 +35,57 @@ public class Dragon implements EventInterface {
         return description;
     }
     
-    //need a different return type
     @Override
-    public void choices(){
+    public void choices() {
         int userSelection = -1;
-        
-            //Goblin is alive
-            if(!deadFlag){
-                choices.addItem("Attack the goblin"); //beginCombat
-                choices.addItem("Attempt to befriend the goblin");  //charisma stat?
-                choices.addItem("Sneak past the goblin"); //dexterity stat?
-                choices.addItem("Flee"); //spd stat?
+
+        if (!flag) {
+            choices.addItem("Attack the " + enemy.getName());
+            choices.addItem("Attempt to befriend the " + enemy.getName());
+            choices.addItem("Sneak past the " + enemy.getName());
+
+            do {
                 System.out.print(choices.showMenu());
 
                 userSelection = console.nextInt();
                 //switch for choice cases
-                switch(userSelection){
-                    //attack the goblin
+                switch (userSelection) {
+                    //attack
                     case 1:
-                        //multiplier (based on how many keys have been found)
-                        int multiplier = Game.GameBoard.multiplier;
-
-                        //if multiplier has not been applied, apply it
-                        if(goblin.getHp() / multiplier != 100){
-                            goblin.setDef(goblin.getDef() * multiplier);
-                            goblin.setStr(goblin.getStr() * multiplier);
-                            goblin.setHp(goblin.getHp() * multiplier);
-                        }
-                        Combat.beginCombat(goblin);
-                        goblin = null;
-                        deadFlag = true;
+                        Combat.beginCombat(enemy, baseHp);
+                        enemy = null;
+                        Game.GameBoard.locations.get(Game.Overworld.userSelection - 1).removeEvent(this);
+                        flag = true;
                         break;
                     case 2:
+                        if (Combat.chance(25)) {
+                            flag = true;
+                        } else {
+                            Combat.beginCombat(enemy, baseHp);
+                            enemy = null;
+                            flag = true;
+                        }
                         break;
                     case 3:
-                        break;
-                    case 4:
+                        if (Combat.chance(45)) {
+                            System.out.println("You snuck past the " + enemy.getName());
+                            flag = true;
+                        } else {
+                            Combat.beginCombat(enemy, baseHp);
+                            flag = true;
+                        }
                         break;
                     default:
                         break;
                 }
-                if(hasKey){
-                    System.out.println("You found a key.");
-                    hasKey = false;
-                    Game.GameBoard.multiplier++;
-                }
+
+            } while (!flag);
+            if (hasKey && userSelection != 4) {
+                System.out.println("You found a key.");
+                hasKey = false;
+                Game.GameBoard.multiplier++;
             }
-        
+        }
     }
     
     @Override

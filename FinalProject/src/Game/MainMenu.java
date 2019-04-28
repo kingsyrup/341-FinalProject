@@ -1,5 +1,6 @@
 package Game;
 
+import Helpers.Menu;
 import static Game.GameBoard.hero;
 import java.util.Scanner;
 
@@ -10,16 +11,19 @@ import java.util.Scanner;
 
 //main menu  - option to start new game or load saved game
 
-public class MainMenu {
+public class MainMenu{
     
     private static Menu mainMenu = new Menu();
     private static int userSelection = -1;
     private static Scanner console = new Scanner(System.in);
     
+    public MainMenu(){
+        
+    }
+    
     public static void show(){
         
         mainMenu.addItem("Start New Game");
-        mainMenu.addItem("Load Game");
         mainMenu.addItem("Exit");
         
         do{
@@ -39,11 +43,11 @@ public class MainMenu {
                     //start game
                     Overworld.getLocations();
                     break;
-                //load game    
+                //Exit    
                 case 2:
-                    break;
-                case 3:
                     userSelection = -2;
+                    break;
+                default:
                     break;
             }
         }

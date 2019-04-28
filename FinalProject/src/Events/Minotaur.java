@@ -1,5 +1,6 @@
 package Events;
 
+import Helpers.Menu;
 import Game.*;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
@@ -63,7 +64,7 @@ public class Minotaur implements EventInterface {
                         goblin.setStr(goblin.getStr() * multiplier);
                         goblin.setHp(goblin.getHp() * multiplier);
                     }
-                    Combat.beginCombat(goblin);
+                    Combat.beginCombat(goblin, 10);
                     goblin = null;
                     deadFlag = true;
                     break;

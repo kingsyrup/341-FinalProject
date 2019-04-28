@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Game;
-
-import Interfaces.Command;
+package Interfaces;
 
 /**
  *
  * @author xg6856vd
  */
-public class DoNothingCommand implements Command{
-    public void execute(int i) {}
+public interface CommandInterface {
+    public void execute(int i);
 }

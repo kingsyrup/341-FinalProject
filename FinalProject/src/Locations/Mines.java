@@ -1,7 +1,7 @@
 package Locations;
 
-import Game.Menu;
-import Game.Switcher;
+import Helpers.Menu;
+import Helpers.Switcher;
 import Interfaces.*;
 import java.util.*;
 /**
@@ -54,12 +54,12 @@ public class Mines implements LocationInterface {
         System.out.print(eventMenu.showMenu());
         
         for(int i = 2; i < 5; i++){
-            switcher.addCaseCommand(i, new Command() {
+            switcher.addCaseCommand(i, new CommandInterface() {
                 @Override
                 public void execute(int i) {
                     System.out.println("\n" + events.get(i-2).description());
                     events.get(i-2).choices();
-
+                    eventMenu.removeItem(i-1);
                 }
             });
         }
@@ -73,4 +73,9 @@ public class Mines implements LocationInterface {
     public ArrayList<EventInterface> getEvents(){
         return events;
     }
+    
+    @Override
+    public void removeEvent(EventInterface event){
+        this.events.remove(event);
+    }  
 }

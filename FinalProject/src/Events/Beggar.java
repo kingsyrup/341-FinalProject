@@ -8,7 +8,7 @@ import Interfaces.EventInterface;
  */
 public class Beggar implements EventInterface {
     
-    private String name = "";
+    private String name = "Beggar";
     private String description = "";
     private boolean hasKey = false;
     

@@ -1,8 +1,8 @@
-package Game;
+package Helpers;
 
-import Interfaces.Command;
 import java.util.HashMap;
 import java.util.Map;
+import Interfaces.CommandInterface;
 
 /**
  *
@@ -12,11 +12,11 @@ import java.util.Map;
 //CUSTOM SWITCH CLASS FOR DYNAMIC CASES
 public class Switcher {
 
-    private Map<Integer, Command> caseCommands;
+    private Map<Integer, CommandInterface> caseCommands;
 
-    private Command defaultCommand;
+    private CommandInterface defaultCommand;
 
-    private Command getCaseCommandByCaseId(Integer caseId) {
+    private CommandInterface getCaseCommandByCaseId(Integer caseId) {
         if (caseCommands.containsKey(caseId)) {
             return caseCommands.get(caseId);
         } else {
@@ -25,23 +25,23 @@ public class Switcher {
     }
 
     public Switcher() {
-        caseCommands = new HashMap<Integer, Command>();
+        caseCommands = new HashMap<Integer, CommandInterface>();
 
         setDefaultCaseCommand(new DoNothingCommand());
     }
 
-    public void addCaseCommand(Integer caseId, Command caseCommand) {
+    public void addCaseCommand(Integer caseId, CommandInterface caseCommand) {
         caseCommands.put(caseId, caseCommand);
     }
 
-    public void setDefaultCaseCommand(Command defaultCommand) {
+    public void setDefaultCaseCommand(CommandInterface defaultCommand) {
         if (defaultCommand != null) {
             this.defaultCommand = defaultCommand;
         }
     }
 
     public void on(Integer caseId) {
-        Command command = getCaseCommandByCaseId(caseId);
+        CommandInterface command = getCaseCommandByCaseId(caseId);
 
         command.execute(caseId);
     }

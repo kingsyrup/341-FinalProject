@@ -1,5 +1,6 @@
 package Game;
 
+import Helpers.Menu;
 import static Game.GameBoard.*;
 import Locations.FinalArea;
 import java.util.Scanner;
@@ -39,34 +40,42 @@ public class Overworld {
         userSelection = CONSOLE.nextInt();
             switch(userSelection){
                 case 1:
+                    System.out.println();
                     System.out.println(locations.get(0).description());
                     locations.get(0).listEvents();
                     break;
                 case 2:
+                    System.out.println();
                     System.out.println(locations.get(1).description());
                     locations.get(1).listEvents();
                     break;
                 case 3:
+                    System.out.println();
                     System.out.println(locations.get(2).description());
                     locations.get(2).listEvents();
                     break;
                 case 4:
+                    System.out.println();
                     System.out.println(locations.get(3).description());
                     locations.get(3).listEvents();
                     break;
                 case 5:
+                    System.out.println();
                     System.out.println(locations.get(4).description());
                     locations.get(4).listEvents();
                     break;
                 case 6:
+                    System.out.println();
                     System.out.println(locations.get(5).description());
                     locations.get(5).listEvents();
                     break;
                 case 7:
+                    System.out.println();
                     System.out.println(locations.get(6).description());
                     locations.get(6).listEvents();
                     break;
                 case 8:
+                    System.out.println();
                     System.out.println(locations.get(7).description());
                     locations.get(7).listEvents();
                     break;
@@ -82,6 +91,7 @@ public class Overworld {
         }
         while(userSelection != 10);
         
+        if(LOCATION_MENU.size() == 11){
         //final area has been unlocked.
         do{
         System.out.println("\n----------OVERWORLD----------");
@@ -136,6 +146,7 @@ public class Overworld {
             }
         }
         while(userSelection != 11);
+    }
     }
     
 }
