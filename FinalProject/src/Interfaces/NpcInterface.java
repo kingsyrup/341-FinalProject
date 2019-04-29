@@ -14,9 +14,10 @@ public interface NpcInterface {
     public void setDef(int def);
     public int getHp();
     public void setHp(int hp);
+    public int maxHp();
     
     //combat
-    public void attack(NpcInterface defender);
+    public int attack(NpcInterface defender);
     public void attacked(int damage);
     public boolean isKilled();
     public int diceRoll();

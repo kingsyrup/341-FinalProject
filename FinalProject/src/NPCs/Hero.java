@@ -5,10 +5,12 @@
  */
 package NPCs;
 
+import GUI.CombatController;
 import Helpers.Switcher;
 import Helpers.Menu;
 import Interfaces.*;
 import java.util.*;
+import javafx.fxml.FXMLLoader;
 
 /**
  *
@@ -219,7 +221,7 @@ public class Hero implements NpcInterface {
     }
     
     @Override
-    public void attack(NpcInterface defender){
+    public int attack(NpcInterface defender){
         int attack = this.getStr() * diceRoll();
         int defend = defender.getDef();
         
@@ -227,8 +229,11 @@ public class Hero implements NpcInterface {
         if(damage < 0){
             damage = 0;
         }
-        System.out.println("You dealt " + damage + " damage to the " + defender.getName() + ".");
+        
+        //System.out.println("You dealt " + damage + " damage to the " + defender.getName() + ".");
         defender.attacked(damage);
+        
+        return damage;
     }
     
     @Override
@@ -254,6 +259,7 @@ public class Hero implements NpcInterface {
         return isKilled;
     }
     
+    @Override
     public int maxHp(){
         return maxHp;
     }

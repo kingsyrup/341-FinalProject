@@ -11,6 +11,7 @@ public class Enemy implements NpcInterface {
     private int str;
     private int def;
     private int hp;
+    private int maxHp;
     private String name;
     private boolean isKilled = false;
     
@@ -19,6 +20,7 @@ public class Enemy implements NpcInterface {
         this.hp = hitPoints;
         this.def = defense;
         this.name = name;
+        this.maxHp = hitPoints;
     }
     
     @Override
@@ -57,7 +59,7 @@ public class Enemy implements NpcInterface {
     }
     
     @Override
-    public void attack(NpcInterface defender){
+    public int attack(NpcInterface defender){
         int attack = this.getStr() * diceRoll();
         int defend = defender.getDef();
         
@@ -65,9 +67,9 @@ public class Enemy implements NpcInterface {
         if(damage < 0){
             damage = 0;
         }
-        System.out.println("The " + this.name + " dealt " + damage + 
-                " damage to the " + defender.getName() + ".");
         defender.attacked(damage);
+        
+        return damage;
     }
     
     @Override
@@ -75,6 +77,7 @@ public class Enemy implements NpcInterface {
         if(damage > 0){
             this.hp -= damage;
             if(this.hp <= 0){
+                this.hp = 0;
                 this.isKilled = true;
             }
         }
@@ -91,5 +94,10 @@ public class Enemy implements NpcInterface {
     @Override
     public boolean isKilled(){
         return isKilled;
+    }
+    
+    @Override
+    public int maxHp(){
+        return maxHp;
     }
 }

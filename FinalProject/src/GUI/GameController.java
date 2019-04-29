@@ -1,6 +1,7 @@
 package GUI;
 
 import static GUI.OverworldController.location;
+import NPCs.Enemy;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -34,6 +35,8 @@ public class GameController implements Initializable {
     
     @FXML
     ToggleGroup group = new ToggleGroup();
+    
+    public static Enemy enemy = new Enemy(50, 1, 1, "Cyclops"); 
 
     public void radio1Click() {
         //event1
@@ -45,6 +48,7 @@ public class GameController implements Initializable {
         //event3
     }
 
+    @FXML
     public void previous(ActionEvent event) throws IOException{
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
@@ -52,8 +56,22 @@ public class GameController implements Initializable {
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
             window.setScene(tableViewScene);
+            window.setResizable(false);
             window.show();
     }
+    
+    @FXML
+    public void event(ActionEvent event) throws IOException{
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("Combat.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+            window.setScene(tableViewScene);
+            window.setResizable(false);
+            window.show();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         output.setText(location.name());
