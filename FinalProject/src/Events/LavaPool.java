@@ -1,6 +1,7 @@
 package Events;
 
 import Interfaces.EventInterface;
+import NPCs.Enemy;
 
 /**
  *
@@ -11,6 +12,7 @@ public class LavaPool implements EventInterface {
     private String name = "";
     private String description = "";
     private boolean hasKey = false;
+    private boolean hasCombat = false;
     
     @Override
     public String name() {
@@ -34,6 +36,20 @@ public class LavaPool implements EventInterface {
     @Override
     public void hasKey(boolean hasKey) {
         this.hasKey = hasKey;
+    }
+    
+    @Override
+    public boolean hasKey() {
+        return hasKey;
+    } 
+    
+    @Override
+    public boolean hasCombat(){
+        return hasCombat;
+    }
+    @Override
+    public Enemy getEnemy(){
+        return null;
     }
     
 }

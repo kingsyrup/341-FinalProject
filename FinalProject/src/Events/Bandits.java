@@ -1,6 +1,7 @@
 package Events;
 
 import Interfaces.EventInterface;
+import NPCs.Enemy;
 
 /**
  *
@@ -11,6 +12,7 @@ public class Bandits implements EventInterface {
     private String name = "";
     private String description = "";
     private boolean hasKey = false;
+    private boolean hasCombat = false;
     
     @Override
     public String name() {
@@ -36,4 +38,18 @@ public class Bandits implements EventInterface {
         this.hasKey = hasKey;
     }
     
+    @Override
+    public boolean hasKey(){
+        return hasKey;
+    }
+    
+    @Override
+    public boolean hasCombat(){
+        return hasCombat;
+    }
+
+    @Override
+    public Enemy getEnemy(){
+        return null;
+    }
 }

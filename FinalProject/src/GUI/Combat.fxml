@@ -29,7 +29,7 @@
                   <RowConstraints maxHeight="267.0" minHeight="10.0" prefHeight="92.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextArea fx:id="combatTextArea" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" GridPane.columnSpan="3" GridPane.rowIndex="3" editable="false" />
+                  <TextArea fx:id="combatTextArea" editable="false" focusTraversable="false" prefHeight="200.0" prefWidth="200.0" wrapText="true" GridPane.columnSpan="3" GridPane.rowIndex="3" />
                   <Label fx:id="playerLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="51.0" prefWidth="299.0" text="Hero" textAlignment="CENTER">
                      <font>
                         <Font size="36.0" />
@@ -60,6 +60,8 @@
                         </Label>
                      </children>
                   </Pane>
+                  <Pane fx:id="enemyPane" prefHeight="200.0" prefWidth="200.0" stylesheets="@../Backgrounds/background.css" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Pane prefHeight="200.0" prefWidth="200.0" styleClass="hero" stylesheets="@../Backgrounds/background.css" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children></AnchorPane>

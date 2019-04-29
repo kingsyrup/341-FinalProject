@@ -76,7 +76,7 @@ public class CharacterController implements Initializable {
     }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-  
+                
         //test case
         hero.setHp(25);
         hero.addToInventory(items.getItems().get(0));
@@ -86,7 +86,7 @@ public class CharacterController implements Initializable {
         
         inventory = FXCollections.observableArrayList(hero.inventory);
         
-        nameLabel.setText(hero.name);
+        nameLabel.setText(hero.getName());
         hpLabel.setText(String.valueOf(hero.getHp()));
         strLabel.setText(String.valueOf(hero.getStr()));
         defLabel.setText(String.valueOf(hero.getDef()));

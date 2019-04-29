@@ -15,7 +15,7 @@ public class GameBoard {
     public static Hero hero = new Hero();
     
     //multipler used to scale difficulty based on how many keys have been found
-    public static int multiplier = 1;
+    public static int multiplier;
     
     //instantiate items
     public static ItemList items = new ItemList();

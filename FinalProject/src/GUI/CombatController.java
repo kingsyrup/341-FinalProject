@@ -1,12 +1,13 @@
 package GUI;
 
+import static GUI.GameController.decision;
 import static Game.GameBoard.hero;
 import static Game.GameBoard.items;
-import static GUI.GameController.enemy;
 import static Game.Combat.chance;
 import static Game.GameBoard.multiplier;
 import Interfaces.ItemInterface;
 import Interfaces.NpcInterface;
+import NPCs.Enemy;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -21,6 +22,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.*;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
@@ -51,7 +53,12 @@ public class CombatController implements Initializable {
     @FXML
     private Button attackButton;
     
-    private int baseHp = enemy.getHp();
+    @FXML
+    private Pane enemyPane;
+    
+    private Enemy enemy;
+    private String description;
+    private boolean hasKey;
     
     public CombatController(){
         
@@ -59,22 +66,32 @@ public class CombatController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        description = decision.description();
+        hasKey = decision.hasKey();
+        enemy = decision.getEnemy();
+        
+        //apply multiplier - might need to rework this
+        enemy.setDef(enemy.getDef() * multiplier);
+        enemy.setStr(enemy.getStr() * multiplier);
+        enemy.setHp(enemy.getHp() * multiplier);
+        
         //name 
         playerLabel.setText(hero.getName());
         enemyLabel.setText(enemy.getName());
         
-        //apply multiplier - might need to rework this
-        if (enemy.getHp() / multiplier != baseHp) {
-            enemy.setDef(enemy.getDef() * multiplier);
-            enemy.setStr(enemy.getStr() * multiplier);
-            enemy.setHp(enemy.getHp() * multiplier);
-        }
+        
+        
+        //set enemy image
+        setBackground();
+        
+        
         
         //health bar
         healthBar(hero);
         healthBar(enemy);
         
-        combatTextArea.appendText("You begin fighting the " + enemy.getName() + ".");
+        combatTextArea.appendText(description + "\n");
         
     }
     
@@ -143,6 +160,10 @@ public class CombatController implements Initializable {
                             + ".");
                     items.removeItem(item);
                 }
+                
+                if(hasKey){
+                    combatTextArea.appendText("\nYou found a key.");
+                }
             }
     }
     
@@ -161,5 +182,22 @@ public class CombatController implements Initializable {
     
     public void appendMessage(String message) {
         combatTextArea.appendText(message);
+    }
+    
+    public void setBackground(){
+        //set enemy background image
+        enemyPane.getStyleClass().clear();
+        enemyPane.getStyleClass().add("cyclops");
+    }
+    
+    public void parseEvent(){
+        description = decision.description();
+        hasKey = decision.hasKey();
+        enemy = decision.getEnemy();
+        
+        //apply multiplier - might need to rework this
+        enemy.setDef(enemy.getDef() * multiplier);
+        enemy.setStr(enemy.getStr() * multiplier);
+        enemy.setHp(enemy.getHp() * multiplier); 
     }
 }

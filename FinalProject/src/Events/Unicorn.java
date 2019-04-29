@@ -18,10 +18,11 @@ public class Unicorn implements EventInterface {
             + "Standing near the stream is a majestic creature.";
     private final Menu choices = new Menu();
     private Scanner console = new Scanner(System.in);
-    private Enemy goblin = new Enemy(10,1,1,"Unicorn");
+    private Enemy enemy = new Enemy(10,1,1,"Unicorn");
     private boolean deadFlag = false;
     private boolean friendFlag = false;
     private boolean hasKey = false;
+    private boolean hasCombat = true;
     
     public Unicorn() {
     }
@@ -43,10 +44,10 @@ public class Unicorn implements EventInterface {
         
         //Goblin is alive
         if(!deadFlag){
-            choices.addItem("Attack the unicorn"); //beginCombat
-            choices.addItem("Attempt to befriend the unicorn");  //charisma stat?
-            choices.addItem("Leave the unicorn alone"); //dexterity stat?
-            choices.addItem("Run away from the unicorn"); //spd stat?
+            choices.addItem("Attack the goblin"); //beginCombat
+            choices.addItem("Attempt to befriend the goblin");  //charisma stat?
+            choices.addItem("Sneak past the goblin"); //dexterity stat?
+            choices.addItem("Flee"); //spd stat?
             System.out.print(choices.showMenu());
 
             userSelection = console.nextInt();
@@ -58,13 +59,13 @@ public class Unicorn implements EventInterface {
                     int multiplier = Game.GameBoard.multiplier;
                     
                     //if multiplier has not been applied, apply it
-                    if(goblin.getHp() / multiplier != 10){
-                        goblin.setDef(goblin.getDef() * multiplier);
-                        goblin.setStr(goblin.getStr() * multiplier);
-                        goblin.setHp(goblin.getHp() * multiplier);
+                    if(enemy.getHp() / multiplier != 10){
+                        enemy.setDef(enemy.getDef() * multiplier);
+                        enemy.setStr(enemy.getStr() * multiplier);
+                        enemy.setHp(enemy.getHp() * multiplier);
                     }
-                    Combat.beginCombat(goblin,10);
-                    goblin = null;
+                    Combat.beginCombat(enemy, 10);
+                    enemy = null;
                     deadFlag = true;
                     break;
                 case 2:
@@ -76,16 +77,32 @@ public class Unicorn implements EventInterface {
                 default:
                     break;
             }
-        }
-        if(hasKey){
+            if(hasKey){
                     System.out.println("You found a key.");
                     hasKey = false;
                     Game.GameBoard.multiplier++;
                 }
+        }
+        //return choices;
     }
     
     @Override
     public void hasKey(boolean hasKey){
         this.hasKey = hasKey;
+    }
+    
+    @Override
+    public boolean hasKey() {
+        return hasKey;
+    } 
+    
+    @Override
+    public boolean hasCombat(){
+        return hasCombat;
+    }
+    
+    @Override
+    public Enemy getEnemy(){
+        return enemy;
     }
 }

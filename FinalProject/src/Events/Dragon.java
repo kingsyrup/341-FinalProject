@@ -21,6 +21,7 @@ public class Dragon implements EventInterface {
     private Enemy enemy = new Enemy(baseHp,10,10,"Dragon");
     private boolean flag = false;
     private boolean hasKey = false;
+    private boolean hasCombat = true;
     
     public Dragon() {
     }
@@ -91,5 +92,20 @@ public class Dragon implements EventInterface {
     @Override
     public void hasKey(boolean hasKey){
         this.hasKey = hasKey;
+    }
+    
+    @Override
+    public boolean hasKey(){
+        return hasKey;
+    }
+    
+    @Override
+    public boolean hasCombat(){
+        return hasCombat;
+    }
+    
+    @Override
+    public Enemy getEnemy(){
+        return enemy;
     }
 }

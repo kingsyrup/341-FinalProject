@@ -21,7 +21,7 @@ public final class Initialize {
         hero = new Hero();
 
         //multipler used to scale difficulty based on how many keys have been found
-        multiplier = 1;
+        multiplier = 2;
 
         //instantiate items
         items = new ItemList();

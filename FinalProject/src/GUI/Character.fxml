@@ -53,6 +53,7 @@
                   <Label fx:id="healthBarLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="203.0" style="-fx-border-style: none;" text="HP Percentage" textFill="#182122" />
                </children>
             </Pane>
+            <Pane layoutX="5.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" styleClass="hero" stylesheets="@../Backgrounds/background.css" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
          <children>
@@ -61,7 +62,7 @@
             <TableView fx:id="inventoryTable" layoutX="14.0" layoutY="65.0" prefHeight="251.0" prefWidth="361.0">
               <columns>
                 <TableColumn fx:id="typeColumn" editable="false" minWidth="0.0" prefWidth="81.0" resizable="false" text="Type" />
-                <TableColumn fx:id="nameColumn" editable="false" prefWidth="278.0" resizable="false" text="Name" />
+                <TableColumn fx:id="nameColumn" editable="false" maxWidth="254.0" minWidth="254.0" prefWidth="254.0" resizable="false" text="Name" />
               </columns>
             </TableView>
             <Separator layoutY="52.0" prefHeight="7.0" prefWidth="387.0" />

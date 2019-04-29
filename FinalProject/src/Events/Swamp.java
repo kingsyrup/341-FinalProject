@@ -1,6 +1,7 @@
 package Events;
 
 import Interfaces.EventInterface;
+import NPCs.Enemy;
 
 /**
  *
@@ -36,4 +37,18 @@ public class Swamp implements EventInterface {
         this.hasKey = hasKey;
     }
     
+    @Override
+    public boolean hasKey() {
+        return hasKey;
+    } 
+    
+    @Override
+    public boolean hasCombat(){
+        return false;
+    }
+    
+    @Override
+    public Enemy getEnemy(){
+        return null;
+    }
 }

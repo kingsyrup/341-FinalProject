@@ -14,15 +14,16 @@ import java.util.Scanner;
 //             ADD FLAG TO ALTER EVENTS AFTER FIRST VISIT (if something happens)
 public class Gryffin implements EventInterface {
 
-    private final String name = "Goblin Encounter";
+    private final String name = "Gryffin Encounter";
     private final String description = "You stumble upon a goblin gathering "
             + "water at a stream.";
     private final Menu choices = new Menu();
     private Scanner console = new Scanner(System.in);
-    private Enemy goblin = new Enemy(10, 1, 1, "Goblin");
+    private Enemy enemy = new Enemy(10, 1, 1, "Gryffin");
     private boolean deadFlag = false;
     private boolean friendFlag = false;
     private boolean hasKey = false;
+    private boolean hasCombat = true;
 
     public Gryffin() {
     }
@@ -59,13 +60,13 @@ public class Gryffin implements EventInterface {
                     int multiplier = Game.GameBoard.multiplier;
 
                     //if multiplier has not been applied, apply it
-                    if (goblin.getHp() / multiplier != 10) {
-                        goblin.setDef(goblin.getDef() * multiplier);
-                        goblin.setStr(goblin.getStr() * multiplier);
-                        goblin.setHp(goblin.getHp() * multiplier);
+                    if (enemy.getHp() / multiplier != 10) {
+                        enemy.setDef(enemy.getDef() * multiplier);
+                        enemy.setStr(enemy.getStr() * multiplier);
+                        enemy.setHp(enemy.getHp() * multiplier);
                     }
-                    Combat.beginCombat(goblin, 10);
-                    goblin = null;
+                    Combat.beginCombat(enemy, 10);
+                    enemy = null;
                     deadFlag = true;
                     break;
                 case 2:
@@ -88,5 +89,20 @@ public class Gryffin implements EventInterface {
     @Override
     public void hasKey(boolean hasKey) {
         this.hasKey = hasKey;
+    }
+    
+    @Override
+    public boolean hasKey() {
+        return hasKey;
+    } 
+    
+    @Override
+    public boolean hasCombat(){
+        return hasCombat;
+    }
+    
+    @Override
+    public Enemy getEnemy(){
+        return enemy;
     }
 }

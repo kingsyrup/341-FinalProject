@@ -47,7 +47,7 @@ public class Hero implements NpcInterface {
     
     @Override
     public String getName(){
-        return "Hero";
+        return name;
     }
     
     public void setName(String name){

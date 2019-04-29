@@ -20,6 +20,7 @@ public class Cyclops implements EventInterface {
     private Enemy enemy = new Enemy(baseHp, 1, 1, "Cyclops");
     private boolean flag = false;
     private boolean hasKey = false;
+    private boolean hasCombat = true;
 
     public Cyclops() {
     }
@@ -90,5 +91,20 @@ public class Cyclops implements EventInterface {
     @Override
     public void hasKey(boolean hasKey) {
         this.hasKey = hasKey;
+    }
+    
+    @Override
+    public boolean hasKey(){
+        return hasKey;
+    }
+    
+    @Override
+    public boolean hasCombat(){
+        return hasCombat;
+    }
+    
+    @Override
+    public Enemy getEnemy(){
+        return enemy;
     }
 }

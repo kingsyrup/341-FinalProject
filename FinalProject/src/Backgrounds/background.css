@@ -1,0 +1,49 @@
+.bodybg{
+ -fx-background-image: url('overworld.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.cyclops{
+ -fx-background-image: url('cyclops.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.hero{
+ -fx-background-image: url('character.jpg');
+ -fx-background-size: 100% 100%;
+}
+
+.forest{
+    -fx-background-image: url('Forest.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.tundra{
+    -fx-background-image: url('tundra.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.marsh{
+    -fx-background-image: url('marsh.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.desert{
+    -fx-background-image: url('desert.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.plains{
+    -fx-background-image: url('plains.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.mountain{
+    -fx-background-image: url('mountain.jpg');
+    -fx-background-size: 100% 100%;
+}
+
+.mines{
+    -fx-background-image: url('mines.jpg');
+    -fx-background-size: 100% 100%;
+}
