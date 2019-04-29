@@ -11,12 +11,13 @@ import java.util.ArrayList;
 //Items that can be found in the game, divided into tiers
 public final class ItemList {
     
-    private final ArrayList<ItemInterface> items = new ArrayList();
+    private ArrayList<ItemInterface> items = new ArrayList();
    
     public ItemList(){
         this.generateItems();
     }
-    public void generateItems(){
+    
+    public ArrayList<ItemInterface> generateItems(){
         //Armor
         items.add(new Armor(0,2,15,"Copper Breasplate",1));
         items.add(new Armor(0,1,10,"Copper Greaves",1));
@@ -52,6 +53,8 @@ public final class ItemList {
         items.add(new Weapon(1000,1000,1000, "Sword of One Thousand Truths",100));
         
         //Another category for consumables?
+        
+        return items;
     }
     
     public void removeItem(ItemInterface item){

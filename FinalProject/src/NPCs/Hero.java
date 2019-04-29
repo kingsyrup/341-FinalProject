@@ -28,7 +28,7 @@ public class Hero implements NpcInterface {
     private int strAdjustment;
     private int defAdjustment;
     private int hpAdjustment; 
-    private final ArrayList<ItemInterface> inventory = new ArrayList();
+    public ArrayList<ItemInterface> inventory = new ArrayList();
     
     //scanner object for inventory selection
     private  final Scanner console = new Scanner(System.in);
@@ -101,7 +101,7 @@ public class Hero implements NpcInterface {
             this.setDef(def + item.getDefModifier());
             this.setStr(str + item.getStrModifier());
             this.setHp(hp + item.getHpModifier());
-            this.maxHp = hp + item.getHpModifier();
+            this.maxHp = maxHp + item.getHpModifier();
 
             isArmorEquipped = true;
         }
@@ -115,7 +115,7 @@ public class Hero implements NpcInterface {
             this.setDef(def + item.getDefModifier());
             this.setStr(str + item.getStrModifier());
             this.setHp(hp + item.getHpModifier());
-            this.maxHp = hp + item.getHpModifier();
+            this.maxHp = maxHp + item.getHpModifier();
 
             isWeaponEquipped = true;
         }
@@ -132,7 +132,7 @@ public class Hero implements NpcInterface {
             this.setDef(def - defAdjustment);
             this.setHp(hp - hpAdjustment);
             this.setStr(str - strAdjustment);
-            this.maxHp = hp - hpAdjustment;
+            this.maxHp = maxHp - hpAdjustment;
             isArmorEquipped = false;
             System.out.println("You unequipped " + item.getName());
         }
@@ -144,7 +144,7 @@ public class Hero implements NpcInterface {
             this.setDef(def - defAdjustment);
             this.setHp(hp - hpAdjustment);
             this.setStr(str - strAdjustment);
-            this.maxHp = hp - hpAdjustment;
+            this.maxHp = maxHp - hpAdjustment;
             isWeaponEquipped = false;
             System.out.println("You unequipped " + item.getName());
         }

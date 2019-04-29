@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<SplitPane dividerPositions="0.34615384615384615" focusTraversable="false" maxHeight="400" maxWidth="600" minHeight="400" minWidth="600" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CharacterController">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="21.0" layoutY="14.0" prefHeight="29.0" prefWidth="163.0" text="Name" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+            <GridPane alignment="CENTER" layoutX="3.0" layoutY="302.0" prefHeight="90.0" prefWidth="203.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" text="HP:" textAlignment="CENTER" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" text="STR:" textAlignment="CENTER" GridPane.rowIndex="1" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" text="DEF:" textAlignment="CENTER" GridPane.rowIndex="2" />
+                  <Label fx:id="hpLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="1" />
+                  <Label fx:id="strLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="defLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="hpDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="2" />
+                  <Label fx:id="strDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="defDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               </children>
+            </GridPane>
+            <Separator layoutY="52.0" prefHeight="7.0" prefWidth="217.0" />
+            <Pane layoutY="59.0" prefHeight="41.0" prefWidth="203.0" style="-fx-border-color: black;">
+               <children>
+                  <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#34da3c" height="41.0" stroke="BLACK" strokeType="INSIDE" width="203.0" />
+                  <Label fx:id="healthBarLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="203.0" style="-fx-border-style: none;" text="HP Percentage" textFill="#182122" />
+               </children>
+            </Pane>
+         </children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+         <children>
+            <Button fx:id="previousButton" layoutX="288.0" layoutY="356.0" mnemonicParsing="false" onAction="#previous" prefHeight="28.0" prefWidth="83.0" text="Return" />
+            <Button fx:id="equipButton" layoutX="94.0" layoutY="356.0" mnemonicParsing="false" onAction="#equip" prefHeight="28.0" prefWidth="83.0" text="Equip" />
+            <TableView fx:id="inventoryTable" layoutX="14.0" layoutY="65.0" prefHeight="251.0" prefWidth="361.0">
+              <columns>
+                <TableColumn fx:id="typeColumn" editable="false" minWidth="0.0" prefWidth="81.0" resizable="false" text="Type" />
+                <TableColumn fx:id="nameColumn" editable="false" prefWidth="278.0" resizable="false" text="Name" />
+              </columns>
+            </TableView>
+            <Separator layoutY="52.0" prefHeight="7.0" prefWidth="387.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="92.0" layoutY="14.0" prefHeight="30.0" prefWidth="203.0" text="Inventory" textAlignment="CENTER">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Label>
+         </children></AnchorPane>
+  </items>
+</SplitPane>

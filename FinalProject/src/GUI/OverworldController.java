@@ -29,6 +29,9 @@ public class OverworldController implements Initializable {
     @FXML
     private ListView<String> locationListView;
     
+    @FXML
+    Button travelButton = new Button("Button -> Prop");
+    
     private ArrayList<String> locationList = new ArrayList();
  
     private ListProperty<String> listProperty = new SimpleListProperty<>();
@@ -44,7 +47,8 @@ public class OverworldController implements Initializable {
         
         //locationListView.setItems(menu);
         locationListView.itemsProperty().bind(listProperty);
-        listProperty.set(FXCollections.observableArrayList(locationList));   
+        listProperty.set(FXCollections.observableArrayList(locationList)); 
+        travelButton.disableProperty().bind(locationListView.getSelectionModel().selectedItemProperty().isNull());
     }
     
     //check if saved?
@@ -83,6 +87,13 @@ public class OverworldController implements Initializable {
 
     @FXML
     public void characterSheet(ActionEvent event) throws IOException {
-        
+        Parent tableViewParent = FXMLLoader.load(getClass().getResource("Character.fxml"));
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setResizable(false);
+        window.setScene(tableViewScene);
+        window.show();
     }
 }

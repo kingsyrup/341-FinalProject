@@ -51,16 +51,23 @@ public class GameSetupController implements Initializable {
     @FXML
     public void returnToMainMenu(ActionEvent event) throws IOException{
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
+
             Scene tableViewScene = new Scene(tableViewParent);
-
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             window.setScene(tableViewScene);
+            
             window.show();
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        nameInput.setOnKeyTyped(event -> {
+        String string = nameInput.getText();
 
+        if (string.length() > 8) {
+            nameInput.setText(string.substring(0, 8));
+            nameInput.positionCaret(string.length());
+        }
+    });
     }
 }
