@@ -61,13 +61,11 @@ public class MainMenuController implements Initializable {
     }
     
     public void enlargeStart() {
-        newGame.setStyle("-fx-background-color:  #191919;");
         newGame.setStyle("-fx-font: 42 System;");     
     }
     
     public void shrinkStart() {
         newGame.setStyle("-fx-font: 32 System;");
-        newGame.setStyle("-fx-background-color:  #191919;");
     }
     
     public void enlargeLoad() {

@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class GameSetupController implements Initializable {
@@ -23,10 +24,12 @@ public class GameSetupController implements Initializable {
     @FXML
     private Label statusLabel;
     @FXML
-    private Button returnButton;
+    private Label startGame;
+    @FXML
+    private Label mainMenu;
     
     @FXML
-    public void startGame(ActionEvent event) throws IOException {
+    public void startGame(MouseEvent event) throws IOException {
         String heroName = nameInput.getText();
 
         Game.Initialize.init();
@@ -50,7 +53,7 @@ public class GameSetupController implements Initializable {
     }
     
     @FXML
-    public void returnToMainMenu(ActionEvent event) throws IOException{
+    public void returnToMainMenu(MouseEvent event) throws IOException{
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
 
             Scene tableViewScene = new Scene(tableViewParent);
@@ -59,6 +62,22 @@ public class GameSetupController implements Initializable {
             window.setTitle("Main Menu");
             
             window.show();
+    }
+    
+    public void enlargeStart() {
+        startGame.setStyle("-fx-font: 42 System;");     
+    }
+    
+    public void shrinkStart() {
+        startGame.setStyle("-fx-font: 32 System;");
+    }
+    
+    public void enlargeMenu() {
+        mainMenu.setStyle("-fx-font: 42 System;");     
+    }
+    
+    public void shrinkMenu() {
+        mainMenu.setStyle("-fx-font: 32 System;");
     }
 
     @Override

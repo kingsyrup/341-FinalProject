@@ -11,17 +11,17 @@
             <Font name="Calisto MT Bold" size="72.0" />
          </font>
       </Label>
-      <Label fx:id="exit" layoutX="467.0" layoutY="471.0" onMouseClicked="#exit" onMouseEntered="#enlargeExit" onMouseExited="#shrinkExit" prefHeight="108.0" prefWidth="264.0" text="Exit" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
+      <Label fx:id="exit" layoutX="467.0" layoutY="471.0" onMouseClicked="#exit" onMouseEntered="#enlargeExit" onMouseExited="#shrinkExit" prefHeight="108.0" prefWidth="188.0" text="Exit" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Label fx:id="loadGame" layoutX="415.0" layoutY="363.0" onMouseClicked="#loadGame" onMouseEntered="#enlargeLoad" onMouseExited="#shrinkLoad" prefHeight="108.0" prefWidth="264.0" text="Load Game" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
+      <Label fx:id="loadGame" layoutX="415.0" layoutY="363.0" onMouseClicked="#loadGame" onMouseEntered="#enlargeLoad" onMouseExited="#shrinkLoad" prefHeight="108.0" prefWidth="256.0" text="Load Game" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
          <font>
             <Font size="32.0" />
          </font>
       </Label>
-      <Label fx:id="newGame" layoutX="417.0" layoutY="248.0" onMouseClicked="#startNewGame" onMouseEntered="#enlargeStart" onMouseExited="#shrinkStart" prefHeight="108.0" prefWidth="264.0" text="New Game" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
+      <Label fx:id="newGame" layoutX="417.0" layoutY="248.0" onMouseClicked="#startNewGame" onMouseEntered="#enlargeStart" onMouseExited="#shrinkStart" prefHeight="108.0" prefWidth="248.0" text="New Game" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
          <font>
             <Font size="32.0" />
          </font>
