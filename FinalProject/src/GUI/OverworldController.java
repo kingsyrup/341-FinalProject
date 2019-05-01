@@ -64,6 +64,7 @@ public class OverworldController implements Initializable {
         Scene tableViewScene = new Scene(tableViewParent);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Main Menu");
 
         window.setScene(tableViewScene);
         window.show();
@@ -86,6 +87,7 @@ public class OverworldController implements Initializable {
         Scene tableViewScene = new Scene(tableViewParent);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Game");
 
         window.setScene(tableViewScene);
         window.show();
@@ -97,6 +99,7 @@ public class OverworldController implements Initializable {
         Scene tableViewScene = new Scene(tableViewParent);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        window.setTitle("Character Modification");
 
         window.setResizable(false);
         window.setScene(tableViewScene);

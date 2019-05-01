@@ -62,6 +62,7 @@ public class GameController implements Initializable {
             Scene tableViewScene = new Scene(tableViewParent);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setTitle("Overworld");
 
             window.setScene(tableViewScene);
             window.setResizable(false);
@@ -75,6 +76,7 @@ public class GameController implements Initializable {
             Scene tableViewScene = new Scene(tableViewParent);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setTitle("Combat");
 
             window.setScene(tableViewScene);
             window.setResizable(false);

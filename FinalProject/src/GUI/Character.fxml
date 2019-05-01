@@ -14,9 +14,9 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<SplitPane dividerPositions="0.34615384615384615" focusTraversable="false" maxHeight="400" maxWidth="600" minHeight="400" minWidth="600" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CharacterController">
+<SplitPane dividerPositions="0.5" focusTraversable="false" maxHeight="725.0" maxWidth="1000.0" minHeight="400" minWidth="600" prefHeight="725.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CharacterController">
   <items>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="224.0">
          <children>
             <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="21.0" layoutY="14.0" prefHeight="29.0" prefWidth="163.0" text="Name" textAlignment="CENTER">
                <font>
@@ -50,12 +50,12 @@
             <Pane layoutY="59.0" prefHeight="41.0" prefWidth="203.0" style="-fx-border-color: black;">
                <children>
                   <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#34da3c" height="41.0" stroke="BLACK" strokeType="INSIDE" width="203.0" />
-                  <Label fx:id="healthBarLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="203.0" style="-fx-border-style: none;" text="HP Percentage" textFill="#182122" />
+                  <Label fx:id="healthBarLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="191.0" style="-fx-border-style: none;" text="HP Percentage" textFill="#182122" />
                </children>
             </Pane>
             <Pane layoutX="5.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" styleClass="hero" stylesheets="@../Backgrounds/background.css" />
          </children></AnchorPane>
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="435.0">
          <children>
             <Button fx:id="previousButton" layoutX="288.0" layoutY="356.0" mnemonicParsing="false" onAction="#previous" prefHeight="28.0" prefWidth="83.0" text="Return" />
             <Button fx:id="equipButton" layoutX="94.0" layoutY="356.0" mnemonicParsing="false" onAction="#equip" prefHeight="28.0" prefWidth="83.0" text="Equip" />

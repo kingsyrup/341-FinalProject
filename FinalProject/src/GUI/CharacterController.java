@@ -70,6 +70,7 @@ public class CharacterController implements Initializable {
             Scene tableViewScene = new Scene(tableViewParent);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setTitle("Overworld");
 
             window.setScene(tableViewScene);
             window.show();
