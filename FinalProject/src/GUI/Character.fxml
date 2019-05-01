@@ -18,21 +18,21 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="409.0" prefWidth="224.0">
          <children>
-            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="21.0" layoutY="14.0" prefHeight="29.0" prefWidth="163.0" text="Name" textAlignment="CENTER">
+            <Label fx:id="nameLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="175.0" layoutY="14.0" prefHeight="29.0" prefWidth="163.0" text="Name" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
             </Label>
-            <GridPane alignment="CENTER" layoutX="3.0" layoutY="302.0" prefHeight="90.0" prefWidth="203.0">
+            <GridPane alignment="CENTER" layoutX="10.0" layoutY="375.0" prefHeight="275.0" prefWidth="460.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
               </columnConstraints>
               <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="43.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="184.0" minHeight="10.0" prefHeight="97.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="142.0" minHeight="10.0" prefHeight="96.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="77.0" minHeight="10.0" prefHeight="77.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" text="HP:" textAlignment="CENTER" />
@@ -46,27 +46,27 @@
                   <Label fx:id="defDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
-            <Separator layoutY="52.0" prefHeight="7.0" prefWidth="217.0" />
-            <Pane layoutY="59.0" prefHeight="41.0" prefWidth="203.0" style="-fx-border-color: black;">
+            <Separator layoutY="52.0" prefHeight="14.0" prefWidth="496.0" />
+            <Pane layoutY="73.0" prefHeight="35.0" prefWidth="496.0" style="-fx-border-color: black;">
                <children>
-                  <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#34da3c" height="41.0" stroke="BLACK" strokeType="INSIDE" width="203.0" />
-                  <Label fx:id="healthBarLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="191.0" style="-fx-border-style: none;" text="HP Percentage" textFill="#182122" />
+                  <Rectangle fx:id="healthBar" arcHeight="5.0" arcWidth="5.0" fill="#34da3c" height="41.0" stroke="BLACK" strokeType="INSIDE" width="496.0" />
+                  <Label fx:id="healthBarLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="-1.0" prefHeight="41.0" prefWidth="496.0" style="-fx-border-style: none;" text="HP Percentage" textFill="#182122" />
                </children>
             </Pane>
-            <Pane layoutX="5.0" layoutY="100.0" prefHeight="200.0" prefWidth="200.0" styleClass="hero" stylesheets="@../Backgrounds/background.css" />
+            <Pane layoutX="100.0" layoutY="137.0" prefHeight="237.0" prefWidth="296.0" styleClass="hero" stylesheets="@../Backgrounds/background.css" />
          </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="410.0" prefWidth="435.0">
          <children>
-            <Button fx:id="previousButton" layoutX="288.0" layoutY="356.0" mnemonicParsing="false" onAction="#previous" prefHeight="28.0" prefWidth="83.0" text="Return" />
-            <Button fx:id="equipButton" layoutX="94.0" layoutY="356.0" mnemonicParsing="false" onAction="#equip" prefHeight="28.0" prefWidth="83.0" text="Equip" />
-            <TableView fx:id="inventoryTable" layoutX="14.0" layoutY="65.0" prefHeight="251.0" prefWidth="361.0">
+            <Button fx:id="previousButton" layoutX="321.0" layoutY="629.0" mnemonicParsing="false" onAction="#previous" prefHeight="28.0" prefWidth="83.0" text="Return" />
+            <Button fx:id="equipButton" layoutX="109.0" layoutY="629.0" mnemonicParsing="false" onAction="#equip" prefHeight="28.0" prefWidth="83.0" text="Equip" />
+            <TableView fx:id="inventoryTable" layoutX="14.0" layoutY="65.0" prefHeight="521.0" prefWidth="467.0">
               <columns>
                 <TableColumn fx:id="typeColumn" editable="false" minWidth="0.0" prefWidth="81.0" resizable="false" text="Type" />
                 <TableColumn fx:id="nameColumn" editable="false" maxWidth="254.0" minWidth="254.0" prefWidth="254.0" resizable="false" text="Name" />
               </columns>
             </TableView>
-            <Separator layoutY="52.0" prefHeight="7.0" prefWidth="387.0" />
-            <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="92.0" layoutY="14.0" prefHeight="30.0" prefWidth="203.0" text="Inventory" textAlignment="CENTER">
+            <Separator layoutY="52.0" prefHeight="7.0" prefWidth="496.0" />
+            <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="159.0" layoutY="14.0" prefHeight="30.0" prefWidth="203.0" text="Inventory" textAlignment="CENTER">
                <font>
                   <Font size="24.0" />
                </font>
