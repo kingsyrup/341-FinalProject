@@ -57,6 +57,7 @@ public class CombatController implements Initializable {
     private Pane enemyPane;
     
     private Enemy enemy;
+    private int maxHp;
     private String description;
     private boolean hasKey;
     
@@ -66,27 +67,16 @@ public class CombatController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        description = decision.description();
-        hasKey = decision.hasKey();
-        enemy = decision.getEnemy();
-        
-        //apply multiplier - might need to rework this
-        enemy.setDef(enemy.getDef() * multiplier);
-        enemy.setStr(enemy.getStr() * multiplier);
-        enemy.setHp(enemy.getHp() * multiplier);
-        
+
+        parseEvent();
+
         //name 
         playerLabel.setText(hero.getName());
         enemyLabel.setText(enemy.getName());
         
-        
-        
         //set enemy image
         setBackground();
-        
-        
-        
+
         //health bar
         healthBar(hero);
         healthBar(enemy);
@@ -114,6 +104,7 @@ public class CombatController implements Initializable {
             playerHealthLabel.setText(String.valueOf(npc.getHp()) + "/" + String.valueOf(npc.maxHp()));
         }
         else{
+            width = (((float)npc.getHp() / (float)maxHp) * 277);
              enemyHealthBar.setWidth(width);
             if(percentage >= 0.5){
                 enemyHealthBar.setFill(Color.web("#34da3c"));
@@ -124,7 +115,7 @@ public class CombatController implements Initializable {
             else{
                 enemyHealthBar.setFill(Color.RED);
             }
-            enemyHealthLabel.setText(String.valueOf(npc.getHp()) + "/" + String.valueOf(npc.maxHp()));
+            enemyHealthLabel.setText(String.valueOf(npc.getHp()) + "/" + String.valueOf(maxHp));
             
         }
     }
@@ -163,6 +154,8 @@ public class CombatController implements Initializable {
                 
                 if(hasKey){
                     combatTextArea.appendText("\nYou found a key.");
+                    multiplier++;
+                    decision.hasKey(false);
                 }
             }
     }
@@ -185,9 +178,69 @@ public class CombatController implements Initializable {
     }
     
     public void setBackground(){
-        //set enemy background image
+        
         enemyPane.getStyleClass().clear();
-        enemyPane.getStyleClass().add("cyclops");
+        
+        //set enemy background image
+        if(enemy.getName().equals("Cyclops")){
+            enemyPane.getStyleClass().add("cyclops");
+        }
+        
+        if(enemy.getName().equals("Dragon")){
+            enemyPane.getStyleClass().add("dragon");
+        }
+        
+        if(enemy.getName().equals("Goblin")){
+            enemyPane.getStyleClass().add("goblin");
+        }
+        
+        if(enemy.getName().equals("Gryffin")){
+            enemyPane.getStyleClass().add("gryffin");
+        }
+        
+        if(enemy.getName().equals("Harpy")){
+            enemyPane.getStyleClass().add("harpy");
+        }
+        
+        if(enemy.getName().equals("Kobold")){
+            enemyPane.getStyleClass().add("kobold");
+        }
+        
+        if(enemy.getName().equals("Minotaur")){
+            enemyPane.getStyleClass().add("minotaur");
+        }
+        
+        if(enemy.getName().equals("Ogre")){
+            enemyPane.getStyleClass().add("ogre");
+        }
+        
+        if(enemy.getName().equals("Slime")){
+            enemyPane.getStyleClass().add("slime");
+        }
+        
+        if(enemy.getName().equals("Troll")){
+            enemyPane.getStyleClass().add("troll");
+        }
+        
+        if(enemy.getName().equals("Unicorn")){
+            enemyPane.getStyleClass().add("unicorn");
+        }
+        
+        if(enemy.getName().equals("Vampire")){
+            enemyPane.getStyleClass().add("vampire");
+        }
+        
+        if(enemy.getName().equals("Wraith")){
+            enemyPane.getStyleClass().add("wraith");
+        }
+        
+        if(enemy.getName().equals("Wyvern")){
+            enemyPane.getStyleClass().add("wyvern");
+        }
+        
+        if(enemy.getName().equals("Zombie")){
+            enemyPane.getStyleClass().add("zombie");
+        }
     }
     
     public void parseEvent(){
@@ -196,8 +249,12 @@ public class CombatController implements Initializable {
         enemy = decision.getEnemy();
         
         //apply multiplier - might need to rework this
-        enemy.setDef(enemy.getDef() * multiplier);
-        enemy.setStr(enemy.getStr() * multiplier);
-        enemy.setHp(enemy.getHp() * multiplier); 
+        if(enemy.getHp() / multiplier != enemy.maxHp()){
+            enemy.setDef(enemy.getDef() * multiplier);
+            enemy.setStr(enemy.getStr() * multiplier);
+            enemy.setHp(enemy.getHp() * multiplier); 
+        }
+        
+        maxHp = enemy.maxHp() * multiplier;
     }
 }

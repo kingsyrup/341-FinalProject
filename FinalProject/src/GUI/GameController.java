@@ -17,11 +17,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.text.TextFlow;
 import javafx.stage.Stage;
 
 public class GameController implements Initializable {
@@ -114,40 +112,34 @@ public class GameController implements Initializable {
     
     public void setBackground(){
         //set background image
+        backgroundPane.getStyleClass().clear();
+        
         if(location.name().equals("Weisgrow Forest")){
-            backgroundPane.getStyleClass().clear();
             backgroundPane.getStyleClass().add("forest");
         }
         
         if(location.name().equals("Frostburn Tundra")){
-            backgroundPane.getStyleClass().clear();
             backgroundPane.getStyleClass().add("tundra");
         }
         
         if(location.name().equals("Brackmire Marsh")){
-            backgroundPane.getStyleClass().clear();
             backgroundPane.getStyleClass().add("marsh");
         }
         
         if(location.name().equals("Kulpaki Desert")){
-            backgroundPane.getStyleClass().clear();
             backgroundPane.getStyleClass().add("desert");
         }
         
         if(location.name().equals("Dashuk Mountains")){
-            backgroundPane.getStyleClass().clear();
             backgroundPane.getStyleClass().add("mountain");
         }
         
         if(location.name().equals("Golbrow Plains")){
-            backgroundPane.getStyleClass().clear();
             backgroundPane.getStyleClass().add("plains");
         }
         
         if(location.name().equals("Deepholm Mines")){
-            backgroundPane.getStyleClass().clear();
             backgroundPane.getStyleClass().add("mines");
-        }
-        
+        }  
     }
 }

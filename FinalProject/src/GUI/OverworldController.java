@@ -6,6 +6,7 @@
 package GUI;
 
 import static Game.GameBoard.locations;
+import static Game.GameBoard.multiplier;
 import Interfaces.LocationInterface;
 import java.io.IOException;
 import java.net.URL;
@@ -30,7 +31,10 @@ public class OverworldController implements Initializable {
     private ListView<String> locationListView;
     
     @FXML
-    Button travelButton = new Button("Button -> Prop");
+    private Button travelButton = new Button("Button -> Prop");
+    
+    @FXML
+    private Label keyLabel;
     
     private ArrayList<String> locationList = new ArrayList();
  
@@ -49,6 +53,8 @@ public class OverworldController implements Initializable {
         locationListView.itemsProperty().bind(listProperty);
         listProperty.set(FXCollections.observableArrayList(locationList)); 
         travelButton.disableProperty().bind(locationListView.getSelectionModel().selectedItemProperty().isNull());
+        
+        keyLabel.textProperty().bind(new SimpleIntegerProperty(multiplier - 1).asString());
     }
     
     //check if saved?
