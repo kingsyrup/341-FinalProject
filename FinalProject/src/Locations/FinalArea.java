@@ -17,6 +17,7 @@ public class FinalArea implements LocationInterface {
     private String description = "You use the 7 keys to unlock the door leading to the Tower of "
                 + "Halvabor.  The door swings open revealing a giant monster "
                 + "sleeping on endless riches.";
+    private boolean visited = false;
 
     public FinalArea() {
     }
@@ -75,5 +76,15 @@ public class FinalArea implements LocationInterface {
     @Override
     public void removeEvent(EventInterface event){
         this.events.remove(event);
+    }
+    
+    @Override
+    public void visit() {
+        visited = true;
+    }
+    
+    @Override
+    public boolean visited() {
+        return visited;
     }
 }

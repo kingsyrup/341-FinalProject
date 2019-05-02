@@ -12,6 +12,7 @@ public class Tundra implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private Menu eventMenu = new Menu();
+    private boolean visited = false;
 
     public Tundra() {
     }
@@ -77,5 +78,15 @@ public class Tundra implements LocationInterface {
     @Override
     public void removeEvent(EventInterface event){
         this.events.remove(event);
+    }
+    
+    @Override
+    public void visit() {
+        visited = true;
+    }
+    
+    @Override
+    public boolean visited() {
+        return visited;
     }
 }

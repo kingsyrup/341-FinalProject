@@ -1,8 +1,8 @@
-.list-view .list-cell:even {
--fx-background-color: blue;
--fx-text-fill: black;
+.list-view .list-cell:hover {
+-fx-background-color: #0fab9e;
 }
-.list-view .list-cell:odd {
--fx-background-color: blue;
--fx-text-fill: black;
+
+.list-view .list-cell{
+    -fx-font-size: 15.5pt;
+    -fx-font-family: "Calisto MT";
 }

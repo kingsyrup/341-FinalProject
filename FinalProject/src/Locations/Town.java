@@ -15,6 +15,7 @@ public class Town implements LocationInterface {
     private Menu eventMenu = new Menu();
     private String name = "Ghenki City";
     private String description = "You reach the gates of a bustling city.  Where will you go?";
+    private boolean visited = false;
 
     public Town() {
     }
@@ -113,5 +114,15 @@ public class Town implements LocationInterface {
     @Override
     public void removeEvent(EventInterface event){
         this.events.remove(event);
+    }
+    
+    @Override
+    public void visit() {
+        visited = true;
+    }
+    
+    @Override
+    public boolean visited() {
+        return visited;
     }
 }

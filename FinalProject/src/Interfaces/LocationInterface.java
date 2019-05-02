@@ -15,4 +15,6 @@ public interface LocationInterface {
     public void listEvents();
     public ArrayList<EventInterface> getEvents();
     public void removeEvent(EventInterface event);
+    public void visit();
+    public boolean visited();
 }
