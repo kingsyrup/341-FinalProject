@@ -7,6 +7,7 @@ import Items.ItemList;
 import Locations.*;
 import NPCs.Hero;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -107,7 +108,7 @@ public final class Initialize {
         locations.add(new Forest());
     }
     
-    public ArrayList<LocationInterface> getLocations(){
+    public List<LocationInterface> getLocations(){
         return locations;
     }
     

@@ -19,6 +19,7 @@ import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
 import java.util.ArrayList;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -27,51 +28,52 @@ import java.util.ArrayList;
 public class OverworldController implements Initializable {
 
     @FXML
-    private ListView<String> locationListView;
+    private ListView<LocationInterface> locationListView;
 
     @FXML
     private Button travelButton = new Button("Button -> Prop");
 
     @FXML
     private Label keyLabel;
-
-    private ArrayList<String> locationList = new ArrayList();
-
-    private ListProperty<String> listProperty = new SimpleListProperty<>();
-
+    
+    //used to reference single location
     public static LocationInterface location;
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        ObservableList<LocationInterface> locationObservableList = FXCollections.observableList(locations);
+        
+        locationListView.setItems(locationObservableList);
+        
+        //populat list view
+        locationListView.setCellFactory(lv -> new ListCell<LocationInterface>() {
 
-        for (int i = 0; i < locations.size(); i++) {
-            if (locations.get(i).visited()) {
-                locationList.add(locations.get(i).name() + " (visited)");
-            } else {
-                locationList.add(locations.get(i).name());
+            public void updateItem(LocationInterface c, boolean empty) {
+                super.updateItem(c, empty);
+                if (empty) {
+                    setText(null);
+                    setStyle("");
+                } else {
+                    setText(c.name());
+                    //if location has been visited, color background of cell
+                    if (c.visited()) {
+                        setStyle("-fx-background-color: #FA8304");
+                    } else {
+                        setStyle("");
+                    }
+                }
             }
-        }
-
-        //locationListView.setItems(menu);
-        locationListView.itemsProperty().bind(listProperty);
-        listProperty.set(FXCollections.observableArrayList(locationList));
+        });
+        
+        //disable travel button until selection has been made
         travelButton.disableProperty().bind(locationListView.getSelectionModel().selectedItemProperty().isNull());
-
-//        keyLabel.textProperty().bind(new SimpleIntegerProperty(multiplier - 1).asString());
+        
+        //keep track of keys
         keyLabel.setText(" " + (multiplier - 1) + " / 7");
 
     }
-    
-//    locationListView.setCellFactory(lv -> new ListCell<String>() {
-//    @Override
-//    protected void updateItem(String c, boolean empty) {
-//        super.updateItem(c, empty);
-//
-//            if (locations.get(i).) { 
-//                setStyle("-fx-background-color: green");
-//            } 
-//        }
-//    });
 
     //check if saved?
     @FXML
@@ -90,7 +92,7 @@ public class OverworldController implements Initializable {
     @FXML
     public void travel(ActionEvent event) throws IOException {
         for (LocationInterface l : locations) {
-            if (l.name().contains(locationListView.getSelectionModel().getSelectedItem())) {
+            if (l == (locationListView.getSelectionModel().getSelectedItem())) {
                 location = l;
             }
         }

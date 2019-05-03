@@ -1,8 +1,8 @@
-.list-view .list-cell:hover {
+.list-cell:hover {
 -fx-background-color: #0fab9e;
 }
 
-.list-view .list-cell{
+.list-cell{
     -fx-font-size: 15.5pt;
     -fx-font-family: "Calisto MT";
 }
@@ -14,4 +14,34 @@
 .list-cell:selected {
     -fx-background-color: #0AF66B;
     -fx-text-fill: black;
+}
+
+.table-view .column-header {
+    -fx-font-size: 15.5pt;
+    -fx-font-family: "Calisto MT";
+    -fx-text-fill: #0fab9e;
+}
+
+.table-cell:hover {
+-fx-background-color: #0fab9e;
+}
+
+.table-cell{
+    -fx-font-size: 15.5pt;
+    -fx-font-family: "Calisto MT";
+    text-align: center;
+}
+
+.table-cell:empty {
+    -fx-background-color: white;
+}
+
+.table-cell:selected {
+    -fx-background-color: #0AF66B;
+    -fx-text-fill: black;
+}
+
+.button:hover {
+    -fx-border-width: 3px;
+    -fx-border-color: white;
 }

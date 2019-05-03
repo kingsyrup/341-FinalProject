@@ -3,6 +3,7 @@ import Interfaces.*;
 import Items.*;
 import NPCs.*;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -22,7 +23,7 @@ public class GameBoard {
     
     //instantiate locations and events
     public static ArrayList<EventInterface> events = new ArrayList();
-    public static ArrayList<LocationInterface> locations = new ArrayList();
+    public static List<LocationInterface> locations = new ArrayList();
     
     public static int visitCount = 0;
     
