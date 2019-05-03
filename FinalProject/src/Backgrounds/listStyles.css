@@ -6,3 +6,12 @@
     -fx-font-size: 15.5pt;
     -fx-font-family: "Calisto MT";
 }
+
+.list-cell:empty {
+    -fx-background-color: white;
+}
+
+.list-cell:selected {
+    -fx-background-color: #0AF66B;
+    -fx-text-fill: black;
+}

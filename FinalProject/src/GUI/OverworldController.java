@@ -61,6 +61,17 @@ public class OverworldController implements Initializable {
         keyLabel.setText(" " + (multiplier - 1) + " / 7");
 
     }
+    
+//    locationListView.setCellFactory(lv -> new ListCell<String>() {
+//    @Override
+//    protected void updateItem(String c, boolean empty) {
+//        super.updateItem(c, empty);
+//
+//            if (locations.get(i).) { 
+//                setStyle("-fx-background-color: green");
+//            } 
+//        }
+//    });
 
     //check if saved?
     @FXML
