@@ -5,23 +5,41 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="backgroundPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1000.0" stylesheets="@../Backgrounds/background.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.GameController">
    <children>
-      <RadioButton fx:id="radio1" layoutX="201.0" layoutY="337.0" mnemonicParsing="false" onAction="#radio1Click" text="RadioButton">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000a7" height="281.0" layoutX="197.0" layoutY="239.0" stroke="#000000a5" strokeType="INSIDE" width="620.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#000000a7" height="82.0" stroke="#000000a5" strokeType="INSIDE" width="1000.0" />
+      <Label fx:id="output" alignment="CENTER" contentDisplay="CENTER" prefHeight="76.0" prefWidth="1000.0" text="Label" textAlignment="CENTER" textFill="#18ebd9">
+         <font>
+            <Font name="Calisto MT Bold" size="64.0" />
+         </font>
+      </Label>
+      <RadioButton fx:id="radio1" layoutX="251.0" layoutY="284.0" mnemonicParsing="false" onAction="#radio1Click" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
          </toggleGroup>
-      </RadioButton>
-      <RadioButton fx:id="radio2" layoutX="201.0" layoutY="402.0" mnemonicParsing="false" onAction="#radio2Click" text="RadioButton" toggleGroup="$group" />
-      <RadioButton fx:id="radio3" layoutX="201.0" layoutY="469.0" mnemonicParsing="false" onAction="#radio3Click" text="RadioButton" toggleGroup="$group" />
-      <Label fx:id="output" alignment="CENTER" contentDisplay="CENTER" layoutX="116.0" layoutY="52.0" prefHeight="90.0" prefWidth="653.0" text="Label" textAlignment="CENTER">
          <font>
-            <Font size="64.0" />
+            <Font name="Calisto MT" size="28.0" />
          </font>
-      </Label>
-      <Button fx:id="returnButton" layoutX="400.0" layoutY="487.0" mnemonicParsing="false" onAction="#previous" prefHeight="82.0" prefWidth="171.0" text="Return" />
-      <Button fx:id="eventButton" layoutX="159.0" layoutY="528.0" mnemonicParsing="false" onAction="#event" prefHeight="76.0" prefWidth="141.0" text="Select" />
+      </RadioButton>
+      <RadioButton fx:id="radio2" layoutX="251.0" layoutY="362.0" mnemonicParsing="false" onAction="#radio2Click" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8" toggleGroup="$group">
+         <font>
+            <Font name="Calisto MT" size="28.0" />
+         </font></RadioButton>
+      <RadioButton fx:id="radio3" layoutX="251.0" layoutY="440.0" mnemonicParsing="false" onAction="#radio3Click" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8" toggleGroup="$group">
+         <font>
+            <Font name="Calisto MT" size="28.0" />
+         </font></RadioButton>
+      <Button fx:id="returnButton" layoutX="198.0" layoutY="589.0" mnemonicParsing="false" onAction="#previous" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Return">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font></Button>
+      <Button fx:id="eventButton" layoutX="540.0" layoutY="589.0" mnemonicParsing="false" onAction="#event" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Select">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font></Button>
    </children>
 </AnchorPane>

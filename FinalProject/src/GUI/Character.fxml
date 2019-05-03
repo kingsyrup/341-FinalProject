@@ -91,11 +91,11 @@
          <children>
             <Button fx:id="previousButton" layoutX="283.0" layoutY="608.0" mnemonicParsing="false" onAction="#previous" prefHeight="64.0" prefWidth="175.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Return">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold" size="28.0" />
                </font></Button>
             <Button fx:id="equipButton" layoutX="40.0" layoutY="608.0" mnemonicParsing="false" onAction="#equip" prefHeight="64.0" prefWidth="175.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Equip">
                <font>
-                  <Font size="24.0" />
+                  <Font name="System Bold" size="28.0" />
                </font></Button>
             <TableView fx:id="inventoryTable" layoutX="40.0" layoutY="103.0" prefHeight="466.0" prefWidth="418.0" stylesheets="@../Backgrounds/listStyles.css">
               <columns>

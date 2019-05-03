@@ -1,5 +1,5 @@
 .list-cell:hover {
--fx-background-color: #0fab9e;
+    -fx-background-color: #0fab9e;
 }
 
 .list-cell{

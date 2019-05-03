@@ -34,14 +34,14 @@
             <Font name="Calisto MT Bold" size="48.0" />
          </font>
       </Label>
-      <Button fx:id="attackButton" layoutX="87.0" layoutY="487.0" mnemonicParsing="false" onAction="#attack" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #18ebd9;" text="Attack">
+      <Button fx:id="attackButton" layoutX="87.0" layoutY="487.0" mnemonicParsing="false" onAction="#attack" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #18ebd9;" stylesheets="@../Backgrounds/listStyles.css" text="Attack">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Button>
-      <Button fx:id="fleeButton" layoutX="87.0" layoutY="590.0" mnemonicParsing="false" onAction="#flee" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #18ebd9;" text="Flee">
+      <Button fx:id="fleeButton" layoutX="87.0" layoutY="590.0" mnemonicParsing="false" onAction="#flee" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #18ebd9;" stylesheets="@../Backgrounds/listStyles.css" text="Flee">
          <font>
-            <Font size="24.0" />
+            <Font name="System Bold" size="28.0" />
          </font>
       </Button>
       <TextArea fx:id="combatTextArea" editable="false" focusTraversable="false" layoutX="429.0" layoutY="487.0" prefHeight="189.0" prefWidth="516.0" wrapText="true">
