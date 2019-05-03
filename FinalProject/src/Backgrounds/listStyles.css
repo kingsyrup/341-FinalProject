@@ -22,8 +22,8 @@
     -fx-text-fill: #0fab9e;
 }
 
-.table-cell:hover {
--fx-background-color: #0fab9e;
+.table-row-cell:hover {
+    -fx-background-color: #0fab9e;
 }
 
 .table-cell{
@@ -36,7 +36,7 @@
     -fx-background-color: white;
 }
 
-.table-cell:selected {
+.table-row-cell:selected {
     -fx-background-color: #0AF66B;
     -fx-text-fill: black;
 }
