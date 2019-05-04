@@ -4,12 +4,12 @@
 }
 
 .cyclops{
- -fx-background-image: url('cyclops.jpg');
+ -fx-background-image: url('cyclops.png');
  -fx-background-size: 100% 100%;
 }
 
 .dragon{
- -fx-background-image: url('dragon.jpg');
+ -fx-background-image: url('dragon.png');
  -fx-background-size: 100% 100%;
 }
 
@@ -19,12 +19,12 @@
 }
 
 .gryffin{
- -fx-background-image: url('gryffin.jpg');
+ -fx-background-image: url('gryffin.png');
  -fx-background-size: 100% 100%;
 }
 
 .harpy{
- -fx-background-image: url('harpy.jpg');
+ -fx-background-image: url('harpy.png');
  -fx-background-size: 100% 100%;
 }
 
@@ -34,17 +34,17 @@
 }
 
 .minotaur{
- -fx-background-image: url('minotaur.jpeg');
+ -fx-background-image: url('minotaur.png');
  -fx-background-size: 100% 100%;
 }
 
 .ogre{
- -fx-background-image: url('ogre.jpg');
+ -fx-background-image: url('ogre.png');
  -fx-background-size: 100% 100%;
 }
 
 .slime{
- -fx-background-image: url('slime.jpg');
+ -fx-background-image: url('slime.png');
  -fx-background-size: 100% 100%;
 }
 
@@ -54,12 +54,12 @@
 }
 
 .unicorn{
- -fx-background-image: url('unicorn.jpeg');
+ -fx-background-image: url('unicorn.png');
  -fx-background-size: 100% 100%;
 }
 
 .vampire{
- -fx-background-image: url('vampire.jpg');
+ -fx-background-image: url('vampire.png');
  -fx-background-size: 100% 100%;
 }
 
@@ -69,17 +69,17 @@
 }
 
 .wyvern{
- -fx-background-image: url('wyvern.jpg');
+ -fx-background-image: url('wyvern.png');
  -fx-background-size: 100% 100%;
 }
 
 .zombie{
- -fx-background-image: url('zombie.jpg');
+ -fx-background-image: url('zombie.png');
  -fx-background-size: 100% 100%;
 }
 
 .hero{
- -fx-background-image: url('character.jpg');
+ -fx-background-image: url('character.png');
  -fx-background-size: 100% 100%;
 }
 
