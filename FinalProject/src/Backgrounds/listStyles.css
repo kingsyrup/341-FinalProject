@@ -16,10 +16,14 @@
     -fx-text-fill: black;
 }
 
+.table-view {
+    -fx-border-width: 0;
+}
+
 .table-view .column-header {
     -fx-font-size: 15.5pt;
     -fx-font-family: "Calisto MT";
-    -fx-text-fill: #0fab9e;
+    -fx-background-color:  #dd6cc1;
 }
 
 .table-row-cell:hover {
@@ -50,3 +54,5 @@
     -fx-background-color: #0fab9e;
     -fx-background-insets: 1;
 }
+
+

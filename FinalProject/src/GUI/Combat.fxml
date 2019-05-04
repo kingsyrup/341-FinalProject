@@ -8,19 +8,20 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="725.0" prefWidth="1000.0" style="-fx-background-color: #191919;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.CombatController">
    <children>
+      <Rectangle fx:id="enemyHealthBarFull" arcHeight="5.0" arcWidth="5.0" fill="GREY" height="38.0" layoutX="594.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="340.0" />
+      <Rectangle fx:id="playerHealthBarFull" arcHeight="5.0" arcWidth="5.0" fill="GREY" height="38.0" layoutX="87.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="340.0" />
       <Rectangle fx:id="playerHealthBar" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" layoutX="87.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="340.0" />
-      <Label fx:id="playerHealthLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="87.0" layoutY="91.0" prefHeight="38.0" prefWidth="340.0" text="Label" textAlignment="CENTER">
+      <Label fx:id="playerHealthLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="87.0" layoutY="91.0" prefHeight="38.0" prefWidth="340.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Label>
       <Rectangle fx:id="enemyHealthBar" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="38.0" layoutX="594.0" layoutY="91.0" stroke="BLACK" strokeType="INSIDE" width="340.0" />
-      <Label fx:id="enemyHealthLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="594.0" layoutY="91.0" prefHeight="38.0" prefWidth="340.0" text="Label" textAlignment="CENTER">
+      <Label fx:id="enemyHealthLabel" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" layoutX="594.0" layoutY="91.0" prefHeight="38.0" prefWidth="340.0" text="Label" textAlignment="CENTER" textFill="WHITE">
          <font>
-            <Font size="22.0" />
+            <Font name="System Bold" size="22.0" />
          </font>
       </Label>
       <Pane layoutX="87.0" layoutY="172.0" prefHeight="273.0" prefWidth="340.0" styleClass="hero" stylesheets="@../Backgrounds/background.css" />

@@ -64,6 +64,9 @@ public class CombatController implements Initializable {
     @FXML
     private Pane enemyPane;
     
+    @FXML
+    private Pane heroPane;
+    
     private Enemy enemy;
     private int maxHp;
     private String description;
@@ -75,6 +78,10 @@ public class CombatController implements Initializable {
     );
     
     private FadeTransition fadeOutEnemyDamage = new FadeTransition(
+            Duration.millis(2000)
+    );
+    
+    private FadeTransition fadeOutEnemy = new FadeTransition(
             Duration.millis(2000)
     );
 
@@ -108,13 +115,17 @@ public class CombatController implements Initializable {
         fadeOutEnemyDamage.setFromValue(1.0);
         fadeOutEnemyDamage.setToValue(0.0);
         
+        fadeOutEnemy.setNode(enemyPane);
+        fadeOutEnemy.setFromValue(1.0);
+        fadeOutEnemy.setToValue(0.0);
+        
     }
     
     @FXML
     public void healthBar(NpcInterface npc) {
         //health bar
         float percentage = ((float) npc.getHp() / (float) npc.maxHp());
-        float width = (percentage * 277);
+        float width = (percentage * 340);
         if (npc.equals(hero)) {
             playerHealthBar.setWidth(width);
             if (percentage >= 0.5) {
@@ -126,7 +137,7 @@ public class CombatController implements Initializable {
             }
             playerHealthLabel.setText(String.valueOf(npc.getHp()) + "/" + String.valueOf(npc.maxHp()));
         } else {
-            width = (((float) npc.getHp() / (float) maxHp) * 277);
+            width = (((float) npc.getHp() / (float) maxHp) * 340);
             enemyHealthBar.setWidth(width);
             if (percentage >= 0.5) {
                 enemyHealthBar.setFill(Color.web("#34da3c"));
@@ -160,6 +171,7 @@ public class CombatController implements Initializable {
         if (enemy.isKilled()) {
             combatTextArea.appendText("\nYou defeated the " + enemy.getName() + ".");
             attackButton.setDisable(true);
+            fadeOutEnemy.playFromStart();
             
             if (chance(25)) {
                 //Enemy drops random item from current tier - based on difficulty multiplier
