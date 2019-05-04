@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,6 +17,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class GameSetupController implements Initializable {
 
@@ -35,7 +37,7 @@ public class GameSetupController implements Initializable {
         Game.Initialize.init();
         
         if (heroName.length() == 0) {
-            statusLabel.setVisible(true);
+            statusLabel.setText("Please enter a name in the text field.");
         } else {
             //set hero name
             hero.setName(heroName);
@@ -89,6 +91,7 @@ public class GameSetupController implements Initializable {
             nameInput.setText(string.substring(0, 8));
             nameInput.positionCaret(string.length());
         }
+
     });
     }
 }

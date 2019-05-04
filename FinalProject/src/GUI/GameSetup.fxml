@@ -15,7 +15,7 @@
          <font>
             <Font size="20.0" />
          </font></TextField>
-      <Label fx:id="statusLabel" layoutX="370.0" layoutY="261.0" prefHeight="42.0" prefWidth="327.0" text="Please enter a name in the text field." textFill="#eb1a1a" visible="false">
+      <Label fx:id="statusLabel" layoutX="370.0" layoutY="261.0" prefHeight="42.0" prefWidth="327.0" textFill="#eb1a1a">
          <font>
             <Font size="20.0" />
          </font></Label>
