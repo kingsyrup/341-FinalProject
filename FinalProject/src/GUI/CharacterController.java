@@ -89,6 +89,31 @@ public class CharacterController implements Initializable {
         typeColumn.setCellValueFactory(new PropertyValueFactory<ItemInterface, String>("type"));
         inventoryTable.setItems(FXCollections.observableArrayList(inventory));
 
+//        nameColumn.setCellFactory(column -> {
+//            return new TableCell<ItemInterface, String>() {
+//                @Override
+//                protected void updateItem(String item, boolean empty) {
+//                    super.updateItem(item, empty);
+//
+//
+//                        setText(item);
+//
+//                        for (int i = 0; i < inventory.size(); i++) {
+//
+//                            if (hero.getEquippedWeapon().getName().equals(item) || hero.getEquippedArmor().getName().equals(item)) {
+//                                
+//                                setStyle("-fx-background-color: red");
+//                            } else {
+//                                
+//                                setStyle("");
+//                            }
+//                            
+//                        }
+//                    
+//                }
+//            };
+//        });
+
         //bind item stats to diff labels
         inventoryTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {

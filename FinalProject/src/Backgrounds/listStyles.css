@@ -16,10 +16,6 @@
     -fx-text-fill: black;
 }
 
-.table-view {
-    -fx-border-width: 0;
-}
-
 .table-view .column-header {
     -fx-font-size: 15.5pt;
     -fx-font-family: "Calisto MT";

@@ -41,16 +41,6 @@ public class MainMenuController implements Initializable {
         window.setScene(tableViewScene);
         window.show();
     }
-    
-//    newGame.setOnMouseClicked(new EventHandler<MouseEvent>(){
-//    Parent tableViewParent = FXMLLoader.load(getClass().getResource("GameSetup.fxml"));
-//        Scene tableViewScene = new Scene(tableViewParent);
-//
-//        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-//        
-//        window.setScene(tableViewScene);
-//        window.show();
-//    });
 
     public void loadGame() {
 

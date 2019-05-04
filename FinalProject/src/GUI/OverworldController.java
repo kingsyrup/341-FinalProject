@@ -47,7 +47,7 @@ public class OverworldController implements Initializable {
         
         locationListView.setItems(locationObservableList);
         
-        //populat list view
+        //populate list view
         locationListView.setCellFactory(lv -> new ListCell<LocationInterface>() {
 
             public void updateItem(LocationInterface c, boolean empty) {
