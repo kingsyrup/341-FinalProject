@@ -9,6 +9,7 @@ import GUI.CombatController;
 import Helpers.Switcher;
 import Helpers.Menu;
 import Interfaces.*;
+import java.io.Serializable;
 import java.util.*;
 import javafx.fxml.FXMLLoader;
 
@@ -16,7 +17,7 @@ import javafx.fxml.FXMLLoader;
  *
  * @author xg6856vd
  */
-public class Hero implements NpcInterface {
+public class Hero implements NpcInterface, Serializable {
     private int str = 3;
     private int def = 3;
     private int hp = 35;
@@ -33,7 +34,7 @@ public class Hero implements NpcInterface {
     public ArrayList<ItemInterface> inventory = new ArrayList();
     
     //scanner object for inventory selection
-    private  final Scanner console = new Scanner(System.in);
+    private  transient Scanner console = new Scanner(System.in);
 
     public Hero() {
     }

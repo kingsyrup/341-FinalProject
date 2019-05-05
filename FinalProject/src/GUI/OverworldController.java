@@ -5,10 +5,17 @@
  */
 package GUI;
 
+import static Game.GameBoard.hero;
 import static Game.GameBoard.locations;
 import static Game.GameBoard.multiplier;
 import Interfaces.LocationInterface;
+import NPCs.Hero;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.property.*;
@@ -25,7 +32,7 @@ import javafx.collections.ObservableList;
  *
  * @author Ajay
  */
-public class OverworldController implements Initializable {
+public class OverworldController implements Initializable, Serializable {
 
     @FXML
     private ListView<LocationInterface> locationListView;
@@ -35,18 +42,17 @@ public class OverworldController implements Initializable {
 
     @FXML
     private Label keyLabel;
-    
+
     //used to reference single location
     public static LocationInterface location;
-    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         ObservableList<LocationInterface> locationObservableList = FXCollections.observableList(locations);
-        
+
         locationListView.setItems(locationObservableList);
-        
+
         //populate list view
         locationListView.setCellFactory(lv -> new ListCell<LocationInterface>() {
 
@@ -66,10 +72,10 @@ public class OverworldController implements Initializable {
                 }
             }
         });
-        
+
         //disable travel button until selection has been made
         travelButton.disableProperty().bind(locationListView.getSelectionModel().selectedItemProperty().isNull());
-        
+
         //keep track of keys
         keyLabel.setText(" " + (multiplier - 1) + " / 7");
 
@@ -98,7 +104,7 @@ public class OverworldController implements Initializable {
         }
         //mark that location has been traveled to
         location.visit();
-        
+
         loadLocation(event);
     }
 
@@ -126,4 +132,18 @@ public class OverworldController implements Initializable {
         window.setScene(tableViewScene);
         window.show();
     }
+
+    @FXML
+    public void saveGame(ActionEvent event) throws IOException {
+        try {
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Hero.txt"));
+            out.writeObject(hero);
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 }

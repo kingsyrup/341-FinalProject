@@ -14,7 +14,7 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <Button layoutX="87.0" layoutY="447.0" mnemonicParsing="false" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Save Game">
+      <Button layoutX="87.0" layoutY="447.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Save Game">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>

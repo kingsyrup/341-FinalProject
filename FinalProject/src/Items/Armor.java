@@ -6,12 +6,13 @@
 package Items;
 
 import Interfaces.ItemInterface;
+import java.io.Serializable;
 
 /**
  *
  * @author xg6856vd
  */
-public class Armor implements ItemInterface {
+public class Armor implements ItemInterface, Serializable {
     
     private final int strModifier;
     private final int defModifier;

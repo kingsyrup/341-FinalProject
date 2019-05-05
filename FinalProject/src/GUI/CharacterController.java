@@ -105,7 +105,6 @@ public class CharacterController implements Initializable {
                     if (!isEmpty()) {
                         
                         if (hero.armorEquipped()) {
-                            System.out.println(hero.getEquippedArmor().getName());
                             if (item.equals(hero.getEquippedArmor().getName())) {
                                 currentRow.setStyle("-fx-background-color: #0fab9e");
                             }
@@ -245,7 +244,6 @@ public class CharacterController implements Initializable {
                     if (!isEmpty()) {
                         
                         if (hero.armorEquipped()) {
-                            System.out.println(hero.getEquippedArmor().getName());
                             if (item.equals(hero.getEquippedArmor().getName())) {
                                 currentRow.setStyle("-fx-background-color: #0fab9e");
                             }

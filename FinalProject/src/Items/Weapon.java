@@ -1,12 +1,13 @@
 package Items;
 
 import Interfaces.ItemInterface;
+import java.io.Serializable;
 
 /**
  *
  * @author xg6856vd
  */
-public class Weapon implements ItemInterface {
+public class Weapon implements ItemInterface, Serializable {
     
     private final int strModifier;
     private final int defModifier;
