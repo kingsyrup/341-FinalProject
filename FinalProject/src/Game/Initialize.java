@@ -57,8 +57,6 @@ public final class Initialize {
             
             locations.get(i).getEvents().get(keyIndex).hasKey(true);
         }
-        
-        locations.add(new Town());
     }
     
     public static void addEvents(){
@@ -106,6 +104,7 @@ public final class Initialize {
         locations.add(new Marsh());
         locations.add(new Tundra());
         locations.add(new Forest());
+        locations.add(new Town());
     }
     
     public List<LocationInterface> getLocations(){

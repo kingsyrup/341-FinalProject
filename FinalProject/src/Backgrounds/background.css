@@ -117,3 +117,8 @@
     -fx-background-image: url('mines.jpg');
     -fx-background-size: 100% 100%;
 }
+
+.town{
+    -fx-background-image: url('town.jpg');
+    -fx-background-size: 100% 100%;
+}
