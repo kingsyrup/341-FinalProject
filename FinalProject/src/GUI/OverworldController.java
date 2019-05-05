@@ -98,6 +98,7 @@ public class OverworldController implements Initializable {
         }
         //mark that location has been traveled to
         location.visit();
+        
         loadLocation(event);
     }
 

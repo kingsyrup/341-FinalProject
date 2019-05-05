@@ -107,12 +107,12 @@ public class CharacterController implements Initializable {
                         if (hero.armorEquipped()) {
                             System.out.println(hero.getEquippedArmor().getName());
                             if (item.equals(hero.getEquippedArmor().getName())) {
-                                currentRow.setStyle("-fx-background-color: #0AF66B");
+                                currentRow.setStyle("-fx-background-color: #0fab9e");
                             }
                         }
                         if (hero.weaponEquipped()) {
                                 if (item.equals(hero.getEquippedWeapon().getName())) {
-                                    currentRow.setStyle("-fx-background-color: #0AF66B");
+                                    currentRow.setStyle("-fx-background-color: #0fab9e");
                                 }
                         }
                         if (!hero.armorEquipped() && !hero.weaponEquipped()){
@@ -247,12 +247,12 @@ public class CharacterController implements Initializable {
                         if (hero.armorEquipped()) {
                             System.out.println(hero.getEquippedArmor().getName());
                             if (item.equals(hero.getEquippedArmor().getName())) {
-                                currentRow.setStyle("-fx-background-color: #0AF66B");
+                                currentRow.setStyle("-fx-background-color: #0fab9e");
                             }
                         }
                         if (hero.weaponEquipped()) {
                                 if (item.equals(hero.getEquippedWeapon().getName())) {
-                                    currentRow.setStyle("-fx-background-color: #0AF66B");
+                                    currentRow.setStyle("-fx-background-color: #0fab9e");
                                 }
                         }
                         if (!hero.armorEquipped() && !hero.weaponEquipped()){
