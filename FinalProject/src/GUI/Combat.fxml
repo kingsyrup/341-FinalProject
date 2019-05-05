@@ -51,12 +51,12 @@
          </font>
       </TextArea>
       <Pane fx:id="enemyPane" layoutX="594.0" layoutY="172.0" prefHeight="273.0" prefWidth="340.0" stylesheets="@../Backgrounds/background.css" />
-      <Label fx:id="heroDamage" layoutX="429.0" layoutY="91.0" prefHeight="38.0" prefWidth="60.0" textFill="RED">
+      <Label fx:id="heroDamage" layoutX="434.0" layoutY="91.0" prefHeight="38.0" prefWidth="45.0" textFill="RED">
          <font>
             <Font size="24.0" />
          </font>
       </Label>
-      <Label fx:id="enemyDamage" layoutX="534.0" layoutY="91.0" prefHeight="38.0" prefWidth="60.0" textFill="RED">
+      <Label fx:id="enemyDamage" layoutX="555.0" layoutY="91.0" prefHeight="38.0" prefWidth="39.0" textAlignment="RIGHT" textFill="RED">
          <font>
             <Font size="24.0" />
          </font>

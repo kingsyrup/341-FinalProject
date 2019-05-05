@@ -263,4 +263,12 @@ public class Hero implements NpcInterface {
     public int maxHp(){
         return maxHp;
     }
+    
+    public boolean weaponEquipped() {
+        return isWeaponEquipped;
+    }
+    
+    public boolean armorEquipped() {
+        return isArmorEquipped;
+    }
 }

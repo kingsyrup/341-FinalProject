@@ -20,6 +20,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 public class CharacterController implements Initializable {
 
@@ -89,30 +90,38 @@ public class CharacterController implements Initializable {
         typeColumn.setCellValueFactory(new PropertyValueFactory<ItemInterface, String>("type"));
         inventoryTable.setItems(FXCollections.observableArrayList(inventory));
 
-//        nameColumn.setCellFactory(column -> {
-//            return new TableCell<ItemInterface, String>() {
-//                @Override
-//                protected void updateItem(String item, boolean empty) {
-//                    super.updateItem(item, empty);
-//
-//
-//                        setText(item);
-//
-//                        for (int i = 0; i < inventory.size(); i++) {
-//
-//                            if (hero.getEquippedWeapon().getName().equals(item) || hero.getEquippedArmor().getName().equals(item)) {
-//                                
-//                                setStyle("-fx-background-color: red");
-//                            } else {
-//                                
-//                                setStyle("");
-//                            }
-//                            
-//                        }
-//                    
-//                }
-//            };
-//        });
+        //track currently equipped armor and weapon by marking table cell backgrounds green
+        nameColumn.setCellFactory(column -> {
+            return new TableCell<ItemInterface, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    setText(empty ? "" : getItem().toString());
+                    setGraphic(null);
+
+                    TableRow<ItemInterface> currentRow = getTableRow();
+
+                    if (!isEmpty()) {
+                        
+                        if (hero.armorEquipped()) {
+                            System.out.println(hero.getEquippedArmor().getName());
+                            if (item.equals(hero.getEquippedArmor().getName())) {
+                                currentRow.setStyle("-fx-background-color: #0AF66B");
+                            }
+                        }
+                        if (hero.weaponEquipped()) {
+                                if (item.equals(hero.getEquippedWeapon().getName())) {
+                                    currentRow.setStyle("-fx-background-color: #0AF66B");
+                                }
+                        }
+                        if (!hero.armorEquipped() && !hero.weaponEquipped()){
+                            currentRow.setStyle("");
+                        }
+                    }
+                }
+            };
+        });
 
         //bind item stats to diff labels
         inventoryTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
@@ -220,6 +229,39 @@ public class CharacterController implements Initializable {
         defLabel.setText(String.valueOf(hero.getDef()));
         hpLabel.setText(String.valueOf(hero.getHp()));
         healthBar();
+
+        //track currently equipped armor and weapon by marking table cell backgrounds green
+        nameColumn.setCellFactory(column -> {
+            return new TableCell<ItemInterface, String>() {
+                @Override
+                protected void updateItem(String item, boolean empty) {
+                    super.updateItem(item, empty);
+
+                    setText(empty ? "" : getItem().toString());
+                    setGraphic(null);
+
+                    TableRow<ItemInterface> currentRow = getTableRow();
+
+                    if (!isEmpty()) {
+                        
+                        if (hero.armorEquipped()) {
+                            System.out.println(hero.getEquippedArmor().getName());
+                            if (item.equals(hero.getEquippedArmor().getName())) {
+                                currentRow.setStyle("-fx-background-color: #0AF66B");
+                            }
+                        }
+                        if (hero.weaponEquipped()) {
+                                if (item.equals(hero.getEquippedWeapon().getName())) {
+                                    currentRow.setStyle("-fx-background-color: #0AF66B");
+                                }
+                        }
+                        if (!hero.armorEquipped() && !hero.weaponEquipped()){
+                            currentRow.setStyle("");
+                        }
+                    }
+                }
+            };
+        });
     }
 
     public void healthBar() {
