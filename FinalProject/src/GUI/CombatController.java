@@ -23,6 +23,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -50,6 +51,9 @@ public class CombatController implements Initializable {
     private Label enemyLabel;
     
     @FXML
+    private Label itemDropLabel;
+    
+    @FXML
     private Label heroDamage;
     
     @FXML
@@ -66,6 +70,12 @@ public class CombatController implements Initializable {
     
     @FXML
     private Pane heroPane;
+    
+    @FXML
+    private Label keyLabel;
+    
+    @FXML
+    private ImageView keyImage;
     
     private Enemy enemy;
     private int maxHp;
@@ -186,12 +196,19 @@ public class CombatController implements Initializable {
                 combatTextArea.appendText("\nThe " + enemy.getName() + " dropped a " + item.getName()
                         + ".");
                 items.removeItem(item);
+                
+                itemDropLabel.setVisible(true);
+                itemDropLabel.setText("The " + enemy.getName() + " dropped a " + item.getName()
+                        + ".");
             }
             
             if (hasKey) {
                 combatTextArea.appendText("\nYou found a key.");
                 multiplier++;
                 decision.hasKey(false);
+                
+                keyLabel.setVisible(true);
+                keyImage.setVisible(true);
             }
         }
 
