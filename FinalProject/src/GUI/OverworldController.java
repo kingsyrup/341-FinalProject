@@ -9,6 +9,7 @@ import static Game.GameBoard.hero;
 import static Game.GameBoard.locations;
 import static Game.GameBoard.multiplier;
 import Interfaces.LocationInterface;
+import Locations.FinalArea;
 import NPCs.Hero;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -48,6 +49,11 @@ public class OverworldController implements Initializable, Serializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        //add final area if 7 keys have been found
+        if ((multiplier - 1) >= 7) {
+            locations.add(new FinalArea());
+        }
 
         ObservableList<LocationInterface> locationObservableList = FXCollections.observableList(locations);
 

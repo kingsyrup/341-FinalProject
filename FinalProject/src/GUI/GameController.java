@@ -147,5 +147,9 @@ public class GameController implements Initializable {
         if(location.name().equals("Ghenki City")){
             backgroundPane.getStyleClass().add("town");
         }  
+        
+        if(location.name().equals("Tower of Halvabor")){
+            backgroundPane.getStyleClass().add("tower");
+        } 
     }
 }
