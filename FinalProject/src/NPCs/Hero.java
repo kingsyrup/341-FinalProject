@@ -6,8 +6,8 @@
 package NPCs;
 
 import GUI.CombatController;
-import Helpers.Switcher;
-import Helpers.Menu;
+//import Helpers.Switcher;
+//import Helpers.Menu;
 import Interfaces.*;
 import java.io.Serializable;
 import java.util.*;
@@ -32,9 +32,6 @@ public class Hero implements NpcInterface, Serializable {
     private int defAdjustment;
     private int hpAdjustment; 
     public ArrayList<ItemInterface> inventory = new ArrayList();
-    
-    //scanner object for inventory selection
-    private  transient Scanner console = new Scanner(System.in);
 
     public Hero() {
     }
@@ -157,70 +154,6 @@ public class Hero implements NpcInterface, Serializable {
         inventory.add(item);
     }
     
-    //work in progress
-    public void getInventory(){
-        
-        //custom switch class - allows dynamic cases
-        Switcher switcher = new Switcher();
-    
-        Menu inventoryMenu = new Menu();
-        int userSelection = -1;
-        
-        //print out inventory menu
-        System.out.println("\n------Inventory------");
-        System.out.println("View an Item");
-        inventoryMenu.addItem("Exit");
-        for(int i = 0; i < inventory.size(); i++){
-            inventoryMenu.addItem(inventory.get(i).getName());
-        }
-        System.out.print(inventoryMenu.showMenu());
-        
-        
-        //add dynamic cases to switch and print item menu
-        for(int i = 2; i < inventory.size() + 2; i++){
-            switcher.addCaseCommand(i, new CommandInterface() {
-                @Override
-                public void execute(int i) {
-                  Menu itemMenu;
-                  int selection;
-                  if((inventory.get(i-2) == equippedArmor) ^  (inventory.get(i-2) == equippedWeapon)){
-                      itemMenu = new Menu("Exit","Unequip");
-                  }
-                  else{
-                      itemMenu = new Menu("Exit","Equip");
-                  }
-
-                  System.out.println("\n" + inventory.get(i-2).getName() + "\t");
-                  System.out.println("Str: " + inventory.get(i-2).getStrModifier());
-                  System.out.println("Def: " + inventory.get(i-2).getDefModifier());
-                  System.out.println("Hp: " + inventory.get(i-2).getHpModifier());
-
-                  System.out.print("\n What would you like to do?\n" + itemMenu.showMenu());
-
-                  selection = console.nextInt();
-                  switch(selection){
-                      case 1:
-                          break;
-                      case 2:
-                          if((inventory.get(i-2) == equippedArmor) ^  (inventory.get(i-2) == equippedWeapon)){
-                            unequipItem(inventory.get(i-2));
-                          }
-                          else{
-                              equipItem(inventory.get(i-2));
-                          }
-                          break;
-                      default:
-                          break;
-                  }
-
-                }
-            });
-        }
-        
-        userSelection = console.nextInt();
-        switcher.on(userSelection);
-    }
-    
     @Override
     public int attack(NpcInterface defender){
         int attack = this.getStr() * diceRoll();
@@ -230,8 +163,7 @@ public class Hero implements NpcInterface, Serializable {
         if(damage < 0){
             damage = 0;
         }
-        
-        //System.out.println("You dealt " + damage + " damage to the " + defender.getName() + ".");
+
         defender.attacked(damage);
         
         return damage;

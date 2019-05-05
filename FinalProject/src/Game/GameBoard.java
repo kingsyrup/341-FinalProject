@@ -26,13 +26,4 @@ public class GameBoard {
     public static List<LocationInterface> locations = new ArrayList();
     
     public static int visitCount = 0;
-    
-    //public static int userSelection = -1;
-    
-    
-    public static void main(String[] arg){
-
-        //present main menu
-        MainMenu.show();        
-    }
 }

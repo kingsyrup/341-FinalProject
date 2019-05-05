@@ -21,7 +21,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -58,9 +57,6 @@ public class CombatController implements Initializable {
     
     @FXML
     private Label enemyDamage;
-    
-    @FXML
-    private TextArea combatTextArea;
     
     @FXML
     private Button attackButton;
@@ -115,8 +111,6 @@ public class CombatController implements Initializable {
         healthBar(hero);
         healthBar(enemy);
         
-        combatTextArea.appendText(description + "\n");
-        
         fadeOutHeroDamage.setNode(heroDamage);
         fadeOutHeroDamage.setFromValue(1.0);
         fadeOutHeroDamage.setToValue(0.0);
@@ -164,13 +158,10 @@ public class CombatController implements Initializable {
     @FXML
     public void attack(ActionEvent event) throws IOException {
         int damage = hero.attack(enemy);
-        combatTextArea.appendText("\nYou dealt " + damage + " damage to the " + enemy.getName() + ".");
         enemyDamage.setText("-" + damage);
         fadeOutEnemyDamage.playFromStart();
         if (!enemy.isKilled()) {
             damage = enemy.attack(hero);
-            combatTextArea.appendText("\nThe " + enemy.getName() + " dealt " + damage
-                    + " damage to the " + hero.getName() + ".\n");
             heroDamage.setText("-" + damage);
             fadeOutHeroDamage.playFromStart();
         }
@@ -179,7 +170,6 @@ public class CombatController implements Initializable {
 
         //enemy is dead
         if (enemy.isKilled()) {
-            combatTextArea.appendText("\nYou defeated the " + enemy.getName() + ".");
             attackButton.setDisable(true);
             fadeOutEnemy.playFromStart();
             
@@ -193,8 +183,6 @@ public class CombatController implements Initializable {
                 //Add item to player's inventory and remove from global item list
                 // ensures items are unique
                 hero.addToInventory(item);
-                combatTextArea.appendText("\nThe " + enemy.getName() + " dropped a " + item.getName()
-                        + ".");
                 items.removeItem(item);
                 
                 itemDropLabel.setVisible(true);
@@ -203,7 +191,6 @@ public class CombatController implements Initializable {
             }
             
             if (hasKey) {
-                combatTextArea.appendText("\nYou found a key.");
                 multiplier++;
                 decision.hasKey(false);
                 
@@ -235,10 +222,6 @@ public class CombatController implements Initializable {
         window.setScene(tableViewScene);
         window.setResizable(false);
         window.show();
-    }
-    
-    public void appendMessage(String message) {
-        combatTextArea.appendText(message);
     }
     
     public void setBackground() {
@@ -308,7 +291,6 @@ public class CombatController implements Initializable {
     }
     
     public void parseEvent() {
-        description = decision.description();
         hasKey = decision.hasKey();
         enemy = decision.getEnemy();
 

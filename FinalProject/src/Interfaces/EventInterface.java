@@ -8,11 +8,49 @@ import NPCs.Enemy;
  */
 public interface EventInterface {
     
+    /**
+     * Allows access to the name of an event.
+     *
+     * @require event exists
+     * @ensure the name of the event is returned
+     * @return String the name of the event
+     */
     public String name();
-    public String description();
-    public void choices();
+    
+    /**
+     * Allows ability to set the key status of an event.
+     *
+     * @param hasKey is the new status of the key
+     * @require event exists
+     * @ensure the event's key status is correctly updated with the new boolean
+     * value. If true, the event has a key, false if not.
+     */
     public void hasKey(boolean hasKey);
+    
+    /**
+     * Allows access to the key status of an event.
+     *
+     * @require event exists
+     * @ensure the current status of hasKey is returned
+     * @return boolean hasKey. True if the event has a key, false otherwise
+     */
     public boolean hasKey();
+    
+    /**
+     * Allows access to the combat boolean of an event.
+     *
+     * @require event exists
+     * @ensure the combat attribute of the event is returned
+     * @return boolean hasCombat, true if the event involves combat, false otherwise
+     */
     public boolean hasCombat();
+    
+    /**
+     * Allows access to the enemy of an event.
+     *
+     * @require event exists
+     * @ensure the enemy of the event is returned
+     * @return Enemy - the enemy of the event. Return null if enemy does not exist
+     */
     public Enemy getEnemy();
 }

@@ -18,21 +18,6 @@ public class Child implements EventInterface{
     public String name() {
         return name;
     }
-
-    @Override
-    public String description() {
-        return description;
-    }
-
-    @Override
-    public void choices() {
-        if (hasKey) {
-                System.out.println("You found a key.");
-                hasKey = false;
-                Game.GameBoard.multiplier++;
-            }
-    }
-
     @Override
     public void hasKey(boolean hasKey) {
         this.hasKey = hasKey; 

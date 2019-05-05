@@ -9,12 +9,56 @@ import java.util.ArrayList;
 
 public interface LocationInterface {
     
+    /**
+     * Allows access to the name of a location.
+     *
+     * @require location exists
+     * @ensure the name of the location is returned
+     * @return String name - the name of the location 
+     */
     public String name();
-    public String description();
+    
+    /**
+     * Allows ability to add event to a location.
+     *
+     * @require location exists
+     * @ensure the passed event is added to the location
+     * @param event - is the event to be added to the location
+     */
     public void addEvent(EventInterface event);
-    public void listEvents();
+    
+    /**
+     * Allows access to the events of a location.
+     *
+     * @require location exists
+     * @ensure the events of the location are returned
+     * @return ArrayList<EventInterface> - all of the events in the location 
+     */
     public ArrayList<EventInterface> getEvents();
+    
+    /**
+     * Allows ability to remove an event from a location.
+     *
+     * @require location exists
+     * @ensure the passed event is removed from the location
+     * @param event - is the event to be removed from the location 
+     */
     public void removeEvent(EventInterface event);
+    
+    /**
+     * Allows ability to mark a location as visited.
+     *
+     * @require location exists
+     * @ensure the boolean parameter tracking the location's visitation status is changed to true
+     */
     public void visit();
+    
+    /**
+     * Allows access to the visitation status of a location.
+     *
+     * @require location exists
+     * @ensure the visitation status of the location is returned
+     * @return boolean - true if the location has been visited, false otherwise 
+     */
     public boolean visited();
 }
