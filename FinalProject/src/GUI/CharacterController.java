@@ -265,7 +265,7 @@ public class CharacterController implements Initializable {
     public void healthBar() {
         //health bar
         float percentage = ((float) hero.getHp() / (float) hero.maxHp());
-        float width = (percentage * 411);
+        float width = (percentage * 427);
         healthBar.setWidth(width);
         if (percentage >= 0.5) {
             healthBar.setFill(Color.web("#34da3c"));

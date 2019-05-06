@@ -5,10 +5,8 @@
  */
 package Events;
 
-import Game.Combat;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
-import java.util.Scanner;
 
 /**
  *
@@ -16,15 +14,9 @@ import java.util.Scanner;
  */
 public class Kobold implements EventInterface {
     
-    private final String name ="Kobold Encounter";
-    private final String description = "You stumble upon a goblin gathering "
-            + "water at a stream.";
-    private Scanner console = new Scanner(System.in);
-    private Enemy enemy = new Enemy(10,1,1,"Kobold");
-    private boolean deadFlag = false;
-    private boolean friendFlag = false;
+    private final String name = "Investigate the howling";
+    private Enemy enemy = new Enemy(20,2,3,"Kobold");
     private boolean hasKey = false;
-    private boolean hasCombat = true;
     
     public Kobold() {
     }
@@ -43,11 +35,6 @@ public class Kobold implements EventInterface {
     public boolean hasKey() {
         return hasKey;
     } 
-    
-    @Override
-    public boolean hasCombat(){
-        return hasCombat;
-    }
     
     @Override
     public Enemy getEnemy(){

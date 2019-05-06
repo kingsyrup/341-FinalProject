@@ -5,23 +5,18 @@
  */
 package NPCs;
 
-import GUI.CombatController;
-//import Helpers.Switcher;
-//import Helpers.Menu;
 import Interfaces.*;
 import java.io.Serializable;
 import java.util.*;
-import javafx.fxml.FXMLLoader;
-
 /**
  *
  * @author xg6856vd
  */
 public class Hero implements NpcInterface, Serializable {
-    private int str = 3;
-    private int def = 3;
-    private int hp = 35;
-    private int maxHp = 35;
+    private int str = 6;
+    private int def = 5;
+    private int hp = 45;
+    private int maxHp = 45;
     public String name;
     private boolean isKilled = false;
     private boolean isArmorEquipped = false;
@@ -119,8 +114,6 @@ public class Hero implements NpcInterface, Serializable {
 
             isWeaponEquipped = true;
         }
-        
-        System.out.println("You equipped " + item.getName());
     }
     
     public void unequipItem(ItemInterface item){
@@ -134,7 +127,6 @@ public class Hero implements NpcInterface, Serializable {
             this.setStr(str - strAdjustment);
             this.maxHp = maxHp - hpAdjustment;
             isArmorEquipped = false;
-            System.out.println("You unequipped " + item.getName());
         }
         if(item.getType() == "Weapon" && item.getName() == this.equippedWeapon.getName()){
             strAdjustment = this.equippedWeapon.getStrModifier();
@@ -146,7 +138,6 @@ public class Hero implements NpcInterface, Serializable {
             this.setStr(str - strAdjustment);
             this.maxHp = maxHp - hpAdjustment;
             isWeaponEquipped = false;
-            System.out.println("You unequipped " + item.getName());
         }
     }
     

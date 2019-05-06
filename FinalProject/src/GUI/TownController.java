@@ -1,10 +1,14 @@
 package GUI;
 
 import static GUI.OverworldController.location;
-import Interfaces.EventInterface;
+import static Game.GameBoard.hero;
+import static Game.GameBoard.items;
+import static Game.GameBoard.visitCount;
+import Interfaces.ItemInterface;
 import NPCs.Enemy;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
@@ -19,12 +23,13 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.Toggle;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class GameController implements Initializable {
+public class TownController implements Initializable {
 
     @FXML
     private Label output;
@@ -39,8 +44,21 @@ public class GameController implements Initializable {
     private RadioButton radio3;
     
     @FXML
+    private ToggleGroup group = new ToggleGroup();
+    
+    @FXML
+    private AnchorPane backgroundPane;
+    
+    @FXML
+    private TextArea textArea;
+    
+    @FXML
     private Button eventButton;
     
+    public static String decision;
+    
+    public static Enemy enemy;
+
     public void radio1Click() {
         //event1
     }
@@ -50,19 +68,10 @@ public class GameController implements Initializable {
     public void radio3Click() {
         //event3
     }
-    
-    @FXML
-    private ToggleGroup group = new ToggleGroup();
-    
-    @FXML
-    private AnchorPane backgroundPane;
-    
-    public static EventInterface decision;
-    
-    public static Enemy enemy;
 
     @FXML
     public void previous(ActionEvent event) throws IOException{
+        if (location.name().equals("Ghenki City")){
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
 
@@ -72,57 +81,82 @@ public class GameController implements Initializable {
             window.setScene(tableViewScene);
             window.setResizable(false);
             window.show();
-    }
-    
-    @FXML
-    public void event(ActionEvent event) throws IOException{
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("Combat.fxml"));
+        }
+        else{
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Game.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
 
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setTitle("Combat");
+            window.setTitle("Game");
 
             window.setScene(tableViewScene);
             window.setResizable(false);
             window.show();
+        }
+        
+    }
+    
+    @FXML
+    public void event(ActionEvent event) throws IOException{
+        textArea.appendText(decision);
+        
+        if(location.name().equals("Ghenki City")){
+            if(radio1.isSelected()){
+                if (hero.getHp() < hero.maxHp() + 50) {
+                        hero.setHp(hero.getHp() + 50);
+                        radio1.setDisable(true);
+                        textArea.appendText("You feel a renewed sense of purpose, your "
+                        + "health has been temporarily increased!\n");
+                }
+            }
+            else if(radio2.isSelected()){
+                 if (hero.getHp() < hero.maxHp()) {
+                        hero.setHp(hero.maxHp());
+                 }
+            }
+            else{
+                if (visitCount == 10){
+                    textArea.appendText("You sit next to the man in silence until"
+                                + " at last he draws a breath and says, \"You "
+                                + "seem to have trouble leaving this place"
+                                + ".  Perhaps this will help.\"\n\n");
+                        textArea.appendText("You receive a strange-looking sword.\n\n");
+                        ArrayList<ItemInterface> imbaSword = items.tier(100);
+                        hero.addToInventory(imbaSword.get(0));
+                        visitCount++;
+                }
+                else{
+                    visitCount++;
+                }
+            }
+        }
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //set Location label
-        output.setText(location.name());
-        
-        //initialze radio buttons
-        radio1.setUserData(location.getEvents().get(0));
-        radio1.setText(location.getEvents().get(0).name());
-        radio2.setUserData(location.getEvents().get(1));
-        radio2.setText(location.getEvents().get(1).name());
-        radio3.setUserData(location.getEvents().get(2));
-        radio3.setText(location.getEvents().get(2).name());
-        
-        radio1.disableProperty().bind(Bindings.createBooleanBinding(() -> {
-            return location.getEvents().get(0).getEnemy().isKilled();
-        }));
-        
-        radio2.disableProperty().bind(Bindings.createBooleanBinding(() -> {
-            return location.getEvents().get(1).getEnemy().isKilled();
-        }));
-        
-        radio3.disableProperty().bind(Bindings.createBooleanBinding(() -> {
-            return location.getEvents().get(2).getEnemy().isKilled();
-        }));
-        
         eventButton.disableProperty().bind(Bindings.createBooleanBinding(() -> {
-            if((radio1.isDisabled() && radio1.isSelected()) || (radio2.isDisabled() 
-                    && radio2.isSelected()) || (radio3.isDisabled() 
-                    && radio3.isSelected())|| (radio1.isDisabled() 
-                    && radio2.isDisabled() && radio3.isDisabled()) || 
-                    (!radio1.isSelected() && !radio2.isSelected() && !radio3.isSelected())){
+            if(radio1.isDisabled() && radio1.isSelected()){
                 return true;
             }
             return false;
-        }, radio1.disableProperty(), radio1.selectedProperty(), radio2.disableProperty(), 
-            radio2.selectedProperty(), radio3.disableProperty(), radio3.selectedProperty()));
+        }, radio1.disableProperty(), radio1.selectedProperty()));
+        radio1.setDisable(false); 
+        if(location.name().equals("Ghenki City")){
+            
+            //set Location label
+            output.setText(location.name());
+        
+            radio1.setText("Pray in the chapel");
+            radio1.setUserData("You pray in the chapel.\n");
+                
+            radio2.setText("Spend the night in the inn");
+            radio2.setUserData("You feel well rested.  Your health has been"
+                                + " restored.\n");
+            radio3.setText("Relax by the fountain in the city square");
+            radio3.setUserData("You sit down on a bench next to a "
+                                + "silvered-hair man.  You attempt to start a "
+                                + "conversation with him, but he seems to ignore you.\n\n");
+        }
         
         setBackground(); 
         
@@ -132,7 +166,7 @@ public class GameController implements Initializable {
 
                 if (group.getSelectedToggle() != null) {
 
-                    decision = (EventInterface)group.getSelectedToggle().getUserData();
+                    decision = (String)group.getSelectedToggle().getUserData();
                 }
 
             } 

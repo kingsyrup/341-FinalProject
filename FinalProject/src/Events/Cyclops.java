@@ -1,9 +1,7 @@
 package Events;
 
-import Game.*;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
-import java.util.Scanner;
 
 /**
  *
@@ -12,13 +10,8 @@ import java.util.Scanner;
 public class Cyclops implements EventInterface {
 
     private final String name = "Search the nearby cave";
-    private String description = "A massive cyclops attacks you in the dark.";
-    private Scanner console = new Scanner(System.in);
-    private int baseHp = 10;
-    private Enemy enemy = new Enemy(baseHp, 1, 1, "Cyclops");
-    private boolean flag = false;
+    private Enemy enemy = new Enemy(45, 1, 4, "Cyclops");
     private boolean hasKey = false;
-    private boolean hasCombat = true;
 
     public Cyclops() {
     }
@@ -36,11 +29,6 @@ public class Cyclops implements EventInterface {
     @Override
     public boolean hasKey(){
         return hasKey;
-    }
-    
-    @Override
-    public boolean hasCombat(){
-        return hasCombat;
     }
     
     @Override

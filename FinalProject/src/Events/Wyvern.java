@@ -5,10 +5,9 @@
  */
 package Events;
 
-import Game.Combat;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
-import java.util.Scanner;
+
 
 /**
  *
@@ -16,15 +15,9 @@ import java.util.Scanner;
  */
 public class Wyvern implements EventInterface {
     
-    private final String name ="Wyvern Encounter";
-    private final String description = "You stumble upon a goblin gathering "
-            + "water at a stream.";
-    private Scanner console = new Scanner(System.in);
-    private Enemy enemy = new Enemy(10,1,1,"Wyvern");
-    private boolean deadFlag = false;
-    private boolean friendFlag = false;
+    private final String name ="Search the rocky outcrop";
+    private Enemy enemy = new Enemy(65,4,3,"Wyvern");
     private boolean hasKey = false;
-    private boolean hasCombat = true;
     
     public Wyvern() {
     }
@@ -43,12 +36,7 @@ public class Wyvern implements EventInterface {
     public boolean hasKey() {
         return hasKey;
     } 
-    
-    @Override
-    public boolean hasCombat(){
-        return hasCombat;
-    }
-    
+
     @Override
     public Enemy getEnemy(){
         return enemy;

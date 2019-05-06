@@ -3,13 +3,38 @@
  -fx-background-size: 100% 100%;
 }
 
+.bandit{
+ -fx-background-image: url('bandit.png');
+ -fx-background-size: 100% 100%;
+}
+
 .cyclops{
  -fx-background-image: url('cyclops.png');
  -fx-background-size: 100% 100%;
 }
 
+.demon{
+ -fx-background-image: url('demon.png');
+ -fx-background-size: 100% 100%;
+}
+
 .dragon{
  -fx-background-image: url('dragon.png');
+ -fx-background-size: 100% 100%;
+}
+
+.dwarf{
+ -fx-background-image: url('dwarf.png');
+ -fx-background-size: 100% 100%;
+}
+
+.elf{
+ -fx-background-image: url('elf.png');
+ -fx-background-size: 100% 100%;
+}
+
+.giant{
+ -fx-background-image: url('giant.png');
  -fx-background-size: 100% 100%;
 }
 
@@ -28,8 +53,23 @@
  -fx-background-size: 100% 100%;
 }
 
+.hydra{
+ -fx-background-image: url('hydra.png');
+ -fx-background-size: 100% 100%;
+}
+
 .kobold{
  -fx-background-image: url('kobold.png');
+ -fx-background-size: 100% 100%;
+}
+
+.lich{
+ -fx-background-image: url('lich.png');
+ -fx-background-size: 100% 100%;
+}
+
+.medusa{
+ -fx-background-image: url('medusa.png');
  -fx-background-size: 100% 100%;
 }
 
@@ -38,13 +78,38 @@
  -fx-background-size: 100% 100%;
 }
 
+.necromancer{
+ -fx-background-image: url('necromancer.png');
+ -fx-background-size: 100% 100%;
+}
+
 .ogre{
  -fx-background-image: url('ogre.png');
  -fx-background-size: 100% 100%;
 }
 
+.orc{
+ -fx-background-image: url('orc.png');
+ -fx-background-size: 100% 100%;
+}
+
+.pixie{
+ -fx-background-image: url('pixie.png');
+ -fx-background-size: 100% 100%;
+}
+
 .slime{
  -fx-background-image: url('slime.png');
+ -fx-background-size: 100% 100%;
+}
+
+.snake{
+ -fx-background-image: url('snake.png');
+ -fx-background-size: 100% 100%;
+}
+
+.spider{
+ -fx-background-image: url('spider.png');
  -fx-background-size: 100% 100%;
 }
 
@@ -60,6 +125,16 @@
 
 .vampire{
  -fx-background-image: url('vampire.png');
+ -fx-background-size: 100% 100%;
+}
+
+.wizard{
+ -fx-background-image: url('wizard.png');
+ -fx-background-size: 100% 100%;
+}
+
+.wolf{
+ -fx-background-image: url('wolf.png');
  -fx-background-size: 100% 100%;
 }
 

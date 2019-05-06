@@ -1,9 +1,7 @@
 package Events;
 
-import Game.Combat;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
-import java.util.Scanner;
 
 /**
  *
@@ -11,16 +9,10 @@ import java.util.Scanner;
  */
 public class Dragon implements EventInterface {
     
-    private final String name ="Dragon Encounter";
-    private final String description = "You stumble upon a goblin gathering "
-            + "water at a stream.";
-    private Scanner console = new Scanner(System.in);
-    private int baseHp = 100;
-    private Enemy enemy = new Enemy(baseHp,10,10,"Dragon");
-    private boolean flag = false;
+    private final String name = "Search the hidden cavern";
+    private Enemy enemy = new Enemy(100,10,10,"Dragon");
     private boolean hasKey = false;
-    private boolean hasCombat = true;
-    
+
     public Dragon() {
     }
 
@@ -37,11 +29,6 @@ public class Dragon implements EventInterface {
     @Override
     public boolean hasKey(){
         return hasKey;
-    }
-    
-    @Override
-    public boolean hasCombat(){
-        return hasCombat;
     }
     
     @Override

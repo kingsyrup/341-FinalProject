@@ -51,13 +51,14 @@ public class OverworldController implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle rb) {
         
         //add final area if 7 keys have been found
-        if ((multiplier - 1) >= 7) {
+        if ((multiplier - 1) >= 7 && locations.size() != 9) {
             locations.add(new FinalArea());
         }
 
         ObservableList<LocationInterface> locationObservableList = FXCollections.observableList(locations);
 
         locationListView.setItems(locationObservableList);
+        locationListView.getItems().get(1).getEvents().get(0).getEnemy().isKilled();
 
         //populate list view
         locationListView.setCellFactory(lv -> new ListCell<LocationInterface>() {
@@ -116,6 +117,7 @@ public class OverworldController implements Initializable, Serializable {
 
     @FXML
     public void loadLocation(ActionEvent event) throws IOException {
+        if(!"Ghenki City".equals(location.name())){
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Game.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
 
@@ -124,6 +126,17 @@ public class OverworldController implements Initializable, Serializable {
 
         window.setScene(tableViewScene);
         window.show();
+        }
+        else{
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Town.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setTitle("Ghenki City");
+
+            window.setScene(tableViewScene);
+            window.show();
+        }
     }
 
     @FXML

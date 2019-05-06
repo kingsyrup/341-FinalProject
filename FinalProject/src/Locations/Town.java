@@ -1,6 +1,5 @@
 package Locations;
 
-import static Game.GameBoard.*;
 import Interfaces.*;
 import java.util.*;
 
@@ -12,7 +11,6 @@ public class Town implements LocationInterface {
 
     private ArrayList<EventInterface> events = new ArrayList();
     private String name = "Ghenki City";
-    private String description = "You reach the gates of a bustling city.  Where will you go?";
     private boolean visited = false;
 
     public Town() {

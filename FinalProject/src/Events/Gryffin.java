@@ -1,21 +1,13 @@
 package Events;
 
-import Game.*;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
-import java.util.Scanner;
 
 public class Gryffin implements EventInterface {
 
-    private final String name = "Gryffin Encounter";
-    private final String description = "You stumble upon a goblin gathering "
-            + "water at a stream.";
-    private Scanner console = new Scanner(System.in);
-    private Enemy enemy = new Enemy(10, 1, 1, "Gryffin");
-    private boolean deadFlag = false;
-    private boolean friendFlag = false;
+    private final String name = "Search the oversized nest";
+    private Enemy enemy = new Enemy(45, 3, 3, "Gryffin");
     private boolean hasKey = false;
-    private boolean hasCombat = true;
 
     public Gryffin() {
     }
@@ -34,11 +26,6 @@ public class Gryffin implements EventInterface {
     public boolean hasKey() {
         return hasKey;
     } 
-    
-    @Override
-    public boolean hasCombat(){
-        return hasCombat;
-    }
     
     @Override
     public Enemy getEnemy(){

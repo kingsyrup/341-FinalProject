@@ -5,10 +5,8 @@
  */
 package Events;
 
-import Game.Combat;
 import Interfaces.EventInterface;
 import NPCs.Enemy;
-import java.util.Scanner;
 
 /**
  *
@@ -16,13 +14,8 @@ import java.util.Scanner;
  */
 public class Slime implements EventInterface {
     
-    private final String name ="Slime Encounter";
-    private final String description = "You stumble upon a goblin gathering "
-            + "water at a stream.";
-    private Scanner console = new Scanner(System.in);
+    private final String name ="Follow the trail of ooze";
     private Enemy enemy = new Enemy(10,1,1,"Slime");
-    private boolean deadFlag = false;
-    private boolean friendFlag = false;
     private boolean hasKey = false;
     
     public Slime() {
@@ -42,12 +35,7 @@ public class Slime implements EventInterface {
     public boolean hasKey() {
         return hasKey;
     } 
-    
-    @Override
-    public boolean hasCombat(){
-        return true;
-    }
-    
+
     @Override
     public Enemy getEnemy(){
         return enemy;

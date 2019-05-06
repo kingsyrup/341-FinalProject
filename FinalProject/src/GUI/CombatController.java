@@ -3,7 +3,6 @@ package GUI;
 import static GUI.GameController.decision;
 import static Game.GameBoard.hero;
 import static Game.GameBoard.items;
-import static Game.Combat.chance;
 import static Game.GameBoard.multiplier;
 import Interfaces.ItemInterface;
 import Interfaces.NpcInterface;
@@ -65,9 +64,6 @@ public class CombatController implements Initializable {
     private Pane enemyPane;
     
     @FXML
-    private Pane heroPane;
-    
-    @FXML
     private Label keyLabel;
     
     @FXML
@@ -75,7 +71,6 @@ public class CombatController implements Initializable {
     
     private Enemy enemy;
     private int maxHp;
-    private String description;
     private boolean hasKey;
 
     //label fade transitions
@@ -100,6 +95,8 @@ public class CombatController implements Initializable {
         
         parseEvent();
 
+        attackButton.setDisable(enemy.isKilled());
+        
         //name 
         playerLabel.setText(hero.getName());
         enemyLabel.setText(enemy.getName());
@@ -122,7 +119,6 @@ public class CombatController implements Initializable {
         fadeOutEnemy.setNode(enemyPane);
         fadeOutEnemy.setFromValue(1.0);
         fadeOutEnemy.setToValue(0.0);
-        
     }
     
     @FXML
@@ -131,13 +127,19 @@ public class CombatController implements Initializable {
         float percentage = ((float) npc.getHp() / (float) npc.maxHp());
         float width = (percentage * 340);
         if (npc.equals(hero)) {
-            playerHealthBar.setWidth(width);
-            if (percentage >= 0.5) {
+            if(percentage <= 1){
+                playerHealthBar.setWidth(width);
+                if (percentage >= 0.5) {
+                    playerHealthBar.setFill(Color.web("#34da3c"));
+                } else if (percentage >= 0.25 && percentage < 0.5) {
+                    playerHealthBar.setFill(Color.YELLOW);
+                } else {
+                    playerHealthBar.setFill(Color.RED);
+                }
+            }
+            else{
+                playerHealthBar.setWidth(340);
                 playerHealthBar.setFill(Color.web("#34da3c"));
-            } else if (percentage >= 0.25 && percentage < 0.5) {
-                playerHealthBar.setFill(Color.YELLOW);
-            } else {
-                playerHealthBar.setFill(Color.RED);
             }
             playerHealthLabel.setText(String.valueOf(npc.getHp()) + "/" + String.valueOf(npc.maxHp()));
         } else {
@@ -173,10 +175,13 @@ public class CombatController implements Initializable {
             attackButton.setDisable(true);
             fadeOutEnemy.playFromStart();
             
-            if (chance(25)) {
+            if (chance(65)) {
                 //Enemy drops random item from current tier - based on difficulty multiplier
                 Random rng = new Random();
                 ArrayList<ItemInterface> loot = items.tier(multiplier);
+                if(loot.isEmpty()){
+                    loot = items.tier(multiplier + 1);
+                }
                 int modifier = (rng.nextInt(loot.size()));
                 ItemInterface item = loot.get(modifier);
 
@@ -213,6 +218,9 @@ public class CombatController implements Initializable {
     
     @FXML
     public void flee(ActionEvent event) throws IOException {
+        if(!enemy.isKilled()){
+            enemy.setHp(enemy.maxHp());
+        }
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Game.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
         
@@ -229,12 +237,32 @@ public class CombatController implements Initializable {
         enemyPane.getStyleClass().clear();
 
         //set enemy background image
+        if (enemy.getName().equals("Bandit")) {
+            enemyPane.getStyleClass().add("bandit");
+        }
+        
         if (enemy.getName().equals("Cyclops")) {
             enemyPane.getStyleClass().add("cyclops");
         }
         
+        if (enemy.getName().equals("Demon")) {
+            enemyPane.getStyleClass().add("demon");
+        }
+        
         if (enemy.getName().equals("Dragon")) {
             enemyPane.getStyleClass().add("dragon");
+        }
+        
+        if (enemy.getName().equals("Dwarf")) {
+            enemyPane.getStyleClass().add("dwarf");
+        }
+        
+        if (enemy.getName().equals("Elf")) {
+            enemyPane.getStyleClass().add("elf");
+        }
+        
+        if (enemy.getName().equals("Giant")) {
+            enemyPane.getStyleClass().add("giant");
         }
         
         if (enemy.getName().equals("Goblin")) {
@@ -249,20 +277,52 @@ public class CombatController implements Initializable {
             enemyPane.getStyleClass().add("harpy");
         }
         
+        if (enemy.getName().equals("Hydra")) {
+            enemyPane.getStyleClass().add("hydra");
+        }
+        
         if (enemy.getName().equals("Kobold")) {
             enemyPane.getStyleClass().add("kobold");
+        }
+        
+        if (enemy.getName().equals("Lich")) {
+            enemyPane.getStyleClass().add("lich");
+        }
+        
+        if (enemy.getName().equals("Medusa")) {
+            enemyPane.getStyleClass().add("medusa");
         }
         
         if (enemy.getName().equals("Minotaur")) {
             enemyPane.getStyleClass().add("minotaur");
         }
         
+        if (enemy.getName().equals("Necromancer")) {
+            enemyPane.getStyleClass().add("necromancer");
+        }
+        
         if (enemy.getName().equals("Ogre")) {
             enemyPane.getStyleClass().add("ogre");
         }
         
+        if (enemy.getName().equals("Orc")) {
+            enemyPane.getStyleClass().add("orc");
+        }
+        
+        if (enemy.getName().equals("Pixie")) {
+            enemyPane.getStyleClass().add("pixie");
+        }
+        
         if (enemy.getName().equals("Slime")) {
             enemyPane.getStyleClass().add("slime");
+        }
+        
+        if (enemy.getName().equals("Snake")) {
+            enemyPane.getStyleClass().add("snake");
+        }
+        
+        if (enemy.getName().equals("Spider")) {
+            enemyPane.getStyleClass().add("spider");
         }
         
         if (enemy.getName().equals("Troll")) {
@@ -275,6 +335,14 @@ public class CombatController implements Initializable {
         
         if (enemy.getName().equals("Vampire")) {
             enemyPane.getStyleClass().add("vampire");
+        }
+        
+        if (enemy.getName().equals("Wizard")) {
+            enemyPane.getStyleClass().add("wizard");
+        }
+        
+        if (enemy.getName().equals("Wolf")) {
+            enemyPane.getStyleClass().add("wolf");
         }
         
         if (enemy.getName().equals("Wraith")) {
@@ -294,7 +362,6 @@ public class CombatController implements Initializable {
         hasKey = decision.hasKey();
         enemy = decision.getEnemy();
 
-        //apply multiplier - might need to rework this
         if (enemy.getHp() / multiplier != enemy.maxHp()) {
             enemy.setDef(enemy.getDef() * multiplier);
             enemy.setStr(enemy.getStr() * multiplier);
@@ -302,5 +369,15 @@ public class CombatController implements Initializable {
         }
         
         maxHp = enemy.maxHp() * multiplier;
+    }
+    
+    public boolean chance(double chance) {
+
+        //calculate chance to befriend
+        Random random = new Random();
+        double r = random.nextDouble();
+        boolean success = r < chance / 100;
+
+        return success;
     }
 }

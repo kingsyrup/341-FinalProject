@@ -37,15 +37,6 @@ public interface EventInterface {
     public boolean hasKey();
     
     /**
-     * Allows access to the combat boolean of an event.
-     *
-     * @require event exists
-     * @ensure the combat attribute of the event is returned
-     * @return boolean hasCombat, true if the event involves combat, false otherwise
-     */
-    public boolean hasCombat();
-    
-    /**
      * Allows access to the enemy of an event.
      *
      * @require event exists

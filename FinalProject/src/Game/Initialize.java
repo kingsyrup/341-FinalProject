@@ -57,36 +57,38 @@ public final class Initialize {
             
             locations.get(i).getEvents().get(keyIndex).hasKey(true);
         }
+        
+        locations.add(new Town());
     }
     
     public static void addEvents(){
-        events.add(new Bandits());
-        events.add(new Beggar());
-        events.add(new Child());
-        events.add(new Corpse());
+        events.add(new Bandit());
         events.add(new Cyclops());
+        events.add(new Demon());
         events.add(new Dragon());
-        events.add(new FlowerField());
+        events.add(new Dwarf());
+        events.add(new Elf());
+        events.add(new Giant());
         events.add(new Goblin());
         events.add(new Gryffin());
         events.add(new Harpy());
+        events.add(new Hydra());
         events.add(new Kobold());
-        events.add(new Lake());
-        events.add(new LavaPool());
-        events.add(new Magician());
-        events.add(new Merchant());
+        events.add(new Lich());
+        events.add(new Medusa());
         events.add(new Minotaur());
+        events.add(new Necromancer());
         events.add(new Ogre());
-        events.add(new OldMan());
+        events.add(new Orc());
+        events.add(new Pixie());
         events.add(new Slime());
-        events.add(new Stream());
-        events.add(new Swamp());
+        events.add(new Snake());
+        events.add(new Spider());
         events.add(new Troll());
         events.add(new Unicorn());
         events.add(new Vampire());
-        events.add(new Volcano());
-        events.add(new Wagon());
-        events.add(new Widow());
+        events.add(new Wizard());
+        events.add(new Wolf());
         events.add(new Wraith());
         events.add(new Wyvern());
         events.add(new Zombie());
@@ -104,7 +106,6 @@ public final class Initialize {
         locations.add(new Marsh());
         locations.add(new Tundra());
         locations.add(new Forest());
-        locations.add(new Town());
     }
     
     public List<LocationInterface> getLocations(){

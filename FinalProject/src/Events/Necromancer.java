@@ -12,13 +12,13 @@ import NPCs.Enemy;
  *
  * @author xg6856vd
  */
-public class Ogre implements EventInterface {
+public class Necromancer implements EventInterface {
     
-    private final String name ="Follow the smell of cooking";
-    private Enemy enemy = new Enemy(55,3,3,"Ogre");
+    private final String name ="Investigate the graveyard";
+    private Enemy enemy = new Enemy(75,5,3,"Necromancer");
     private boolean hasKey = false;
-    
-    public Ogre() {
+
+    public Necromancer() {
     }
 
     @Override
@@ -32,12 +32,13 @@ public class Ogre implements EventInterface {
     }
     
     @Override
-    public boolean hasKey() {
+    public boolean hasKey(){
         return hasKey;
-    } 
+    }
     
     @Override
     public Enemy getEnemy(){
         return enemy;
     }
+    
 }
