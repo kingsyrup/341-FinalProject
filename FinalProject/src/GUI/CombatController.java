@@ -1,6 +1,7 @@
 package GUI;
 
 import static GUI.GameController.decision;
+import static GUI.OverworldController.location;
 import static Game.GameBoard.hero;
 import static Game.GameBoard.items;
 import static Game.GameBoard.multiplier;
@@ -172,35 +173,47 @@ public class CombatController implements Initializable {
 
         //enemy is dead
         if (enemy.isKilled()) {
-            attackButton.setDisable(true);
-            fadeOutEnemy.playFromStart();
-            
-            if (chance(65)) {
-                //Enemy drops random item from current tier - based on difficulty multiplier
-                Random rng = new Random();
-                ArrayList<ItemInterface> loot = items.tier(multiplier);
-                if(loot.isEmpty()){
-                    loot = items.tier(multiplier + 1);
-                }
-                int modifier = (rng.nextInt(loot.size()));
-                ItemInterface item = loot.get(modifier);
+            if(!enemy.getName().equals("Valjir")){
+                attackButton.setDisable(true);
+                fadeOutEnemy.playFromStart();
 
-                //Add item to player's inventory and remove from global item list
-                // ensures items are unique
-                hero.addToInventory(item);
-                items.removeItem(item);
-                
-                itemDropLabel.setVisible(true);
-                itemDropLabel.setText("The " + enemy.getName() + " dropped a " + item.getName()
-                        + ".");
+                if (chance(65)) {
+                    //Enemy drops random item from current tier - based on difficulty multiplier
+                    Random rng = new Random();
+                    ArrayList<ItemInterface> loot = items.tier(multiplier);
+                    if(loot.isEmpty()){
+                        loot = items.tier(multiplier + 1);
+                    }
+                    int modifier = (rng.nextInt(loot.size()));
+                    ItemInterface item = loot.get(modifier);
+
+                    //Add item to player's inventory and remove from global item list
+                    // ensures items are unique
+                    hero.addToInventory(item);
+                    items.removeItem(item);
+
+                    itemDropLabel.setVisible(true);
+                    itemDropLabel.setText("The " + enemy.getName() + " dropped a " + item.getName()
+                            + ".");
+                }
+
+                if (hasKey) {
+                    multiplier++;
+                    decision.hasKey(false);
+
+                    keyLabel.setVisible(true);
+                    keyImage.setVisible(true);
+                }
             }
-            
-            if (hasKey) {
-                multiplier++;
-                decision.hasKey(false);
-                
-                keyLabel.setVisible(true);
-                keyImage.setVisible(true);
+            else{
+                //game is won
+                Parent tableViewParent = FXMLLoader.load(getClass().getResource("GameOver.fxml"));
+                Scene tableViewScene = new Scene(tableViewParent);
+
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(tableViewScene);
+                window.show();
             }
         }
 
@@ -218,18 +231,31 @@ public class CombatController implements Initializable {
     
     @FXML
     public void flee(ActionEvent event) throws IOException {
-        if(!enemy.isKilled()){
-            enemy.setHp(enemy.maxHp());
+        if(!location.name().equals("Tower of Halvabor")){
+            if(!enemy.isKilled()){
+                enemy.setHp(enemy.maxHp());
+            }
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Game.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setTitle("Game");
+
+            window.setScene(tableViewScene);
+            window.setResizable(false);
+            window.show();
         }
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("Game.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-        
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Game");
-        
-        window.setScene(tableViewScene);
-        window.setResizable(false);
-        window.show();
+        else{
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setTitle("Overworld");
+
+            window.setScene(tableViewScene);
+            window.setResizable(false);
+            window.show();
+        }
     }
     
     public void setBackground() {
@@ -333,6 +359,10 @@ public class CombatController implements Initializable {
             enemyPane.getStyleClass().add("unicorn");
         }
         
+        if (enemy.getName().equals("Valjir")) {
+            enemyPane.getStyleClass().add("valjir");
+        }
+        
         if (enemy.getName().equals("Vampire")) {
             enemyPane.getStyleClass().add("vampire");
         }
@@ -359,16 +389,22 @@ public class CombatController implements Initializable {
     }
     
     public void parseEvent() {
-        hasKey = decision.hasKey();
-        enemy = decision.getEnemy();
+        if(!location.name().equals("Tower of Halvabor")){
+            hasKey = decision.hasKey();
+            enemy = decision.getEnemy();
 
-        if (enemy.getHp() / multiplier != enemy.maxHp()) {
-            enemy.setDef(enemy.getDef() * multiplier);
-            enemy.setStr(enemy.getStr() * multiplier);
-            enemy.setHp(enemy.getHp() * multiplier);
+            if (enemy.getHp() / multiplier != enemy.maxHp()) {
+                enemy.setDef(enemy.getDef() * multiplier);
+                enemy.setStr(enemy.getStr() * multiplier);
+                enemy.setHp(enemy.getHp() * multiplier);
+            }
+
+            maxHp = enemy.maxHp() * multiplier;
         }
-        
-        maxHp = enemy.maxHp() * multiplier;
+        else{
+            enemy = new Enemy(500,80,80,"Valjir");
+            maxHp = 500;
+        }
     }
     
     public boolean chance(double chance) {

@@ -123,6 +123,11 @@
  -fx-background-size: 100% 100%;
 }
 
+.valjir{
+ -fx-background-image: url('valjir.jpg');
+ -fx-background-size: 100% 100%;
+}
+
 .vampire{
  -fx-background-image: url('vampire.png');
  -fx-background-size: 100% 100%;

@@ -112,7 +112,19 @@ public class OverworldController implements Initializable, Serializable {
         //mark that location has been traveled to
         location.visit();
 
-        loadLocation(event);
+        if(!location.name().equals("Tower of Halvabor")){
+            loadLocation(event);
+        }
+        else{
+            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Combat.fxml"));
+            Scene tableViewScene = new Scene(tableViewParent);
+
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setTitle("Tower of Halvabor");
+
+            window.setScene(tableViewScene);
+            window.show();
+        }
     }
 
     @FXML
