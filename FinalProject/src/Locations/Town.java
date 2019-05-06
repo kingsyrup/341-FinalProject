@@ -39,14 +39,4 @@ public class Town implements LocationInterface {
     public void removeEvent(EventInterface event){
         this.events.remove(event);
     }
-    
-    @Override
-    public void visit() {
-        visited = true;
-    }
-    
-    @Override
-    public boolean visited() {
-        return visited;
-    }
 }

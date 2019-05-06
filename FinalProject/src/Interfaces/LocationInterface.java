@@ -44,21 +44,4 @@ public interface LocationInterface {
      * @param event - is the event to be removed from the location 
      */
     public void removeEvent(EventInterface event);
-    
-    /**
-     * Allows ability to mark a location as visited.
-     *
-     * @require location exists
-     * @ensure the boolean parameter tracking the location's visitation status is changed to true
-     */
-    public void visit();
-    
-    /**
-     * Allows access to the visitation status of a location.
-     *
-     * @require location exists
-     * @ensure the visitation status of the location is returned
-     * @return boolean - true if the location has been visited, false otherwise 
-     */
-    public boolean visited();
 }

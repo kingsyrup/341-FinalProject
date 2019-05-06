@@ -10,23 +10,19 @@ import static Game.GameBoard.locations;
 import static Game.GameBoard.multiplier;
 import Interfaces.LocationInterface;
 import Locations.FinalArea;
-import NPCs.Hero;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
-import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.event.*;
 import javafx.fxml.*;
 import javafx.scene.*;
 import javafx.scene.control.*;
 import javafx.stage.*;
-import java.util.ArrayList;
 import javafx.collections.ObservableList;
 
 /**
@@ -58,7 +54,6 @@ public class OverworldController implements Initializable, Serializable {
         ObservableList<LocationInterface> locationObservableList = FXCollections.observableList(locations);
 
         locationListView.setItems(locationObservableList);
-        locationListView.getItems().get(1).getEvents().get(0).getEnemy().isKilled();
 
         //populate list view
         locationListView.setCellFactory(lv -> new ListCell<LocationInterface>() {
@@ -71,10 +66,16 @@ public class OverworldController implements Initializable, Serializable {
                 } else {
                     setText(c.name());
                     //if location has been visited, color background of cell
-                    if (c.visited()) {
-                        setStyle("-fx-background-color: #FA8304");
-                    } else {
-                        setStyle("");
+                    if(!c.name().equals("Ghenki City")  && !c.name().equals("Tower of Halvabor")){
+                        if (c.getEvents().get(0).getEnemy().isKilled() &&
+                            c.getEvents().get(1).getEnemy().isKilled() && 
+                            c.getEvents().get(2).getEnemy().isKilled()) {
+                            setDisable(true);
+                            setStyle("-fx-background-color: #FA8304");
+                        } else {
+                            setStyle("");
+                            setDisable(false);
+                        }
                     }
                 }
             }
@@ -109,8 +110,6 @@ public class OverworldController implements Initializable, Serializable {
                 location = l;
             }
         }
-        //mark that location has been traveled to
-        location.visit();
 
         if(!location.name().equals("Tower of Halvabor")){
             loadLocation(event);

@@ -41,6 +41,8 @@ public final class ItemList {
         items.add(new Armor(35,46,185,"Palladium Greaves",7));
         items.add(new Armor(45,95,300,"Pauldrons of Lormir",7));
         items.add(new Armor(55,150,350,"Vibranium Breasplate",8));
+        items.add(new Armor(55,115,300,"Vibranium Greaves",8));
+        items.add(new Armor(45,125,320,"Vibranium Pauldrons",8));
         
         //Weapon
         items.add(new Weapon(3,1,10,"Dagger",1));
@@ -64,7 +66,10 @@ public final class ItemList {
         items.add(new Weapon(40,10,225,"Frostmourne",7));
         items.add(new Weapon(35,25,250,"Thunderfury",7));
         items.add(new Weapon(55,40,350,"Pemrook Poleaxe",7));
-        items.add(new Weapon(1000,1000,1000, "Sword of One Thousand Truths",100));
+        items.add(new Weapon(70,45,350,"Ascalon",8));
+        items.add(new Weapon(80,55,320,"Nebelim",8));
+        items.add(new Weapon(105,60,300,"Durendal",8));
+        items.add(new Weapon(1000,1000,1000,"Excalibur",100));
         
         //Another category for consumables?
         
