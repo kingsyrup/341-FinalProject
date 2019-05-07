@@ -1,7 +1,6 @@
 package GUI;
 
 import static Game.GameBoard.hero;
-import static Game.GameBoard.items;
 import Interfaces.ItemInterface;
 import java.io.IOException;
 import java.net.URL;
@@ -20,7 +19,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import javafx.util.Callback;
 
 public class CharacterController implements Initializable {
 
