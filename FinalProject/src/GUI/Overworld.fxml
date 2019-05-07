@@ -14,10 +14,6 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <Button layoutX="87.0" layoutY="447.0" mnemonicParsing="false" onAction="#saveGame" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Save Game">
-         <font>
-            <Font name="System Bold" size="24.0" />
-         </font></Button>
       <ListView fx:id="locationListView" layoutX="491.0" layoutY="231.0" prefHeight="323.0" prefWidth="415.0" stylesheets="@../Backgrounds/listStyles.css" />
       <Button fx:id="travelButton" layoutX="491.0" layoutY="574.0" mnemonicParsing="false" onAction="#travel" prefHeight="86.0" prefWidth="415.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Travel">
          <font>
