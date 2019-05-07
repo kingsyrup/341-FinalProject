@@ -22,6 +22,11 @@ public class Mines implements LocationInterface {
     public String name() {
         return "Deepholm Mines";
     }
+    
+    @Override
+    public String description() {
+        return "You enter the seemingly bottomless mines...";
+    }
 
     @Override
     public void addEvent(EventInterface event) {

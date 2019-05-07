@@ -24,6 +24,11 @@ public class Town implements LocationInterface {
     public String name() {
         return name;
     }
+    
+    @Override
+    public String description() {
+        return "You reach the gates of a bustling city.  Where will you go?";
+    }
 
     @Override
     public void addEvent(EventInterface event) {

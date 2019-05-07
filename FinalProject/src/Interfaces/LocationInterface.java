@@ -19,6 +19,15 @@ public interface LocationInterface {
     public String name();
     
     /**
+     * Allows access to the description of a location.
+     *
+     * @require location exists
+     * @ensure the description of the location is returned
+     * @return String - the description of the location 
+     */
+    public String description();
+    
+    /**
      * Allows ability to add event to a location.
      *
      * @require location exists

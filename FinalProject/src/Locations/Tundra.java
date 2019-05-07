@@ -22,6 +22,11 @@ public class Tundra implements LocationInterface {
     public String name() {
         return "Frostburn Tundra";
     }
+    
+    @Override
+    public String description() {
+        return "You start to shiver as you venture on into the icy tundra...";
+    }
 
     @Override
     public void addEvent(EventInterface event) {

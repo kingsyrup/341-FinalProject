@@ -22,6 +22,11 @@ public class Marsh implements LocationInterface {
     public String name() {
         return "Brackmire Marsh";
     }
+    
+    @Override
+    public String description() {
+        return "You trudge your way through the murky waters...";
+    }
 
     @Override
     public void addEvent(EventInterface event) {

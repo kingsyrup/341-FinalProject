@@ -22,6 +22,11 @@ public class Plains implements LocationInterface {
     public String name() {
         return "Golbrow Plains";
     }
+    
+    @Override
+    public String description() {
+        return "You feel a sense of unease as you traverse the wide-open plains...";
+    }
 
     @Override
     public void addEvent(EventInterface event) {

@@ -11,7 +11,6 @@ public class Desert implements LocationInterface {
 
     private ArrayList<EventInterface> events = new ArrayList();
     private String name = "Kulpaki Desert";
-    private String description = "The white sands seem to go on forever.";
     private boolean visited = false;
 
     public Desert() {
@@ -24,6 +23,11 @@ public class Desert implements LocationInterface {
     @Override
     public String name() {
         return name;
+    }
+    
+    @Override
+    public String description() {
+        return "The white sands seem to go on forever...";
     }
 
     @Override
