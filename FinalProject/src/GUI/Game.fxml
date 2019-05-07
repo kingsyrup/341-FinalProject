@@ -4,6 +4,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
@@ -17,7 +19,7 @@
             <Font name="Calisto MT Bold" size="64.0" />
          </font>
       </Label>
-      <RadioButton fx:id="radio1" layoutX="251.0" layoutY="284.0" mnemonicParsing="false" onAction="#radio1Click" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8">
+      <RadioButton fx:id="radio1" layoutX="251.0" layoutY="284.0" mnemonicParsing="false" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8">
          <toggleGroup>
             <ToggleGroup fx:id="group" />
          </toggleGroup>
@@ -25,11 +27,11 @@
             <Font name="Calisto MT" size="28.0" />
          </font>
       </RadioButton>
-      <RadioButton fx:id="radio2" layoutX="251.0" layoutY="362.0" mnemonicParsing="false" onAction="#radio2Click" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8" toggleGroup="$group">
+      <RadioButton fx:id="radio2" layoutX="251.0" layoutY="362.0" mnemonicParsing="false" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8" toggleGroup="$group">
          <font>
             <Font name="Calisto MT" size="28.0" />
          </font></RadioButton>
-      <RadioButton fx:id="radio3" layoutX="251.0" layoutY="440.0" mnemonicParsing="false" onAction="#radio3Click" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8" toggleGroup="$group">
+      <RadioButton fx:id="radio3" layoutX="251.0" layoutY="440.0" mnemonicParsing="false" stylesheets="@../Backgrounds/listStyles.css" text="RadioButton" textFill="#f8f8f8" toggleGroup="$group">
          <font>
             <Font name="Calisto MT" size="28.0" />
          </font></RadioButton>
@@ -41,5 +43,16 @@
          <font>
             <Font name="System Bold" size="28.0" />
          </font></Button>
+      <Rectangle fx:id="textBackground" arcHeight="5.0" arcWidth="5.0" fill="#000000a7" height="67.0" layoutY="144.0" stroke="#000000a5" strokeType="INSIDE" width="1000.0" />
+      <Label fx:id="textLabel" alignment="CENTER" contentDisplay="CENTER" layoutY="144.0" prefHeight="67.0" prefWidth="1000.0" textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font name="Calisto MT Bold" size="24.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="swordImg" fitHeight="307.0" fitWidth="361.0" layoutX="327.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@../Backgrounds/goldSword.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -64,7 +64,7 @@ public final class ItemList {
         items.add(new Weapon(40,10,225,"Frostmourne",7));
         items.add(new Weapon(35,25,250,"Thunderfury",7));
         items.add(new Weapon(55,40,350,"Pemrook Poleaxe",7));
-        items.add(new Weapon(1000,1000,1000, "Sword of One Thousand Truths",100));
+        items.add(new Weapon(1000,1000,1000, "Golden Sword",100));
         
         //Another category for consumables?
         

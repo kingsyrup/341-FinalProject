@@ -48,27 +48,27 @@
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font></Label>
-                  <Label fx:id="hpLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
+                  <Label fx:id="hpLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="117.0" prefWidth="143.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="strLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <Label fx:id="strLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="114.0" prefWidth="163.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="defLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <Label fx:id="defLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="155.0" prefWidth="180.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="hpDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2">
+                  <Label fx:id="hpDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="159.0" prefWidth="190.0" textAlignment="CENTER" textFill="WHITE" GridPane.columnIndex="2">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="strDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <Label fx:id="strDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="130.0" prefWidth="184.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
-                  <Label fx:id="defDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="32.0" prefWidth="67.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Label fx:id="defDiffLabel" alignment="CENTER" contentDisplay="CENTER" prefHeight="120.0" prefWidth="166.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="24.0" />
                      </font></Label>
