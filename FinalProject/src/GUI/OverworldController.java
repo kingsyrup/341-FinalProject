@@ -1,20 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
-import static Game.GameBoard.hero;
 import static Game.GameBoard.locations;
 import static Game.GameBoard.multiplier;
 import Interfaces.LocationInterface;
 import Locations.FinalArea;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -26,10 +16,11 @@ import javafx.stage.*;
 import javafx.collections.ObservableList;
 
 /**
- *
- * @author Ajay
+ * The OverworldContoller is the view controller responsible for handling the 
+ * actions of the Overworld.fxml GUI.
+ * @author Ajay Basnyat, Erik Bjorngaard
  */
-public class OverworldController implements Initializable, Serializable {
+public class OverworldController implements Initializable {
 
     @FXML
     private ListView<LocationInterface> locationListView;
@@ -40,9 +31,18 @@ public class OverworldController implements Initializable, Serializable {
     @FXML
     private Label keyLabel;
 
-    //used to reference single location
+    /**
+     * The selected location, available in a global scope.
+     */
     public static LocationInterface location;
 
+    /**
+     * Initialize the overworld screen when it has been loaded into memory.
+     * @param url The location used to resolve relative paths for the root object, 
+     * or null if the location is not known.
+     * @param rb The resources used to localize the root object, or null if the 
+     * root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
@@ -58,6 +58,7 @@ public class OverworldController implements Initializable, Serializable {
         //populate list view
         locationListView.setCellFactory(lv -> new ListCell<LocationInterface>() {
 
+            //disable item in listview if nothing more can be done at that location
             public void updateItem(LocationInterface c, boolean empty) {
                 super.updateItem(c, empty);
                 if (empty) {
@@ -65,7 +66,7 @@ public class OverworldController implements Initializable, Serializable {
                     setStyle("");
                 } else {
                     setText(c.name());
-                    //if location has been visited, color background of cell
+                    //if location has been disabled, color background of cell
                     if(!c.name().equals("Ghenki City")  && !c.name().equals("Tower of Halvabor")){
                         if (c.getEvents().get(0).getEnemy().isKilled() &&
                             c.getEvents().get(1).getEnemy().isKilled() && 
@@ -89,7 +90,13 @@ public class OverworldController implements Initializable, Serializable {
 
     }
 
-    //check if saved?
+    /**
+     * Return to the main menu screen when the return to main menu button is pressed.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The main menu screen is displayed when the return to main menu
+     * button is pressed.
+     */
     @FXML
     public void returnToMainMenu(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("MainMenu.fxml"));
@@ -102,7 +109,16 @@ public class OverworldController implements Initializable, Serializable {
         window.show();
     }
 
-    //only available after all keys are found
+    /**
+     * Loads the location event screen when the travel button is pressed
+     * if the Tower of Halvabor location is not selected, otherwise; the combat
+     * screen is displayed instead.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The combat screen is displayed when the travel button is pressed
+     * if the Tower of Halvabor is selected, otherwise; the location event
+     * screen is displayed instead.
+     */
     @FXML
     public void travel(ActionEvent event) throws IOException {
         for (LocationInterface l : locations) {
@@ -126,6 +142,12 @@ public class OverworldController implements Initializable, Serializable {
         }
     }
 
+    /**
+     * Displays the location event screen.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The location event screen is displayed.
+     */
     @FXML
     public void loadLocation(ActionEvent event) throws IOException {
 
@@ -140,6 +162,12 @@ public class OverworldController implements Initializable, Serializable {
 
     }
 
+    /**
+     * Displays the character sheet screen.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The character sheet screen is displayed.
+     */
     @FXML
     public void characterSheet(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Character.fxml"));
@@ -152,18 +180,4 @@ public class OverworldController implements Initializable, Serializable {
         window.setScene(tableViewScene);
         window.show();
     }
-
-    @FXML
-    public void saveGame(ActionEvent event) throws IOException {
-        try {
-            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("Hero.txt"));
-            out.writeObject(hero);
-            out.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
 }
