@@ -223,7 +223,7 @@ public class CombatController implements Initializable {
             Scene tableViewScene = new Scene(tableViewParent);
             
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            
+            window.setTitle("Game Over");
             window.setScene(tableViewScene);
             window.show();
         }
