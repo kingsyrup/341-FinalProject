@@ -1,3 +1,16 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: GUI Controller class to be used with corresponding .fxml file 
+ * 
+ * Implements Initializable
+ */
+
 package GUI;
 
 import static Game.GameBoard.hero;

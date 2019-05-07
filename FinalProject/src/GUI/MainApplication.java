@@ -1,3 +1,16 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Main Application for the GUI 
+ * 
+ * Extends Application
+ */
+
 package GUI;
 
 import javafx.application.Application;

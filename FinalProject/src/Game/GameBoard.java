@@ -1,3 +1,15 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Main game board for setting up and storing critical game information 
+ * 
+ */
+
 package Game;
 import Interfaces.*;
 import Items.*;

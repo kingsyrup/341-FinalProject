@@ -1,12 +1,22 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Unique Event class to be used with event selection. 
+ * 
+ * Implements EventInterface
+ */
+
 package Events;
 
 import Interfaces.EventInterface;
 import NPCs.Enemy;
 
-/**
- *
- * @author xg6856vd
- */
+
 public class Unicorn implements EventInterface {
     
     private final String name ="Grab a drink from a nearby stream.";

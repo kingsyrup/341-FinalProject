@@ -1,13 +1,26 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: For creating Weapon objects
+ * 
+ * Implements ItemInterface
+ * 
+ */
+
 package Items;
 
 import Interfaces.ItemInterface;
-import java.io.Serializable;
 
 /**
  * A weapon object that the player can equip to enhance their stats.
  * @author xAjay Basnyat, Erik Bjorngaard
  */
-public class Weapon implements ItemInterface, Serializable {
+public class Weapon implements ItemInterface {
     
     private final int strModifier;
     private final int defModifier;
