@@ -207,7 +207,7 @@ public class CombatController implements Initializable {
             }
             else{
                 //game is won
-                Parent tableViewParent = FXMLLoader.load(getClass().getResource("GameOver.fxml"));
+                Parent tableViewParent = FXMLLoader.load(getClass().getResource("GameWon.fxml"));
                 Scene tableViewScene = new Scene(tableViewParent);
 
                 Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
