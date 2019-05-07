@@ -4,19 +4,25 @@ import Interfaces.ItemInterface;
 import java.util.ArrayList;
 
 /**
- *
- * @author xg6856vd
+ * A list of items that can be found in the game, divided into tiers.
+ * @author Ajay Basnyat, Erik Bjorngaard
  */
-
-//Items that can be found in the game, divided into tiers
 public final class ItemList {
     
     private ArrayList<ItemInterface> items = new ArrayList();
    
+    /**
+     * A array list of items that can be found in the game.
+     */
     public ItemList(){
         this.generateItems();
     }
     
+    /**
+     * Generate items to be placed in the item array list.
+     * @return Items to be placed in the item array list.
+     * @ensure The generated items are placed in the item array list.
+     */
     public ArrayList<ItemInterface> generateItems(){
         //Armor
         items.add(new Armor(2,5,30,"Copper Breasplate",1));
@@ -74,14 +80,30 @@ public final class ItemList {
         return items;
     }
     
+    /**
+     * Removes an item from the item array list. 
+     * @param item The item to be removed from the item array list.
+     * @ensure The specified item is removed from the item array list.
+     */
     public void removeItem(ItemInterface item){
         items.remove(item);
     }
     
+    /**
+     * Return all items in the item array list.
+     * @return All items in the item array list.
+     * @ensure All items in the item array list are returned.
+     */
     public ArrayList<ItemInterface> getItems(){
         return items;
     }
     
+    /**
+     * Returns an array list of items of the specified tier.
+     * @param tier The tier of the items to be retrieved.
+     * @return All items of the specified tier.
+     * @ensure All items of the specified tier are returned.
+     */
     public ArrayList<ItemInterface> tier(int tier){
         
         ArrayList<ItemInterface> t = new ArrayList();
@@ -90,7 +112,6 @@ public final class ItemList {
                 t.add(items.get(i));
             }
         }
-        
         return t;
     }
 }

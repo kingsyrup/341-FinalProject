@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Items;
 
 import Interfaces.ItemInterface;
 import java.io.Serializable;
 
 /**
- *
- * @author xg6856vd
+ * An armor object that the player can equip to enhance their stats.
+ * @author xAjay Basnyat, Erik Bjorngaard
  */
 public class Armor implements ItemInterface, Serializable {
     
@@ -21,6 +16,15 @@ public class Armor implements ItemInterface, Serializable {
     private final int tier;
     private final String type = "Armor";
 
+    /**
+     * Creates an armor object with a set strength, defense, and hp modifiers, as well
+     * as name and item tier.
+     * @param strModifier The amount of strength the armor provides to the player when equipped.
+     * @param defModifier The amount of defense the armor provides to the player when equipped.
+     * @param hpModifier The amount of hp the armor provides to the player when equipped.
+     * @param name The armor's name.
+     * @param tier The armor's tier.  Lower tier items are typically of lower quality.
+     */
     public Armor(int strModifier, int defModifier, int hpModifier, String name, int tier) {
         this.strModifier = strModifier;
         this.defModifier = defModifier;
