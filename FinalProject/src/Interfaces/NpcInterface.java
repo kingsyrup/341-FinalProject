@@ -91,9 +91,9 @@ public interface NpcInterface {
     /**
      * Allows access to the name of a character.
      *
+     * @param damage The amount of damage to be dealt.
      * @require character exists
      * @ensure the name of the character is returned
-     * @return String name - the name of the character 
      */
     public void attacked(int damage);
     

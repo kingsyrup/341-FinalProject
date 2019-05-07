@@ -41,7 +41,7 @@ public interface LocationInterface {
      *
      * @require location exists
      * @ensure the events of the location are returned
-     * @return ArrayList<EventInterface> - all of the events in the location 
+     * @return ArrayList&lt;EventInterface&gt; - all of the events in the location 
      */
     public ArrayList<EventInterface> getEvents();
     

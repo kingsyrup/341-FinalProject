@@ -20,6 +20,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+/**
+ * The CharacterContoller is the view controller responsible for handling the 
+ * actions of the Character.fxml GUI.
+ * @author Ajay Basnyat, Erik Bjorngaard
+ */
 public class CharacterController implements Initializable {
 
     //start of data members
@@ -65,7 +70,14 @@ public class CharacterController implements Initializable {
     private ObservableList<ItemInterface> inventory = FXCollections.observableArrayList();
     //end of data members
     
-    //return to the previous screen
+    /**
+     * Return to the overworld screen when the return to previous screen button is clicked.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The overworld screen is displayed when the return to previous screen
+     * button is clicked.
+     */
+    @FXML
     public void previous(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
@@ -77,17 +89,25 @@ public class CharacterController implements Initializable {
         window.show();
     }
 
-    //init method runs when the screen is being loaded into memory
+    /**
+     * Initialize the character screen when it has been loaded into memory.
+     * @param url The location used to resolve relative paths for the root object, 
+     * or null if the location is not known.
+     * @param rb The resources used to localize the root object, or null if the 
+     * root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
         inventory = FXCollections.observableArrayList(hero.inventory);
 
+        //set label text
         nameLabel.setText(hero.getName());
         hpLabel.setText(String.valueOf(hero.getHp()));
         strLabel.setText(String.valueOf(hero.getStr()));
         defLabel.setText(String.valueOf(hero.getDef()));
 
+        //bind data to tableView
         nameColumn.setCellValueFactory(new PropertyValueFactory<ItemInterface, String>("name"));
         typeColumn.setCellValueFactory(new PropertyValueFactory<ItemInterface, String>("type"));
         inventoryTable.setItems(FXCollections.observableArrayList(inventory));
@@ -132,6 +152,7 @@ public class CharacterController implements Initializable {
                 int equipDef = 0;
                 int equipStr = 0;
 
+                //item is armor
                 if (newSelection.getType().equals("Armor")) {
                     if (hero.getEquippedArmor() != null) {
                         equipHp = hero.getEquippedArmor().getHpModifier();
@@ -146,6 +167,7 @@ public class CharacterController implements Initializable {
                         equipButton.setText("Equip");
                     }
 
+                    //item is a weapon
                 } else {
                     if (hero.getEquippedWeapon() != null) {
                         equipHp = hero.getEquippedWeapon().getHpModifier();
@@ -162,6 +184,7 @@ public class CharacterController implements Initializable {
                     }
                 }
 
+                //calculate stat differences
                 int hpDiff = inventoryTable.getSelectionModel().getSelectedItem().getHpModifier() - equipHp;
                 int strDiff = inventoryTable.getSelectionModel().getSelectedItem().getStrModifier() - equipStr;
                 int defDiff = inventoryTable.getSelectionModel().getSelectedItem().getDefModifier() - equipDef;
@@ -198,10 +221,21 @@ public class CharacterController implements Initializable {
             }
         }); //end listener
 
+        //disable equip button until selection has been made
+        equipButton.disableProperty().bind(inventoryTable.getSelectionModel().selectedItemProperty().isNull());
+        
         //health bar
         healthBar();
     }
 
+    /**
+     * Equips the selected item if the item is not currently equipped.  If the item
+     * is currently equipped, then the item will be unequipped.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @ensure The selected item is either unequipped if it is currently equipped,
+     * or equipped if the item is not currently equipped.
+     */
+    @FXML
     public void equip(ActionEvent event) {
         if (equipButton.getText().equals("Equip")) {
             hero.equipItem(inventoryTable.getSelectionModel().getSelectedItem());
@@ -264,6 +298,10 @@ public class CharacterController implements Initializable {
         });
     }
 
+    /**
+     * Displays the hero's health bar.  The health bar depletes as hit points are lost.
+     * @ensure The hero's health bar is displayed.
+     */
     public void healthBar() {
         //health bar
         float percentage = ((float) hero.getHp() / (float) hero.maxHp());

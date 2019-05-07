@@ -1,16 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package GUI;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,26 +12,18 @@ import javafx.stage.Stage;
 
 /**
  * FXML Controller class
- *
- * @author Ajay
+ * The GameOverContoller is the view controller responsible for handling the 
+ * actions of the GameOver.fxml GUI.
+ * @author Ajay Basnyat, Erik Bjorngaard
  */
-public class GameOverController implements Initializable {
+public class GameOverController {
 
-    @FXML
-    private Label title;
-    @FXML
-    private Label title1;
     @FXML
     private Label newGame;
     @FXML
     private Label mainMenu;
     @FXML
     private Label exit;
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
     @FXML
     private void startNewGame(MouseEvent event) throws IOException {
@@ -99,7 +83,4 @@ public class GameOverController implements Initializable {
     private void enlargeExit(MouseEvent event) {
         exit.setStyle("-fx-font: 42 System;");
     }
-
-    
-    
 }

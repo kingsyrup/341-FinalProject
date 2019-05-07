@@ -29,6 +29,11 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * The CombatContoller is the view controller responsible for handling the 
+ * actions of the Combat.fxml GUI.
+ * @author Ajay Basnyat, Erik Bjorngaard
+ */
 public class CombatController implements Initializable {
     
     @FXML
@@ -86,14 +91,18 @@ public class CombatController implements Initializable {
     private FadeTransition fadeOutEnemy = new FadeTransition(
             Duration.millis(2000)
     );
-
-    public CombatController() {
-        
-    }
     
+    /**
+     * Initialize the combat screen when it has been loaded into memory.
+     * @param url The location used to resolve relative paths for the root object, 
+     * or null if the location is not known.
+     * @param rb The resources used to localize the root object, or null if the 
+     * root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
+        //setup enemy
         parseEvent();
 
         attackButton.setDisable(enemy.isKilled());
@@ -122,6 +131,12 @@ public class CombatController implements Initializable {
         fadeOutEnemy.setToValue(0.0);
     }
     
+    /**
+     * Shows the health bar for the specified character.  The health bar depletes
+     * as hit points are lost.
+     * @param npc Whose health bar should be shown.
+     * @ensure The health bar is shown.  The health bar depletes as hit points are lost.
+     */
     @FXML
     public void healthBar(NpcInterface npc) {
         //health bar
@@ -158,6 +173,12 @@ public class CombatController implements Initializable {
         }
     }
     
+    /**
+     * The player attacks the enemy, the enemy attacks back.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The player attacks the enemy.
+     */
     @FXML
     public void attack(ActionEvent event) throws IOException {
         int damage = hero.attack(enemy);
@@ -196,7 +217,7 @@ public class CombatController implements Initializable {
                     itemDropLabel.setText("The " + enemy.getName() + " dropped a " + item.getName()
                             + ".");
                 }
-
+                //key is found
                 if (hasKey) {
                     multiplier++;
                     decision.hasKey(false);
@@ -229,6 +250,13 @@ public class CombatController implements Initializable {
         }
     }
     
+    /**
+     * Return to the location event screen when the flee button is clicked.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The location event screen is displayed when the flee
+     * button is clicked.
+     */
     @FXML
     public void flee(ActionEvent event) throws IOException {
         if(!location.name().equals("Tower of Halvabor")){
@@ -258,6 +286,10 @@ public class CombatController implements Initializable {
         }
     }
     
+    /**
+     * Sets the enemy image dependent on which enemy is being battled.
+     * @ensure The enemy's image is set.
+     */
     public void setBackground() {
         
         enemyPane.getStyleClass().clear();
@@ -388,6 +420,10 @@ public class CombatController implements Initializable {
         }
     }
     
+    /**
+     * Sets up the enemy object.
+     * @ensure The proper multipliers have been applied to the enemy.
+     */
     public void parseEvent() {
         if(!location.name().equals("Tower of Halvabor")){
             hasKey = decision.hasKey();
@@ -407,6 +443,14 @@ public class CombatController implements Initializable {
         }
     }
     
+    /**
+     * Calculates the percentage that an event is likely to happen.  Returns true
+     * if the event will happen or false if it does not happen.
+     * @param chance The likelihood percentage.
+     * @return True if random number is less than the specified percentage, false
+     * if the random number is larger.
+     * @ensure A boolean value is returned.  
+     */
     public boolean chance(double chance) {
 
         //calculate chance to befriend

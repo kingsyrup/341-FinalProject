@@ -12,7 +12,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.animation.FadeTransition;
-import javafx.animation.ParallelTransition;
 import javafx.beans.binding.Bindings;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -34,6 +33,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+/**
+ * FXML Controller class
+ * The GameContoller is the view controller responsible for handling the 
+ * actions of the Game.fxml GUI.
+ * @author Ajay Basnyat, Erik Bjorngaard
+ */
 public class GameController implements Initializable {
 
     @FXML
@@ -69,14 +74,27 @@ public class GameController implements Initializable {
     @FXML
     private ImageView swordImg;
 
+    /**
+     * The event that has been chosen.
+     */
     public static EventInterface decision;
 
+    /**
+     * The enemy that is to be battled.
+     */
     public static Enemy enemy;
 
     private FadeTransition fadeInSword = new FadeTransition(
             Duration.millis(5000)
     );
 
+    /**
+     * Return to the overworld screen when the return previous screen button is clicked.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The overworld screen is displayed when the return to previous screen
+     * button is clicked.
+     */
     @FXML
     public void previous(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
@@ -90,6 +108,14 @@ public class GameController implements Initializable {
         window.show();
     }
 
+    /**
+     * Display the combat screen for the selected event.  If the location is Ghenki
+     * City, display text for the selected event instead.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The Combat screen is displayed for the selected event, unless 
+     * Ghenki City is the location.  If Ghenki City is the location, text is displayed.
+     */
     @FXML
     public void event(ActionEvent event) throws IOException {
         //custom action for city scene which has unique events
@@ -143,6 +169,13 @@ public class GameController implements Initializable {
         }
     }
 
+    /**
+     * Initialize the location event screen when it has been loaded into memory.
+     * @param url The location used to resolve relative paths for the root object, 
+     * or null if the location is not known.
+     * @param rb The resources used to localize the root object, or null if the 
+     * root object was not localized.
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //set Location label
@@ -224,7 +257,6 @@ public class GameController implements Initializable {
 
                     decision = (EventInterface) group.getSelectedToggle().getUserData();
                 }
-
             }
         });
 
@@ -233,6 +265,10 @@ public class GameController implements Initializable {
         
     }
 
+    /**
+     * Sets the background image dependent on the location.
+     * @ensure The background image is set.
+     */
     public void setBackground() {
         //set background image
         backgroundPane.getStyleClass().clear();

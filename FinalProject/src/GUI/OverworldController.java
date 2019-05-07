@@ -91,11 +91,11 @@ public class OverworldController implements Initializable {
     }
 
     /**
-     * Return to the main menu screen when the return to main menu button is pressed.
+     * Return to the main menu screen when the return to main menu button is clicked.
      * @param event A new ActionEvent with an event type of ACTION.
      * @throws IOException if specified FXML resource cannot be loaded.
      * @ensure The main menu screen is displayed when the return to main menu
-     * button is pressed.
+     * button is clicked.
      */
     @FXML
     public void returnToMainMenu(ActionEvent event) throws IOException {
