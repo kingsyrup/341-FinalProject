@@ -56,6 +56,9 @@ public class GameController implements Initializable {
 
     @FXML
     private Label textLabel;
+    
+    @FXML
+    private Label descriptionLabel;
 
     @FXML
     private ToggleGroup group = new ToggleGroup();
@@ -226,6 +229,8 @@ public class GameController implements Initializable {
         });
 
         setBackground();
+        descriptionLabel.setText(location.description());
+        
     }
 
     public void setBackground() {

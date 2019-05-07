@@ -7,9 +7,6 @@ public class FinalArea implements LocationInterface {
     
     private ArrayList<EventInterface> events = new ArrayList();
     private String name = "Tower of Halvabor";
-    private String description = "You use the 7 keys to unlock the door leading to the Tower of "
-                + "Halvabor.  The door swings open revealing a giant monster "
-                + "sleeping on endless riches.";
 
     public FinalArea() {
     }
@@ -17,6 +14,13 @@ public class FinalArea implements LocationInterface {
     @Override
     public String name() {
         return name;
+    }
+    
+    @Override
+    public String description() {
+        return "You use the 7 keys to unlock the door leading to the Tower of "
+                + "Halvabor.  The door swings open revealing a giant monster "
+                + "sleeping on endless riches...";
     }
 
     @Override

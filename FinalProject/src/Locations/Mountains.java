@@ -15,6 +15,11 @@ public class Mountains implements LocationInterface {
     public String name() {
         return name;
     }
+    
+    @Override
+    public String description() {
+        return "You begin the ascent up the craggy slopes...";
+    }
 
     @Override
     public void addEvent(EventInterface event) {

@@ -15,6 +15,11 @@ public class Marsh implements LocationInterface {
     public String name() {
         return name;
     }
+    
+    @Override
+    public String description() {
+        return "You trudge your way through the murky waters...";
+    }
 
     @Override
     public void addEvent(EventInterface event) {

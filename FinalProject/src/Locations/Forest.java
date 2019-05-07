@@ -15,6 +15,11 @@ public class Forest implements LocationInterface {
     public String name() {
         return name;
     }
+    
+    @Override
+    public String description() {
+        return "The trees of Weisgrow Forest tower before you...";
+    }
 
     @Override
     public void addEvent(EventInterface event) {
