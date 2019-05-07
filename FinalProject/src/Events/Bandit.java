@@ -1,17 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Events;
 
 import Interfaces.EventInterface;
 import NPCs.Enemy;
 
-/**
- *
- * @author xg6856vd
- */
 public class Bandit implements EventInterface {
     
     private final String name = "Search the wagon";

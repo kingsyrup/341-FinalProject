@@ -22,6 +22,7 @@ import javafx.stage.Stage;
 
 public class CharacterController implements Initializable {
 
+    //start of data members
     @FXML
     private Label nameLabel;
 
@@ -62,7 +63,9 @@ public class CharacterController implements Initializable {
     private Button equipButton;
 
     private ObservableList<ItemInterface> inventory = FXCollections.observableArrayList();
-
+    //end of data members
+    
+    //return to the previous screen
     public void previous(ActionEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
@@ -74,6 +77,7 @@ public class CharacterController implements Initializable {
         window.show();
     }
 
+    //init method runs when the screen is being loaded into memory
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
