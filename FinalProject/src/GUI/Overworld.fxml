@@ -10,27 +10,27 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1000.0" style="-fx-background-color: #191919;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OverworldController">
    <children>
-      <Button layoutX="87.0" layoutY="574.0" mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Return to Main Menu">
+      <Button layoutX="87.0" layoutY="434.0" mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Return to Main Menu">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <ListView fx:id="locationListView" layoutX="491.0" layoutY="231.0" prefHeight="323.0" prefWidth="415.0" stylesheets="@../Backgrounds/listStyles.css" />
-      <Button fx:id="travelButton" layoutX="491.0" layoutY="574.0" mnemonicParsing="false" onAction="#travel" prefHeight="86.0" prefWidth="415.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Travel">
+      <ListView fx:id="locationListView" layoutX="491.0" layoutY="228.0" prefHeight="339.0" prefWidth="415.0" stylesheets="@../Backgrounds/listStyles.css" />
+      <Button fx:id="travelButton" layoutX="491.0" layoutY="591.0" mnemonicParsing="false" onAction="#travel" prefHeight="86.0" prefWidth="415.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Travel">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
       </Button>
-      <Label alignment="CENTER_RIGHT" focusTraversable="false" layoutX="491.0" layoutY="164.0" opacity="0.7" prefHeight="67.0" prefWidth="244.0" style="-fx-background-color: #fb79dd;" text="Keys Found:" textAlignment="RIGHT">
+      <Label alignment="CENTER_RIGHT" focusTraversable="false" layoutX="491.0" layoutY="164.0" opacity="0.7" prefHeight="65.0" prefWidth="244.0" style="-fx-background-color: #fb79dd;" text="Keys Found:" textAlignment="RIGHT">
          <font>
             <Font size="28.0" />
          </font>
       </Label>
-      <Label fx:id="keyLabel" focusTraversable="false" layoutX="735.0" layoutY="164.0" opacity="0.7" prefHeight="67.0" prefWidth="171.0" style="-fx-background-color: #fb79dd;" text="  Count">
+      <Label fx:id="keyLabel" focusTraversable="false" layoutX="735.0" layoutY="164.0" opacity="0.7" prefHeight="65.0" prefWidth="171.0" style="-fx-background-color: #fb79dd;" text="  Count">
          <font>
             <Font name="System Bold" size="28.0" />
          </font>
       </Label>
-      <Button fx:id="characterButton" layoutX="87.0" layoutY="164.0" mnemonicParsing="false" onAction="#characterSheet" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Character Modification">
+      <Button fx:id="characterButton" layoutX="87.0" layoutY="247.0" mnemonicParsing="false" onAction="#characterSheet" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Character Modification">
          <font>
             <Font name="System Bold" size="22.0" />
          </font></Button>

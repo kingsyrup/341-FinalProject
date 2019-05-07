@@ -11,7 +11,7 @@
             <Font name="Calisto MT Bold" size="72.0" />
          </font>
       </Label>
-      <Label fx:id="exit" alignment="BOTTOM_CENTER" layoutX="1.0" layoutY="510.0" onMouseClicked="#exit" onMouseEntered="#enlargeExit" onMouseExited="#shrinkExit" prefHeight="69.0" prefWidth="1000.0" text="Exit" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
+      <Label fx:id="exit" alignment="BOTTOM_CENTER" layoutY="425.0" onMouseClicked="#exit" onMouseEntered="#enlargeExit" onMouseExited="#shrinkExit" prefHeight="69.0" prefWidth="1000.0" text="Exit" textAlignment="RIGHT" textFill="#0fab9e" textOverrun="CLIP" underline="true">
          <font>
             <Font size="32.0" />
          </font>
