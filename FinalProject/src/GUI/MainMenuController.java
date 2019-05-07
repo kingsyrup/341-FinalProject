@@ -1,39 +1,34 @@
 package GUI;
 
-import NPCs.Hero;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import javafx.event.ActionEvent;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 /**
- *
- * @author Ajay
+ * The MainMenuContoller is the view controller responsible for handling the 
+ * actions of the MainMenu.fxml GUI.
+ * @author Ajay Basnyat, Erik Bjorngaard
  */
-public class MainMenuController implements Initializable {
+public class MainMenuController {
 
     @FXML
     private Label newGame;
 
     @FXML
-    private Label loadGame;
-
-    @FXML
     private Label exit;
 
+    /**
+     * Display the game setup screen when the start game label is clicked.
+     * @param event A new ActionEvent with an event type of ACTION.
+     * @throws IOException if specified FXML resource cannot be loaded.
+     * @ensure The game setup screen is displayed.
+     */
     @FXML
     public void startNewGame(MouseEvent event) throws IOException {
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("GameSetup.fxml"));
@@ -46,54 +41,38 @@ public class MainMenuController implements Initializable {
         window.show();
     }
 
-    public void loadGame(ActionEvent event) throws FileNotFoundException, IOException, ClassNotFoundException {
-        //load character data
-        ObjectInputStream in = new ObjectInputStream(new FileInputStream("Hero.txt"));
-        Hero hero = (Hero) in.readObject();
-        in.close();
-
-        //load overworld
-        Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
-        Scene tableViewScene = new Scene(tableViewParent);
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        window.setTitle("Overworld");
-
-        window.setScene(tableViewScene);
-        window.show();
-    }
-
+    /**
+     * Exit the application when the exit label is clicked.
+     */
     public void exit() {
         System.exit(0);
     }
 
+    /**
+     * Enlarge the start label font when it comes into focus.
+     */
     public void enlargeStart() {
         newGame.setStyle("-fx-font: 42 System;");
     }
 
+    /**
+     * Shrink the start label font when it is no longer in focus.
+     */
     public void shrinkStart() {
         newGame.setStyle("-fx-font: 32 System;");
     }
 
-    public void enlargeLoad() {
-        loadGame.setStyle("-fx-font: 42 System;");
-    }
-
-    public void shrinkLoad() {
-        loadGame.setStyle("-fx-font: 32 System;");
-    }
-
+    /**
+     * Enlarge the exit label font when it comes into focus.
+     */
     public void enlargeExit() {
         exit.setStyle("-fx-font: 42 System;");
     }
 
+    /**
+     * Shrink the exit label font when it is no longer in focus.
+     */
     public void shrinkExit() {
         exit.setStyle("-fx-font: 32 System;");
     }
-
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-
-    }
-
 }

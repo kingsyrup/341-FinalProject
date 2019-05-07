@@ -10,7 +10,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="725.0" prefWidth="1000.0" style="-fx-background-color: #191919;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.OverworldController">
    <children>
-      <Button layoutX="87.0" layoutY="434.0" mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Return to Main Menu">
+      <Button layoutX="87.0" layoutY="574.0" mnemonicParsing="false" onAction="#returnToMainMenu" prefHeight="86.0" prefWidth="280.0" style="-fx-background-color: #0fab9e;" stylesheets="@../Backgrounds/listStyles.css" text="Return to Main Menu">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>

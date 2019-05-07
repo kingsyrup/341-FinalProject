@@ -3,8 +3,8 @@ import Interfaces.NpcInterface;
 import java.util.Random;
 
 /**
- *
- * @author xg6856vd
+ * An enemy that the player fights.
+ * @author Ajay Basnyat, Erik Bjorngaard
  */
 public class Enemy implements NpcInterface {
 
@@ -15,6 +15,13 @@ public class Enemy implements NpcInterface {
     private String name;
     private boolean isKilled = false;
     
+    /**
+     * Generate an enemy with the specified hp, defense, strength, and name.
+     * @param hitPoints The amount of hp the enemy has.
+     * @param defense The amount of defense the enemy has.  Reduces damage taken.
+     * @param strength The amount of strength the enemy has.  Increases damage dealt.
+     * @param name The enemy's name.
+     */
     public Enemy(int hitPoints, int defense, int strength, String name){
         this.str = strength;
         this.hp = hitPoints;
@@ -83,7 +90,7 @@ public class Enemy implements NpcInterface {
         }
     }
     
-    //dice roll to randomize attack damage, modifiers are 1-3, might add crit chance
+    //dice roll to randomize attack damage, modifiers are 1-3
     @Override
     public int diceRoll(){
         Random rng = new Random();
