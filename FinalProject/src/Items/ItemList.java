@@ -70,9 +70,7 @@ public final class ItemList {
         items.add(new Weapon(80,55,320,"Nebelim",8));
         items.add(new Weapon(105,60,300,"Durendal",8));
         items.add(new Weapon(1000,1000,1000,"Excalibur",100));
-        
-        //Another category for consumables?
-        
+
         return items;
     }
     

@@ -2,25 +2,18 @@ package Locations;
 
 import Interfaces.*;
 import java.util.*;
-/**
- *
- * @author xg6856vd
- */
+
 public class Forest implements LocationInterface {
     
+    private String name = "Weisgrow Forest";
     private ArrayList<EventInterface> events = new ArrayList();
-    private boolean visited = false;
 
     public Forest() {
     }
 
-    public Forest(ArrayList<EventInterface> events) {
-        this.events = events;
-    }
-    
     @Override
     public String name() {
-        return "Weisgrow Forest";
+        return name;
     }
 
     @Override

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package NPCs;
 
 import Interfaces.*;
@@ -13,6 +8,8 @@ import java.util.*;
  * @author xg6856vd
  */
 public class Hero implements NpcInterface, Serializable {
+    
+    //data members
     private int str = 6;
     private int def = 5;
     private int hp = 45;
@@ -28,9 +25,11 @@ public class Hero implements NpcInterface, Serializable {
     private int hpAdjustment; 
     public ArrayList<ItemInterface> inventory = new ArrayList();
 
+    //default constructor
     public Hero() {
     }
     
+    //init constructor
     public Hero(int hitPoints, int defense, int strength, String name){
         this.str = strength;
         this.hp = hitPoints;

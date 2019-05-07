@@ -11,12 +11,16 @@ import java.util.List;
 import java.util.Random;
 
 /**
- *
- * @author xg6856vd
+ * This class initializes game data when a new game is started.
+ * @author Ajay Basnyat, Erik Bjorngaard
  */
 public final class Initialize {
 
-        public static void init() {
+    /**
+     * Initialize game data.
+     * @ensure The game data is initialized.
+     */
+    public static void init() {
 
         //player's character
         hero = new Hero();
@@ -34,6 +38,7 @@ public final class Initialize {
         //used for tracking easter egg
         visitCount = 0;
         
+        //add locations and events to game
         addLocations();
         addEvents();
         
@@ -58,9 +63,14 @@ public final class Initialize {
             locations.get(i).getEvents().get(keyIndex).hasKey(true);
         }
         
+        //finally, add town location
         locations.add(new Town());
     }
     
+     /**
+     * Add events to the event array list.
+     * @ensure The events are added to the event array list.
+     */
     public static void addEvents(){
         events.add(new Bandit());
         events.add(new Cyclops());
@@ -94,10 +104,19 @@ public final class Initialize {
         events.add(new Zombie());
     }
     
+    /**
+     * Retrieve the events from event array list.
+     * @return all event in the event array list.
+     * @ensure all event in the event array list are returned.
+     */
     public ArrayList<EventInterface> getEvents(){
         return events;
     }
     
+    /**
+     * Add locations to the location array list.
+     * @ensure The locations are added to the location array list.
+     */
     public static void addLocations(){
         locations.add(new Desert());
         locations.add(new Mines());
@@ -108,6 +127,11 @@ public final class Initialize {
         locations.add(new Forest());
     }
     
+    /**
+     * Retrieve the locations from location array list.
+     * @return all locations in the location array list.
+     * @ensure all locations in the location array list are returned.
+     */
     public List<LocationInterface> getLocations(){
         return locations;
     }
