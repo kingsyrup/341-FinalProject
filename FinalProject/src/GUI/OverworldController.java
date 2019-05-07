@@ -128,7 +128,7 @@ public class OverworldController implements Initializable, Serializable {
 
     @FXML
     public void loadLocation(ActionEvent event) throws IOException {
-        if(!"Ghenki City".equals(location.name())){
+
         Parent tableViewParent = FXMLLoader.load(getClass().getResource("Game.fxml"));
         Scene tableViewScene = new Scene(tableViewParent);
 
@@ -137,17 +137,7 @@ public class OverworldController implements Initializable, Serializable {
 
         window.setScene(tableViewScene);
         window.show();
-        }
-        else{
-            Parent tableViewParent = FXMLLoader.load(getClass().getResource("Town.fxml"));
-            Scene tableViewScene = new Scene(tableViewParent);
 
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setTitle("Ghenki City");
-
-            window.setScene(tableViewScene);
-            window.show();
-        }
     }
 
     @FXML
