@@ -14,10 +14,6 @@ package Interfaces;
 
 import NPCs.Enemy;
 
-/**
- *
- * @author xg6856vd
- */
 public interface EventInterface {
     
     /**
