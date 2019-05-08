@@ -1,3 +1,17 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Class for the hero, or main character that user plays
+ * 
+ * Implements NpcInterface
+ * 
+ */
+
 package NPCs;
 
 import Interfaces.*;

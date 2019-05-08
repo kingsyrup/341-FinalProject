@@ -1,17 +1,21 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Unique Event class to be used with event selection. 
+ * 
+ * Implements EventInterface
  */
 package Events;
 
 import Interfaces.EventInterface;
 import NPCs.Enemy;
 
-/**
- *
- * @author xg6856vd
- */
+
 public class Wolf implements EventInterface{
         
     private final String name = "Follow the paw prints";

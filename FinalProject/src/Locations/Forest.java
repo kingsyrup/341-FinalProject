@@ -1,3 +1,17 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Unique Location with name, description, events
+ * 
+ * Implements LocationInterface
+ * 
+ */
+
 package Locations;
 
 import Interfaces.*;

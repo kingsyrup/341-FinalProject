@@ -1,3 +1,15 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Interface for use with NPCs 
+ * 
+ */
+
 package Interfaces;
 
 /**

@@ -1,3 +1,17 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Enemy class for creating enemy characters
+ * 
+ * Implements NpcInterface
+ * 
+ */
+
 package NPCs;
 import Interfaces.NpcInterface;
 import java.util.Random;

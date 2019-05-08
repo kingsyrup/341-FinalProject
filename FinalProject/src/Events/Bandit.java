@@ -1,3 +1,16 @@
+/**
+ * @author Ajay Basnyat and Erik Bjorngaard
+ * @version 5/7/2019
+ *
+ * Course: CS341 - Data Structures
+ *
+ * Assignment: Final Project 
+ *
+ * Purpose: Unique Event class to be used with event selection. 
+ * 
+ * Implements EventInterface
+ */
+
 package Events;
 
 import Interfaces.EventInterface;
