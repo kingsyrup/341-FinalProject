@@ -75,6 +75,9 @@ public class CombatController implements Initializable {
     @FXML
     private ImageView keyImage;
     
+    @FXML
+    private Label descriptionLabel;
+    
     private Enemy enemy;
     private int maxHp;
     private boolean hasKey;
@@ -274,6 +277,7 @@ public class CombatController implements Initializable {
             window.show();
         }
         else{
+            descriptionLabel.setVisible(false);
             Parent tableViewParent = FXMLLoader.load(getClass().getResource("Overworld.fxml"));
             Scene tableViewScene = new Scene(tableViewParent);
 
@@ -440,6 +444,7 @@ public class CombatController implements Initializable {
         else{
             enemy = new Enemy(500,80,80,"Valjir");
             maxHp = 500;
+            descriptionLabel.setVisible(true);
         }
     }
     
